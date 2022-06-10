@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Clubs;
+use App\Models\Club;
 use Illuminate\Http\Request;
 
-class ClubsController extends Controller
+class ClubController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ClubsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Clubs  $clubs
+     * @param  \App\Models\Club  $clubs
      * @return \Illuminate\Http\Response
      */
-    public function show(Clubs $clubs)
+    public function show(Club $clubs)
     {
         //
     }
@@ -55,7 +55,7 @@ class ClubsController extends Controller
      * @param  \App\Models\Clubs  $clubs
      * @return \Illuminate\Http\Response
      */
-    public function edit(Clubs $clubs)
+    public function edit(Club $clubs)
     {
         //
     }
@@ -64,10 +64,10 @@ class ClubsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Clubs  $clubs
+     * @param  \App\Models\Club  $club
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Clubs $clubs)
+    public function update(Request $request, Club $club)
     {
         //
     }
@@ -75,10 +75,10 @@ class ClubsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Clubs  $clubs
+     * @param  \App\Models\Club  $club
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Clubs $clubs)
+    public function destroy(Club $club)
     {
         //
     }

@@ -18,6 +18,8 @@ class CategoryFactory extends Factory
     {
         return [
             //
+            'name' => $this->faker->words(rand(1, 3), true),
+            'description' => $this->faker->sentence()
         ];
     }
 }

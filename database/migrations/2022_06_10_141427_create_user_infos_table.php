@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('user_infos', function (Blueprint $table) {
             $table->id();
-            $table->date('birthday')->nullable();
+            $table->dateTime('birthday')->nullable();
             $table->string('address');
             $table->string('city');
             $table->integer('zip_code');
