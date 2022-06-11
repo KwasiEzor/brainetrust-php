@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,14 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->sentence();
         return [
-            //
+
+            'title' => $title,
+            'slug' => Str::slug($title),
+            'content' => $this->faker->paragraphs(rand(5, 10), true),
+            'image_url' => $this->faker->imageUrl(),
+            'is_published' => $this->faker->boolean(85)
         ];
     }
 }

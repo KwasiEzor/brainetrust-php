@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\MailContactController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::controller(MailContactController::class)->group(function () {
+    Route::get('/contact', 'create')->name('contact-page');
+    Route::post('/send-email', 'sendMail')->name('send-email');
+});
 Route::controller(AgendaController::class)->group(function () {
     Route::get('/agendas', 'index')->name('agendas.index');
 });

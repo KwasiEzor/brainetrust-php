@@ -19,6 +19,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    {{-- CSRF TOKEN --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -42,6 +45,9 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('agendas.index')}}" class="nav-link">Agendas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('contact-page')}}" class="nav-link">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('posts.index')}}" class="nav-link">Blog</a>
@@ -92,6 +98,7 @@
         <main class="py-4">
             @yield('content')
         </main>
+        @include('inc.footer')
     </div>
 </body>
 

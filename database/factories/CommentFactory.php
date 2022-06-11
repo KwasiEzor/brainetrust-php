@@ -18,6 +18,7 @@ class CommentFactory extends Factory
     {
         return [
             //
+            'content' => $this->faker->sentences(rand(2, 5), true)
         ];
     }
 }

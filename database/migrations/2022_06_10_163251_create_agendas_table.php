@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('details')->nullable();
             $table->foreignIdFor(PlayerCategory::class)->nullable();
             $table->foreignIdFor(PlayerSerie::class)->nullable();
+            $table->boolean('is_highlighted')->default(false);
             $table->timestamps();
         });
     }
