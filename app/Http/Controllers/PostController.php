@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,7 +17,20 @@ class PostController extends Controller
     public function index()
     {
         //
-        return view('posts.index');
+        $tags = Tag::distinct()->get();
+        $categories = Category::all();
+        $posts = Post::with(['tags', 'comments'])->latest()->paginate(9);
+        // dd($tags);
+        return view('posts.index', compact('posts', 'tags', 'categories'));
+    }
+
+    public function categoriesWithPosts(Category $category)
+    {
+        $posts = Post::where('category_id', $category->id)
+            ->with('tags', 'comments')
+            ->latest()
+            ->paginate(9);
+        return $posts;
     }
 
     /**
@@ -48,6 +63,12 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+
+        $post = Post::where('id', '=', $post->id)
+            ->with('tags', 'comments', 'user', 'category')
+            ->get();
+        // dd($post);
+        return view('posts.show', compact('post'));
     }
 
     /**

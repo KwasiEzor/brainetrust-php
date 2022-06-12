@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tag;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -15,6 +16,9 @@ class TagController extends Controller
     public function index()
     {
         //
+        $tags = Tag::distinct(['name'])->get();
+
+        return view('tags.index', compact('tags'));
     }
 
     /**
@@ -47,6 +51,15 @@ class TagController extends Controller
     public function show(Tag $tag)
     {
         //
+        // $tag = Tag::find($tag->id);
+
+        $tag = Tag::find($tag->id);
+
+        $posts = Post::whereHas('tags', function ($q) use ($tag) {
+            $q->where('tag_id', '=', $tag->id);
+        })->get();
+
+        return view('tags.show', compact('tag', 'posts'));
     }
 
     /**

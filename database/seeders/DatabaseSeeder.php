@@ -32,10 +32,10 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->call(UserSeeder::class);
         $this->call(CreateAdminUserSeeder::class);
         $this->call(PermissionTableSeeder::class);
         $this->call(RoleTableSeeder::class);
+        $this->call(UserSeeder::class);
         $this->call(ClubSeeder::class);
         $this->call(PlayerCategorySeeder::class);
         $this->call(PlayerSerieSeeder::class);
