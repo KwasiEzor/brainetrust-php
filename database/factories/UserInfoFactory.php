@@ -21,7 +21,7 @@ class UserInfoFactory extends Factory
             'birthday' => $this->faker->dateTimeBetween('-90 years', '-12 years'),
             'address' => $this->faker->address(),
             'city' => $this->faker->city(),
-            'zip_code' => $this->faker->rand(1000, 9999),
+            'zip_code' => $this->faker->postcode(),
             'phone' => $this->faker->phoneNumber(),
             'profile_img' => $this->faker->imageUrl(),
             'is_member' => $this->faker->boolean(90),

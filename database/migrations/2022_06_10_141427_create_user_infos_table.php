@@ -19,7 +19,7 @@ return new class extends Migration
             $table->dateTime('birthday')->nullable();
             $table->string('address');
             $table->string('city');
-            $table->integer('zip_code');
+            $table->string('zip_code');
             $table->string('phone');
             $table->string('profile_img')->nullable();
             $table->foreignIdFor(User::class)->onDelete('cascade')->onUpdate('cascade');
