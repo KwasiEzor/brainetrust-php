@@ -58,7 +58,8 @@
                                    </p>  
                                    <small class="card-text d-flex justify-content-between">
                                        <span>
-                                         <b>Author :</b>  {{$comment->user->name}}
+                                        <img src="{{asset('images/default-user.png')}}" class="rounded-circle" style="width: 50px; height:50px; margin-right:1rem; opacity:0.7; " alt="default user">
+                                         <b>From :</b>  {{$comment->user->name}}
                                        </span>
                                        <span>
                                            {{-- {{dd($comment)}} --}}
