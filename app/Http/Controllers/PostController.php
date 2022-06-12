@@ -33,6 +33,10 @@ class PostController extends Controller
         return $posts;
     }
 
+    public function addComment(Post $post)
+    {
+    }
+
     /**
      * Show the form for creating a new resource.
      *

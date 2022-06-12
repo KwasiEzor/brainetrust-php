@@ -49,20 +49,43 @@
                     <div class="card my-4">
                         <div class="card-body">
                             <h5 class="card-title">Comments</h5>
-                            @foreach ($post[0]->comments as $comment )
-                              <p class="card-text text-secondary text-justify">
-                                  {{$comment->content}}
-                             </p>  
-                             <p class="card-text d-flex justify-content-between">
-                                 <span>
-                                   <b>Author :</b>  {{$comment->user->name}}
-                                 </span>
-                                 <span>
-                                     {{-- {{dd($comment)}} --}}
-                                     <small class="text-muted"> <em>{{$comment->created_at->diffForHumans()}}</em> </small>
-                                 </span>
-                             </p>
-                            @endforeach
+                            <ul class="list-group">
+
+                                @foreach ($post[0]->comments as $comment )
+                                <li class="list-group border-0 mb-2">
+                                    <p class="card-text text-secondary text-justify">
+                                        {{$comment->content}}
+                                   </p>  
+                                   <small class="card-text d-flex justify-content-between">
+                                       <span>
+                                         <b>Author :</b>  {{$comment->user->name}}
+                                       </span>
+                                       <span>
+                                           {{-- {{dd($comment)}} --}}
+                                           <small class="text-muted"> <em>{{$comment->created_at->diffForHumans()}}</em> </small>
+                                       </span>
+                                   </small>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                     
+                        <div class="card-body">
+
+                            <form action="/posts/{{$post[0]->id}}/comments" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <textarea class="form-control mb-3" placeholder="Your comments.." name="content" id="content" cols="30" rows="10"></textarea>
+                                </div>
+                               
+      
+                                <div class="form-group">
+                                    <input type="submit" value="Add Comment" class="form-control btn btn-primary" style="max-width: 10rem">
+                                </div>
+                                
+                            </form>
                         </div>
                     </div>
                 </div>

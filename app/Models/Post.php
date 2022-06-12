@@ -9,6 +9,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
@@ -38,5 +39,14 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function addComment($content)
+    {
+        Comment::create([
+            'post_id' => $this->id,
+            'user_id' => Auth()->user()->id,
+            'content' => $content
+        ]);
     }
 }
