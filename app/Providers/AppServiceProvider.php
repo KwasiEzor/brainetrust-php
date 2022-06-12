@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('inc.sidebar', function ($view) {
             $view->with([
                 'categories' => Category::all(),
-                'tags' => Tag::distinct(['name'])->get(),
+                'tags' => Tag::latest()->limit(25)->get(),
                 'posts' => Post::latest('id')->limit(9)->get()
             ]);
         });

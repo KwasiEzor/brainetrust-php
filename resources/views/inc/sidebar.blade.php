@@ -7,7 +7,7 @@
                 <ol class="list-group list-group-numbered ">
                     @foreach ($categories as $category)
                         <li class="list-group-item border-0">
-                        <a href="" class="text-capitalize">{{ $category->name }}       
+                        <a href="{{route('category.posts',$category)}}" class="text-capitalize">{{ $category->name }}       
                             <span class="badge bg-primary rounded-pill">{{ $category->posts->count() }}</span></a> 
                         </li>
                     @endforeach

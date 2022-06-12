@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,20 @@ class CategoryController extends Controller
     public function index()
     {
         //
+
+        $categories = Category::with('posts')->latest()->paginate(9);
+
+        return $categories;
+    }
+
+    public function categoriesWithPosts(Category $category)
+    {
+        $posts = Post::with('tags', 'comments', 'user')
+            ->where('category_id', '=', $category->id)
+            ->latest()
+            ->paginate(9);
+
+        return view('categories.category-posts', compact('posts'));
     }
 
     /**

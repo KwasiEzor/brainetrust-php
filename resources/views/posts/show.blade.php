@@ -25,7 +25,7 @@
                                 </span>
                             </h6>
                             <div class="card-body">
-                                <p class="card-text">Category : <a href=""
+                                <p class="card-text">Category : <a href="{{route('category.posts',$post[0]['category'])}}"
                                         class="text-capitalize fw-bold">{{$post[0]['category']->name}}</a> </p>
                                 <p class="card-text">Tags :
                                     @foreach ($post[0]['tags'] as $tag)
@@ -45,7 +45,29 @@
               
                    
                 </div>
+                <div class="mx-auto my-4">
+                    <div class="card my-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Comments</h5>
+                            @foreach ($post[0]->comments as $comment )
+                              <p class="card-text text-secondary text-justify">
+                                  {{$comment->content}}
+                             </p>  
+                             <p class="card-text d-flex justify-content-between">
+                                 <span>
+                                   <b>Author :</b>  {{$comment->user->name}}
+                                 </span>
+                                 <span>
+                                     {{-- {{dd($comment)}} --}}
+                                     <small class="text-muted"> <em>{{$comment->created_at->diffForHumans()}}</em> </small>
+                                 </span>
+                             </p>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             </div>
+           
              {{-- SIDEBAR --}}
             @include('inc.sidebar')
         </div>

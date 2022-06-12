@@ -30,10 +30,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/posts/categories/{category}', [CategoryController::class, 'categoriesWithPosts'])->name('category.posts');
+
 Route::controller(PostController::class)->group(function () {
     Route::get('/posts', 'index')->name('posts.index');
     Route::get('/posts/{post}', 'show')->name('posts.show');
-    Route::get('/posts/categories/{category}', 'categoriesWithPosts')->name('posts.catgories');
+    // Route::get('/posts/categories/{category}', 'categoriesWithPosts')->name('posts.catgories');
 });
 
 Route::controller(TagController::class)->group(function () {
