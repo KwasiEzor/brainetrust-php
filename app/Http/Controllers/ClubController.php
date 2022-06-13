@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Club;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ClubController extends Controller
 {
+
+    public function getClubsData()
+    {
+        $clubs = Club::all();
+
+        return $clubs->toJSON();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,11 @@ class ClubController extends Controller
      */
     public function index()
     {
-        //
+        //get all clubs
+
+        $clubs  = Club::paginate(10);
+
+        return view('clubs.index', compact('clubs'));
     }
 
     /**
@@ -41,21 +53,25 @@ class ClubController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Club  $clubs
+     * @param  \App\Models\Club  $club
      * @return \Illuminate\Http\Response
      */
-    public function show(Club $clubs)
+    public function show($id)
     {
         //
+        $club = Club::find($id);
+        // dd($club);
+
+        return $club->toJSON();
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Clubs  $clubs
+     * @param  \App\Models\Club  $club
      * @return \Illuminate\Http\Response
      */
-    public function edit(Club $clubs)
+    public function edit(Club $club)
     {
         //
     }

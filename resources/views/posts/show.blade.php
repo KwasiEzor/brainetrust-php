@@ -5,7 +5,7 @@
             <h2 class="page__title">Détails article : </h2>
         </div>
         <div class="row py-5">
-            <div class="col-md-9  py-3">
+            <div class="col-md-9">
                 <div class="row justify-content-center">
 
                     <div class="col-auto ">

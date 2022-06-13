@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\AgendaController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\MailContactController;
-use App\Http\Controllers\PostController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\ClubController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Models\Category;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MailContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/posts/categories/{category}', [CategoryController::class, 'categoriesWithPosts'])->name('category.posts');
+
+Route::controller(ClubController::class)->group(function () {
+    Route::get('/clubs', 'index')->name('clubs.index');
+    Route::get('/clubs-data', 'getClubsData')->name('clubs.data');
+    Route::get('/clubs/{id}', 'show')->name('clubs.show');
+});
 
 Route::controller(PostController::class)->group(function () {
     Route::get('/posts', 'index')->name('posts.index');
@@ -62,7 +69,8 @@ Route::controller(PostController::class)->group(function () {
     Route::get('/blog', 'index')->name('posts.index');
     Route::get('/posts/{post}', 'show')->name('posts.show');
 });
-Route::group([], function () {
+
+Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', App\Http\Controllers\RoleController::class);
     Route::resource('users', App\Http\Controllers\UserController::class);
 });

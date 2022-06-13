@@ -1,7 +1,7 @@
 <div class="col-md-3 mt-0 sidebar" style="margin-top: 4.2rem !important;">
     {{-- categories --}}
     <div class="categories mt-0">
-        <div class="card mt-2">
+        <div class="card">
             <div class="card-body">
                 <h5 class="card-title px-3">Catégories</h5>
                 <ol class="list-group list-group-numbered ">

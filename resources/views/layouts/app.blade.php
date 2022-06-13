@@ -47,6 +47,40 @@
                             <a href="{{ route('agendas.index')}}" class="nav-link">Agendas</a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('posts.index') }}" class="nav-link">Scrabble</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Compétitions
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Amicales</a></li>
+                                <li><a class="dropdown-item" href="#">Interclubs</a></li>
+                                <li><a class="dropdown-item" href="#">Classements</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Notre Club
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ route('users.index') }}">Membres</a></li>
+                              
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('clubs.index') }}">Liste Clubs</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Infos pratiques</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Liens</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('contact-page')}}" class="nav-link">Contact</a>
                         </li>
                         <li class="nav-item">
@@ -100,6 +134,7 @@
         </main>
         @include('inc.footer')
     </div>
+    <script src="{{asset('js/index.js')}}"></script>
 </body>
 
 </html>
