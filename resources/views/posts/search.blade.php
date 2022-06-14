@@ -6,7 +6,7 @@
         <div class="row ">
             <div class="col-md-9">
                 <div class="row">
-                    <div class=" col-md-6 col-sm-auto  mt-4 mb-0 mx-auto">
+                    <div class=" col-md-6 col-sm-auto  mt-4 mb-3 mx-auto">
                         <form action="{{route('posts.search')}}" method="POST" role="search">
                             @csrf
                             <div class="input-group mb-3">

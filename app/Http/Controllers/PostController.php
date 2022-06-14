@@ -17,11 +17,11 @@ class PostController extends Controller
     public function index()
     {
         //
-        $tags = Tag::distinct()->get();
-        $categories = Category::all();
-        $posts = Post::with(['tags', 'comments'])->latest()->paginate(9);
+        // $tags = Tag::distinct()->get();
+        // $categories = Category::all();
+        $posts = Post::with(['tags', 'comments', 'user'])->latest()->paginate(9);
         // dd($tags);
-        return view('posts.index', compact('posts', 'tags', 'categories'));
+        return view('posts.index', compact('posts'));
     }
 
     public function categoriesWithPosts(Category $category)
@@ -35,6 +35,27 @@ class PostController extends Controller
 
     public function addComment(Post $post)
     {
+        return $this->addComment($post);
+    }
+
+    public function search(Request $request)
+    {
+        // $categories = Category::all();
+        // $tags = Tag::distinct()->get(['name']);
+        $keywords = $request->input('query');
+
+        if ($keywords != '') {
+            $posts = Post::with(['tags', 'comments', 'user'])
+                ->where('title', 'like', '%' . $keywords . '%')
+                ->orWhere('content', 'like', '%' . $keywords . '%')
+                ->orWhere('created_at', 'like', '%' . $keywords . '%')
+                ->orWhere('updated_at', 'like', '%' . $keywords . '%')
+                ->paginate(9);
+            $posts->appends(['query' => $keywords]);
+        } else {
+            $posts = Post::with(['tags', 'comments', 'user'])->latest()->paginate(9);
+        }
+        return view('posts.search', compact('posts'));
     }
 
     /**
