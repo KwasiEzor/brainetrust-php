@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Agenda;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,5 +16,7 @@ class AgendaSeeder extends Seeder
     public function run()
     {
         //
+
+        Agenda::factory(100)->create();
     }
 }

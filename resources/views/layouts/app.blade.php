@@ -112,7 +112,7 @@
 
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <a href="{{route('home')}}" class="dropdown-item"> {{ __('My home') }}</a>
+                                        <a href="{{route('home')}}" class="dropdown-item"> {{ __('Mon compte') }}</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"

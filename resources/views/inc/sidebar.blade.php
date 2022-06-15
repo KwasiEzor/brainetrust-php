@@ -17,7 +17,7 @@
     </div>
     {{-- recent posts --}}
     <div class="recent-posts mt-4">
-        <div class="card mt-2">
+        <div class="card mt-0">
             <div class="card-body">
                 <h5 class="card-title px-3 ">Articles récents</h5>
                 <ul class="list-group">

@@ -17,7 +17,7 @@ return new class extends Migration
     {
         Schema::create('agendas', function (Blueprint $table) {
             $table->id();
-            $table->date('event_date')->default(now());
+            $table->dateTime('event_date')->default(now());
             $table->string('event_time')->nullable();
             $table->string('competition');
             $table->string('competition_round')->nullable();

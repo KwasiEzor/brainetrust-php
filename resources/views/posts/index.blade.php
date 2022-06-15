@@ -4,21 +4,21 @@
     <div class="container-xl">
 
         <div class="row ">
-            <div class="col-md-9">
-                <div class="row">
-                    <div class=" col-md-6 col-sm-auto  mt-4 mb-0 mx-auto">
-                        <form action="{{route('posts.search')}}" method="POST" role="search">
-                            @csrf
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Enter keyword..."
-                                    aria-label="query" aria-describedby="query" name="query" id="query">
-                                <button type="submit" class="input-group-text btn btn-outline-primary" id="search-btn"><i
-                                        class="bi bi-search"></i></button>
-                            </div>
-                        </form>
-                    </div>
+            <div class="row">
+                <div class=" col-md-6 col-sm-auto  mt-4 mb-0 mx-auto">
+                    <form action="{{route('posts.search')}}" method="POST" role="search">
+                        @csrf
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Enter keyword..."
+                                aria-label="query" aria-describedby="query" name="query" id="query">
+                            <button type="submit" class="input-group-text btn btn-outline-primary" id="search-btn"><i
+                                    class="bi bi-search"></i></button>
+                        </div>
+                    </form>
                 </div>
-                <div class="row py-5">
+            </div>
+            <div class="col-md-9">
+                <div class="row pt-4 pb-5">
                     @isset($posts)
                         @foreach ($posts as $post)
                             <div class=" col-lg-4 col-md-6 col-sm-auto mt-5 mb-4 ">

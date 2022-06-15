@@ -13,13 +13,13 @@ class Agenda extends Model
 
     protected $guarded = [];
 
-    public function player_categories()
+    public function player_category()
     {
-        return $this->hasMany(PlayerCategory::class);
+        return $this->belongsTo(PlayerCategory::class);
     }
 
-    public function player_series()
+    public function player_serie()
     {
-        return $this->hasMany(PlayerSerie::class);
+        return $this->belongsTo(PlayerSerie::class);
     }
 }

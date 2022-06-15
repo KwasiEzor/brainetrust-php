@@ -14,6 +14,6 @@ class PlayerSerie extends Model
 
     public function agenda()
     {
-        return $this->belongsTo(Agenda::class);
+        return $this->hasMany(Agenda::class);
     }
 }

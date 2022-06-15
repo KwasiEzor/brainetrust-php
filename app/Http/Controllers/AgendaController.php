@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agenda;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\PlayerCategory;
+use App\Models\PlayerSerie;
 
 class AgendaController extends Controller
 {
@@ -12,12 +15,35 @@ class AgendaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        // dd($request);
+        $categories = PlayerCategory::all();
+        $series = PlayerSerie::all();
+        $competitionTerm = $request->get('competition');
+        $categoryTerm = $request->get('category');
+        $serieTerm = $request->get('serie');
+        if (!empty($competitionTerm)  || !empty($categoryTerm) || !empty($serieTerm)) {
 
-        return view('agenda.index');
+            $agendas = Agenda::query()
+                ->where('competition', $competitionTerm)
+                ->orWhere('player_category_id', $categoryTerm)
+                ->orWhere('player_serie_id', $serieTerm)
+                ->latest()
+                ->paginate(9);
+        } else {
+            $agendas = Agenda::query()
+                ->latest()
+                ->paginate(9);
+        }
+
+
+
+        return view('agendas.index', compact('agendas', 'categories', 'series'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
