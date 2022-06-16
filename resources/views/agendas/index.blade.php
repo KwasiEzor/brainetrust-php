@@ -67,7 +67,7 @@
                                 @forelse ($agendas as $agenda)
                                     <tr>
                                         <th scope="row">{{date('d-m-Y', strtotime($agenda->event_date))}}</th>
-                                        <th> <span class="btn btn-outline-primary">{{$agenda->event_time}}</span>
+                                        <th> <span class="btn btn-outline-primary" >{{$agenda->event_time}}</span>
                                              </th>
                                         <td>
                                             <span class="text-uppercase">

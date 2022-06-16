@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\UserInfo;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -18,6 +20,12 @@ class UserSeeder extends Seeder
     {
         //
         User::factory(50)->create()->each(function ($user) {
+            $role = Role::find(2);
+
+            $permission = Permission::first();
+
+            $role->syncPermissions($permission);
+            $user->assignRole([$role->id]);
             UserInfo::factory()->create([
                 'user_id' => $user->id
             ]);

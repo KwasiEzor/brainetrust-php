@@ -18,10 +18,9 @@ class RoleTableSeeder extends Seeder
         //
 
         $roles = [
-            'Author',
-            'Editor',
+
+            'Default user',
             'Moderator',
-            'User',
             'Super admin'
         ];
 
