@@ -29,15 +29,19 @@ class ClubController extends Controller
         $clubLocality = $request->get('locality');
         $searchKeywords = $request->get('search');
 
-        if (!empty($clubAddress)  || !empty($clubLocality)  || !empty($clubName) || !empty($searchKeywords)) {
+        if (!empty($searchKeywords)) {
             $clubs = Club::query()
                 ->where('name', 'like', '%' . $searchKeywords . '%')
-                ->where('name', $clubName)
-                ->orWhere('address', $clubAddress)
                 ->orWhere('address', 'like', '%' . $searchKeywords . '%')
-                ->orWhere('locality', $clubLocality)
                 ->orWhere('locality', 'like', '%' . $searchKeywords . '%')
                 ->orWhere('province', 'like', '%' . $searchKeywords . '%')
+                ->latest()
+                ->paginate(10);
+        } else if (!empty($clubAddress)  || !empty($clubLocality)  || !empty($clubName)) {
+            $clubs = Club::query()
+                ->where('name', $clubName)
+                ->orWhere('address', $clubAddress)
+                ->orWhere('locality', $clubLocality)
                 ->latest()
                 ->paginate(10);
         } else {
