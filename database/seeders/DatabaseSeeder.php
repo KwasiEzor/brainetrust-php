@@ -9,8 +9,11 @@ use Database\Seeders\PostSeeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\CommentSeeder;
 use Database\Seeders\CategorySeeder;
+use Database\Seeders\AboutClubSeeder;
 use Database\Seeders\RoleTableSeeder;
 use Database\Seeders\PlayerSerieSeeder;
+use Database\Seeders\PlayScrabbleSeeder;
+use Database\Seeders\ScrabbleTypeSeeder;
 use Database\Seeders\PlayerCategorySeeder;
 use Database\Seeders\CreateAdminUserSeeder;
 use Database\Seeders\PermissionTableSeeder;
@@ -43,5 +46,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PostSeeder::class);
         $this->call(CommentSeeder::class);
         $this->call(AgendaSeeder::class);
+        $this->call(ScrabbleTypeSeeder::class);
+        $this->call(AboutClubSeeder::class);
+        $this->call(PlayScrabbleSeeder::class);
     }
 }

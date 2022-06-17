@@ -11,7 +11,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AboutClubController;
 use App\Http\Controllers\MailContactController;
+use App\Http\Controllers\PlayScrabbleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +71,13 @@ Route::controller(PostController::class)->group(function () {
     Route::get('/blog', 'index')->name('posts.index');
     Route::get('/posts/{post}', 'show')->name('posts.show');
     Route::any('/search', 'search')->name('posts.search');
+});
+
+Route::controller(AboutClubController::class)->group(function () {
+    Route::get('/about', 'index')->name('about-page');
+});
+Route::controller(PlayScrabbleController::class)->group(function () {
+    Route::get('/scrabble', 'index')->name('scrabble-page');
 });
 
 Route::group(['middleware' => ['auth']], function () {

@@ -4,17 +4,28 @@
         <div class="row px-4">
 
             <div class="col">
-                <div class="card p-3 shadow-sm border-0">
-                    <div class="card-header border-0 bg-white">
-                        <h2 class="page__title text-center">Agenda</h2>
+                <div class="card p-3  shadow-sm border-0">
+                    <div class="card-header border-0">
+                        <h2 class="page__title text-center p-4">
+                            <a href="{{route('agendas.index')}}">
+                                Agendas du Club
+                            </a>
+                        </h2>
                     </div>
                     <div class="filter-section py-3">
                         <form action="{{route('agendas.index')}}" class="container mx-auto">
                             @csrf
+                            <div class="row">
+                                <div class="col-6 mx-auto">
+                                    <div class="form-group mb-3">
+                                        <input type="search" class="form-control border-0 p-3 shadow-sm bg-white" name="search" id="searchInput" placeholder="Entrez un mot clé...">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row ">
                                 <div class="col-md-3 col-sm-auto">
                                     <div class="form-floating">
-                                        <select class="form-select border-0" id="floatingSelectGrid" name="competition">
+                                        <select class="form-select border-0 shadow-sm bg-white" id="floatingSelectGrid" name="competition">
                                             <option selected >...</option>
                                             @foreach ($agendas as $agenda )
                                                 <option value="{{$agenda->competition}}">{{$agenda->competition}}</option>
@@ -25,7 +36,7 @@
                                 </div>
                                 <div class="col-md-3 col-sm-auto">
                                     <div class="form-floating">
-                                        <select class="form-select border-0" id="floatingSelectGrid" name="category">
+                                        <select class="form-select border-0 shadow-sm bg-white" id="floatingSelectGrid" name="category">
                                             <option selected >...</option>
                                             @foreach ($categories as $category )
                                                 <option value="{{$category->id}}">{{$category->name}}</option>
@@ -37,7 +48,7 @@
                                 </div>
                                 <div class="col-md-3 col-sm-auto ">
                                     <div class="form-floating">
-                                        <select class="form-select border-0" id="floatingSelectGrid" name="serie">
+                                        <select class="form-select border-0 shadow-sm bg-white" id="floatingSelectGrid" name="serie">
                                             <option selected >...</option>
                                             @foreach ($series as $serie )
                                                 <option value="{{$serie->id}}">{{$serie->name}}</option>
@@ -47,7 +58,7 @@
                                       </div>
                                 </div>
                                 <div class="col-md-3 col-sm-auto d-flex align-items-center justify-content-center ">
-                                    <button class="btn btn-primary " type="submit">Recherche <i class="bi bi-search"></i></button>
+                                    <button class="btn btn-primary btn-lg " type="submit">Recherche <i class="bi bi-search"></i></button>
                                 </div>
                             </div>
                         </form>

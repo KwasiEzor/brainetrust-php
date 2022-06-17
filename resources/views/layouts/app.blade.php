@@ -47,7 +47,7 @@
                             <a href="{{ route('agendas.index')}}" class="nav-link">Agendas</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('posts.index') }}" class="nav-link">Scrabble</a>
+                            <a href="{{ route('scrabble-page') }}" class="nav-link">Scrabble</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -66,6 +66,7 @@
                                 Notre Club
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ route('about-page') }}">A propos</a></li>
                                 <li><a class="dropdown-item" href="{{ route('users.index') }}">Membres</a></li>
                               
                                 <li>

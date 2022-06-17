@@ -20,11 +20,30 @@ class ClubController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //get all clubs
 
-        $clubs  = Club::paginate(10);
+        $clubName = $request->get('name');
+        $clubAddress = $request->get('address');
+        $clubLocality = $request->get('locality');
+        $searchKeywords = $request->get('search');
+
+        if (!empty($clubAddress)  || !empty($clubLocality)  || !empty($clubName) || !empty($searchKeywords)) {
+            $clubs = Club::query()
+                ->where('name', 'like', '%' . $searchKeywords . '%')
+                ->where('name', $clubName)
+                ->orWhere('address', $clubAddress)
+                ->orWhere('address', 'like', '%' . $searchKeywords . '%')
+                ->orWhere('locality', $clubLocality)
+                ->orWhere('locality', 'like', '%' . $searchKeywords . '%')
+                ->orWhere('province', 'like', '%' . $searchKeywords . '%')
+                ->latest()
+                ->paginate(10);
+        } else {
+
+            $clubs  = Club::paginate(10);
+        }
 
         return view('clubs.index', compact('clubs'));
     }
