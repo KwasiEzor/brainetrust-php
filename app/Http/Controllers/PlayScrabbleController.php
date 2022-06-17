@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PlayScrabble;
+use App\Models\ScrabbleType;
 use Illuminate\Http\Request;
 
 class PlayScrabbleController extends Controller
@@ -16,7 +17,11 @@ class PlayScrabbleController extends Controller
     {
         //
 
-        return view('scrabble.index');
+        $scrabbleData = PlayScrabble::all();
+
+        $scrabbleTypes = ScrabbleType::all();
+
+        return view('scrabble.index', compact('scrabbleData', 'scrabbleTypes'));
     }
 
     /**

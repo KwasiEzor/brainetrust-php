@@ -19,17 +19,25 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {{-- CSRF TOKEN --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    {{-- Google Fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-primary shadow-sm bg-white">
             <div class="container-xl">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
+                    <img src="{{ asset('images/logo-braine.svg') }}" class="logo-braine" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -41,10 +49,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a href="{{ route('home-page')}}" class="nav-link">Accueil</a>
+                            <a href="{{ route('home-page') }}" class="nav-link">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('agendas.index')}}" class="nav-link">Agendas</a>
+                            <a href="{{ route('agendas.index') }}" class="nav-link">Agendas</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('scrabble-page') }}" class="nav-link">Scrabble</a>
@@ -68,7 +76,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{ route('about-page') }}">A propos</a></li>
                                 <li><a class="dropdown-item" href="{{ route('users.index') }}">Membres</a></li>
-                              
+
                                 <li>
                                     <a class="dropdown-item" href="{{ route('clubs.index') }}">Liste Clubs</a>
                                 </li>
@@ -78,30 +86,30 @@
                                 <li>
                                     <a class="dropdown-item" href="#">Liens</a>
                                 </li>
-                                
+
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('contact-page')}}" class="nav-link">Contact</a>
+                            <a href="{{ route('contact-page') }}" class="nav-link">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('posts.index')}}" class="nav-link">Blog</a>
+                            <a href="{{ route('posts.index') }}" class="nav-link">Blog</a>
                         </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto navbar-right">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <li class="nav-item ">
+                                    <a class="nav-link"  href="{{ route('login') }}">{{ __('S\'inscrire') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}" ><i class="bi bi-person-circle"></i></a>
                                 </li>
                             @endif
                         @else
@@ -113,7 +121,7 @@
 
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <a href="{{route('home')}}" class="dropdown-item"> {{ __('Mon compte') }}</a>
+                                        <a href="{{ route('home') }}" class="dropdown-item"> {{ __('Mon compte') }}</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
@@ -122,7 +130,8 @@
                                         </a>
                                     </li>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
                                         @csrf
                                     </form>
                                 </ul>
@@ -138,7 +147,7 @@
         </main>
         @include('inc.footer')
     </div>
-    <script src="{{asset('js/index.js')}}"></script>
+    <script src="{{ asset('js/index.js') }}"></script>
 </body>
 
 </html>

@@ -5,10 +5,10 @@
 
             <div class="col">
                 <div class="card p-3  shadow-sm border-0">
-                    <div class="card-header border-0">
+                    <div class="card-header border-0 ">
                         <h2 class="page__title text-center p-4">
-                            <a href="{{route('agendas.index')}}">
-                                Agendas du Club
+                            <a href="{{route('agendas.index')}}" class="page-title ">
+                               <img src="{{asset('images/letter_a.svg')}}" class="title-letter" alt=""> gendas du Club
                             </a>
                         </h2>
                     </div>
@@ -77,8 +77,8 @@
                             <tbody>
                                 @forelse ($agendas as $agenda)
                                     <tr>
-                                        <th scope="row">{{date('d-m-Y', strtotime($agenda->event_date))}}</th>
-                                        <th> <span class="btn btn-outline-primary" >{{$agenda->event_time}}</span>
+                                        <th scope="row"> <span class="text-secondary">{{date('d-m-Y', strtotime($agenda->event_date))}}</span> </th>
+                                        <th> <span class="btn btn-outline-primary d-grid" >{{$agenda->event_time}}</span>
                                              </th>
                                         <td>
                                             <span class="text-uppercase">
