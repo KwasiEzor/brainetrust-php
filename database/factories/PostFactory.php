@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,12 +23,14 @@ class PostFactory extends Factory
         $title = $this->faker->sentence();
         $userIds = User::pluck('id')->all();
         $categryIds = Category::pluck('id')->all();
+
         return [
 
             'title' => $title,
             'slug' => Str::slug($title),
             'content' => $this->faker->paragraphs(rand(5, 10), true),
             'image_url' => $this->faker->imageUrl(),
+            // 'image_url' => $this->faker->image(storage_path('app/public/images')),
             'is_published' => $this->faker->boolean(85),
             'user_id' => $this->faker->randomElement($userIds),
             'category_id' => $this->faker->randomElement($categryIds)

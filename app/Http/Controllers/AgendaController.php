@@ -25,17 +25,22 @@ class AgendaController extends Controller
         $categoryTerm = $request->get('category');
         $serieTerm = $request->get('serie');
         $searchKeywords = $request->get('search');
-        if (!empty($competitionTerm)  || !empty($categoryTerm) || !empty($serieTerm) || !empty($searchKeywords)) {
+        if (!empty($searchKeywords)) {
+            $agendas = Agenda::query()
+                ->Where('competition', 'like', '%' . $searchKeywords . '%')
+                ->orWhere('event_date', 'like', '%' . $searchKeywords . '%')
+                ->orWhere('event_time', 'like', '%' . $searchKeywords . '%')
+                ->orWhere('player_category_id', 'like', '%' . $searchKeywords . '%')
+                ->orWhere('player_serie_id', 'like', '%' . $searchKeywords . '%')
+                ->latest()
+                ->paginate(9);
+        } else
+        if (!empty($competitionTerm)  || !empty($categoryTerm) || !empty($serieTerm)) {
 
             $agendas = Agenda::query()
                 ->where('competition', $competitionTerm)
-                ->orWhere('competition', 'like', '%' . $searchKeywords . '%')
-                ->orWhere('event_date', 'like', '%' . $searchKeywords . '%')
-                ->orWhere('event_time', 'like', '%' . $searchKeywords . '%')
                 ->orWhere('player_category_id', $categoryTerm)
-                ->orWhere('player_category_id', 'like', '%' . $searchKeywords . '%')
                 ->orWhere('player_serie_id', $serieTerm)
-                ->orWhere('player_serie_id', 'like', '%' . $searchKeywords . '%')
                 ->latest()
                 ->paginate(9);
         } else {

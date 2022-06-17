@@ -12,6 +12,7 @@ use Database\Seeders\CategorySeeder;
 use Database\Seeders\AboutClubSeeder;
 use Database\Seeders\RoleTableSeeder;
 use Database\Seeders\PlayerSerieSeeder;
+use Illuminate\Support\Facades\Storage;
 use Database\Seeders\PlayScrabbleSeeder;
 use Database\Seeders\ScrabbleTypeSeeder;
 use Database\Seeders\PlayerCategorySeeder;
@@ -28,12 +29,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // Storage::deleteDirectory('public/images/posts');
+        // Storage::makeDirectory('public/images/posts');
 
         $this->call(PermissionTableSeeder::class);
         $this->call(CreateAdminUserSeeder::class);

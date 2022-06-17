@@ -101,15 +101,15 @@
                     <ul class="navbar-nav ms-auto navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item ">
-                                    <a class="nav-link"  href="{{ route('login') }}">{{ __('S\'inscrire') }}</a>
-                                </li>
-                            @endif
-
+                            
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}" ><i class="bi bi-person-circle"></i></a>
+                                    <a class="nav-link" href="{{ route('register') }}" >{{ __('S\'inscrire') }}</a>
+                                </li>
+                            @endif
+                            @if (Route::has('login'))
+                                <li class="nav-item ">
+                                    <a class="nav-link"  href="{{ route('login') }}"><i class="bi bi-person-circle"></i></a>
                                 </li>
                             @endif
                         @else
