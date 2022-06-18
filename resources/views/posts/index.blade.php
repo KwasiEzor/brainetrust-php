@@ -31,7 +31,7 @@
                                         </p>
                                     </div>
                                     <div class=" p-3 d-flex justify-content-end ">
-                                        <a href="{{ route('posts.show', $post) }}" class="btn btn-outline-primary ">Voir
+                                        <a href="{{ route('posts.show', $post->slug) }}" class="btn btn-outline-primary ">Voir
                                             plus</a>
                                     </div>
                                 </div>

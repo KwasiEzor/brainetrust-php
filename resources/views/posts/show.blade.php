@@ -38,7 +38,34 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                
+                                <p class="d-flex align-items-center">
+                                    <span>Partager :</span>
+                                    @foreach ($socialButtons as $key =>$value )
+                                        <a class="fs-4 p-1" target="_blank" href="{{$value}}">
+                                            @switch($key)
+                                                @case('facebook')
+                                                    <i class="bi bi-facebook"></i>
+                                                    @break
+                                                @case('twitter')
+                                                    <i class="bi bi-twitter"></i>
+                                                    @break
+                                                @case('linkedin')
+                                                    <i class="bi bi-linkedin"></i>
+                                                    @break
+                                                @case('whatsapp')
+                                                    <i class="bi bi-whatsapp"></i>
+                                                    @break
+                                                @case('telegram')
+                                                    <i class="bi bi-telegram"></i>
+                                                    @break
+                                            
+                                                @default
+                                                    
+                                                <i class="bi bi-facebook"></i>
+                                            @endswitch
+                                        </a>
+                                    @endforeach
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -92,7 +119,6 @@
                     <div class="card p-2 mt-4">
                         <div class="card-body p-2">
                             <h5 class="card-title">Autres articles</h5>
-                            {{-- {{dd($otherCategoryPosts)}} --}}
 
                             <ul class="post-carousel list-group-horizontal-sm p-0">
                                 @foreach ($otherCategoryPosts as $post )
@@ -111,7 +137,7 @@
                                                     </p>
                                                     <p class="card-text"><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>
                                                     <div class="d-flex justify-content-end">
-                                                        <a class="btn btn-outline-primary" href="{{route('posts.show',$post)}}">Suite <i class="bi bi-arrow-right-square-fill"></i></a>
+                                                        <a class="btn btn-outline-primary" href="{{route('posts.show',$post->slug)}}">Suite <i class="bi bi-arrow-right-square-fill"></i></a>
                                                     </div>
                                                   </div>
                                                 </div>

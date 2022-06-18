@@ -24,7 +24,7 @@
                     @foreach ($posts as $post )
                         <li class="list-group-item border-0">
                            
-                            <a href="{{ route('posts.show', $post) }}">
+                            <a href="{{ route('posts.show', $post->slug) }}">
                                 {{$post->title}}
 
                                 <small class="text-muted d-inline-block text-align-right">

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Post;
 use App\Models\Tag;
+use App\Models\Post;
+use App\Models\Category;
+use Share;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -85,19 +86,38 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($param)
     {
-        //
-        $otherCategoryPosts = Post::where('category_id', '=', $post->category_id)
-            ->where('title', '!=', $post->title)
-            ->with('tags', 'comments', 'user')
-            ->get();
 
-        $post = Post::where('id', '=', $post->id)
+
+        $currentUrl = url()->current();
+        // Social button
+
+
+
+        // getting all
+        $post = Post::where('slug', $param)
+            ->orWhere('id', $param)
             ->with('tags', 'comments', 'user', 'category')
             ->get();
-        // dd($post);
-        return view('posts.show', compact('post', 'otherCategoryPosts'));
+        // dd($post[0]->title);
+        //Posts that have the same category
+        $socialButtons = Share::page($currentUrl, $post[0]->title)
+            ->facebook()
+            ->twitter()
+            ->linkedin()
+            ->whatsapp()
+            ->telegram()
+            ->getRawLinks();
+        // dd($socialButtons['facebook']);
+        if ($post) {
+
+            $otherCategoryPosts = Post::where('category_id', '=', $post[0]->category->id)
+                ->where('title', '!=', $post[0]->title)
+                ->with('tags', 'comments', 'user')
+                ->get();
+        }
+        return view('posts.show', compact('post', 'otherCategoryPosts', 'currentUrl', 'socialButtons'));
     }
 
     /**
