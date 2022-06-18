@@ -71,7 +71,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card p-2">
                      
                         <div class="card-body">
 
@@ -83,10 +83,44 @@
                                
       
                                 <div class="form-group">
-                                    <input type="submit" value="Add Comment" class="form-control btn btn-primary" style="max-width: 10rem">
+                                    <button type="submit" value="Add Comment" class="form-control btn btn-primary" style="max-width: 10rem">Add Comment <i class="bi bi-send-fill"></i></button>
                                 </div>
                                 
                             </form>
+                        </div>
+                    </div>
+                    <div class="card p-2 mt-4">
+                        <div class="card-body p-2">
+                            <h5 class="card-title">Autres articles</h5>
+                            {{-- {{dd($otherCategoryPosts)}} --}}
+
+                            <ul class="post-carousel list-group-horizontal-sm p-0">
+                                @foreach ($otherCategoryPosts as $post )
+                                    <li class="list-group-item item border-0">
+                                        <div class="card">
+                                            <div class="row g-0">
+                                                <div class="col-md-4">
+                                                  <img src="{{$post->image_url}}" class="img-fluid rounded-start" alt="image">
+                                                </div>
+                                                <div class="col-md-8">
+                                                  <div class="card-body">
+                                                    <h5 class="card-title">{{$post->title}}</h5>
+                                                    <small>Categorie : <span class="fw-bold text-primary">{{$post->category->name}}</span> </small>
+                                                    <p class="card-text">
+                                                        {{ Str::limit($post->content, 120) }}
+                                                    </p>
+                                                    <p class="card-text"><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>
+                                                    <div class="d-flex justify-content-end">
+                                                        <a class="btn btn-outline-primary" href="{{route('posts.show',$post)}}">Suite <i class="bi bi-arrow-right-square-fill"></i></a>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>

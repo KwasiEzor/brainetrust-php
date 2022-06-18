@@ -88,12 +88,16 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+        $otherCategoryPosts = Post::where('category_id', '=', $post->category_id)
+            ->where('title', '!=', $post->title)
+            ->with('tags', 'comments', 'user')
+            ->get();
 
         $post = Post::where('id', '=', $post->id)
             ->with('tags', 'comments', 'user', 'category')
             ->get();
         // dd($post);
-        return view('posts.show', compact('post'));
+        return view('posts.show', compact('post', 'otherCategoryPosts'));
     }
 
     /**
