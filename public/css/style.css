@@ -1,30 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&family=Shrikhand&family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
 :root{
     --font-shrikhand:'Shrikhand', cursive;
     --font-worksans:'Work Sans', sans-serif;
+    --font-roboto:'Roboto',sans-serif;
     --sm-boxshadow: 0 0.125rem 0.25rem rgba(21, 21, 21, 0.075) !important;
     --color-yellow:#FFC000;
     --text-shad: 0 12px 0rem rgba(61, 60, 60, 0.066) !important;
     --clr-primary:#0d6efd;
     --clr-white:#fff;
-    --clr-light-white:#fcfcfc;
+    --clr-light-white:#d1d0d0;
     --light-shadow:0px 4px 0px 0 rgba(203, 203, 203, 0.341);
+    --clr-gray:rgb(104, 104, 104) ;
 }
 /* #app{
     background-color: var(--clr-light-white) !important;
 } */
 *{
     font-family: var(--font-worksans) !important;
+    font-size: 100%;
 }
 a{
     text-decoration: none !important;
 }
+h4.about-title::first-letter,
+h4.about-infos::first-letter{
+    font-size: 2rem;
+    color: var(--clr-primary);
+    padding: 2px 10px;
+    border: 1px solid var(--clr-primary);
+    border-radius: 4px;
+    margin-left: 0.5rem;
+}
 p{
     text-align: justify !important;
+    font-size: 1.07rem;
+    font-weight: 300 !important;
+    color: var(--clr-gray) !important;
 }
-
+/* input::placeholder, textarea::placeholder , select::placeholder{
+    color: var(--clr-light-white) !important;
+} */
 .page-title{
     font-family: var(--font-shrikhand) !important;
     color: var(--clr-primary) !important;
+    padding: 0.6rem 1.5rem;
+    border: 1px solid var(--clr-primary);
+    border-radius: 6px;
+    max-width: 25rem;
+    width: 100%;
+    margin: 1rem auto;
+    opacity: 0.8;
+    text-align: center;
 }
 .bi-person-circle{
     font-size: 1.5rem;
@@ -37,6 +64,7 @@ p{
 .page-link{
     border: none !important;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    
 }
 .dropdown-menu.show{
     border: none !important;
@@ -48,9 +76,9 @@ p{
 .title-letter{
     width: 60px; 
 }
-/* .nav-item .nav-link{
-    color:var(--clr-white) !important;
-} */
+.nav-item .nav-link{
+    font-size: 1.05rem !important;
+}
 
 /* .navbar-expand-md{
     box-shadow: var(--sm-boxshadow);
@@ -62,4 +90,7 @@ p{
 }
 .post-carousel .item{
     scroll-snap-align: start ;
+}
+.about-none{
+    display: none !important;
 }

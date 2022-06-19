@@ -64,7 +64,8 @@
                                                         @endcan
                                                         @can('user-delete')
                                                             {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                                                                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                                                {{-- {!! Form::submit('Delete', ['class' => 'btn btn-danger',]) !!} --}}
+                                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="bi bi-trash"></i></button>
                                                             {!! Form::close() !!}
                                                         @endcan
                                                      </td>

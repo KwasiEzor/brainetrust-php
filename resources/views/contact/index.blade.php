@@ -4,7 +4,7 @@
        
             <div class="card mt-5 mb-3 border-0 shadow-sm py-5" style="">
               <div class="row">
-                <h2 class="card-title text-center page-title">Nous contactez</h2>
+                <h2 class="card-title text-center page-title">Contactez-nous</h2>
               </div>
                 <div class="row g-0">
                  

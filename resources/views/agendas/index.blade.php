@@ -5,10 +5,10 @@
 
             <div class="col">
                 <div class="card p-3  shadow-sm border-0">
-                    <div class="card-header border-0 ">
+                    <div class="card-header border-0 bg-white mt-3">
                         <h2 class="page__title text-center p-4">
                             <a href="{{route('agendas.index')}}" class="page-title ">
-                               <img src="{{asset('images/letter_a.svg')}}" class="title-letter" alt=""> gendas du Club
+                               Agendas du Club
                             </a>
                         </h2>
                     </div>

@@ -9,15 +9,14 @@
                 <div class="row justify-content-center">
 
                     <div class="col-auto ">
-                        <div class="card p-2 w-100 h-100">
+                        <div class="card py-3 px-3 w-100 h-100">
                             <img src="{{ $post[0]['image_url'] }}" class="card-img mb-3" alt="image">
                             <h3 class="card-title px-3">{{ $post[0]['title'] }}</h3>
-                            <h6 class="cart-header d-flex justify-content-between">
-                                <span class="author w-50 h-50">
-                                    {{-- {{dd($post->user)}} --}}
-                                    {{-- <img src="{{ $post->user->images[0]['url'] }}" class=" ms-2" alt=""
+                            <h6 class="cart-header d-flex align-items-center justify-content-between px-4">
+                                <span class="author w-50 h-50"> 
+                                    <img src="{{asset('images/default-user.png')}}"  class="rounded-circle me-2" onerror="{{asset('images/default-user.png')}}" class=" ms-2" alt="author image"
                                         style="width:50px; height:50px; border-radius:50%;">
-                                    Author : <small class="text-italic">{{ $post->user->name }}</small> --}}
+                                    Author : <small class="text-italic">{{ $post[0]->user->name }}</small>
                                 </span>
                                 <span class="me-3">
                                     <small class="text-muted"> Published :
@@ -33,15 +32,15 @@
                                     @endforeach
                                 </p>
 
-                                <p class="card-text text-secondary text-justify" style="text-align: justify;">
+                                <p class="card-text text-secondary text-justify p-3" style="text-align: justify;">
                                     {{ $post[0]['content'] }}
                                 </p>
                             </div>
-                            <div class="card-footer">
-                                <p class="d-flex align-items-center">
-                                    <span>Partager :</span>
+                            <div class="card-footer text-end">
+                                <p class="d-flex align-items-center justify-content-end">
+                                    <span>Partager sur :</span>
                                     @foreach ($socialButtons as $key =>$value )
-                                        <a class="fs-4 p-1" target="_blank" href="{{$value}}">
+                                        <a class="fs-4 mx-1 py-1 px-2 btn btn-outline-primary" target="_blank" href="{{$value}}">
                                             @switch($key)
                                                 @case('facebook')
                                                     <i class="bi bi-facebook"></i>
@@ -73,7 +72,7 @@
                    
                 </div>
                 <div class="mx-auto my-4">
-                    <div class="card my-4">
+                    <div class="card my-4 p-3">
                         <div class="card-body">
                             <h5 class="card-title">Comments</h5>
                             <ul class="list-group">

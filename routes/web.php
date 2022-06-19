@@ -75,6 +75,7 @@ Route::controller(PostController::class)->group(function () {
 
 Route::controller(AboutClubController::class)->group(function () {
     Route::get('/about', 'index')->name('about-page');
+    Route::get('/infos', 'showInfos')->name('infos');
 });
 Route::controller(PlayScrabbleController::class)->group(function () {
     Route::get('/scrabble', 'index')->name('scrabble-page');

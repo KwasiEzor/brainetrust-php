@@ -2,8 +2,8 @@
 @section('content')
     <div class="container-xl">
         <div class="row py-5">
-            <div class="card p-3 shadow-sm border-0">
-                <div class="card-header border-0">
+            <div class="card p-3 shadow-sm border-0 ">
+                <div class="card-header border-0 bg-white mt-3">
                     <h2 class="card-title text-center p-4">
                         <a href="{{route('clubs.index')}}" class="page-title">
                             Liste des clubs de Scrabble

@@ -92,3 +92,22 @@ console.log(clubsData);
 // window.onload = function () {
 //     initMap();
 // };
+
+/**
+ * About Page
+ */
+
+let aboutTitles = document.querySelectorAll(".about-title");
+let aboutInfos = document.querySelectorAll(".about-infos");
+aboutTitles.forEach((title, key) => {
+    // console.log(title.innerHTML);
+    if (
+        title.innerHTML === "Affiliation" ||
+        title.innerHTML === "Droit de table" ||
+        title.innerHTML === "Cotisation annuelle" ||
+        title.innerHTML === "Nous contacter" ||
+        title.innerHTML === "Comment arriver au club ?"
+    ) {
+        title.parentElement.classList.add("about-none");
+    }
+});

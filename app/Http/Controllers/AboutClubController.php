@@ -21,6 +21,20 @@ class AboutClubController extends Controller
         return view('about.index', compact('aboutData'));
     }
 
+    public function showInfos()
+    {
+
+        $aboutData = AboutClub::where('title', 'Affiliation')
+            ->orWhere('title', 'Droit de table')
+            ->orWhere('title', 'Cotisation annuelle')
+            ->orWhere('title', 'Nous contacter')
+            ->orWhere('title', 'Comment arriver au club ?')
+            ->get();
+
+
+        return view('infos.index', compact('aboutData'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

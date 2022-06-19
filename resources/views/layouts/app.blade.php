@@ -28,7 +28,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
@@ -81,7 +82,7 @@
                                     <a class="dropdown-item" href="{{ route('clubs.index') }}">Liste Clubs</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Infos pratiques</a>
+                                    <a class="dropdown-item" href="{{ route('infos')}}">Infos pratiques</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="#">Liens</a>
