@@ -23,10 +23,18 @@ class PlayScrabbleSeeder extends Seeder
 
         foreach ($scrabbleRules->data as $rule) {
 
+            $cover_img_one = $rule->cover_img_one ?? '';
+            $cover_img_two = $rule->cover_img_two ?? '';
+            $cover_img_three = $rule->cover_img_three ?? '';
+
             PlayScrabble::create([
                 'title' => $rule->title,
                 'description' => $rule->description,
                 'rule' => $rule->rule,
+                'cover_img_one' => $cover_img_one,
+                'cover_img_two' => $cover_img_two,
+                'cover_img_three' => $cover_img_three
+
             ]);
         }
     }

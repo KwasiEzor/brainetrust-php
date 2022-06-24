@@ -32,7 +32,7 @@
                                     @endforeach
                                 </p>
 
-                                <p class="card-text text-secondary text-justify p-3" style="text-align: justify;">
+                                <p class="card-text text-secondary text-justify p-3 bg-light" style="text-align: justify;">
                                     {{ $post[0]['content'] }}
                                 </p>
                             </div>
@@ -131,7 +131,7 @@
                                                   <div class="card-body">
                                                     <h5 class="card-title">{{$post->title}}</h5>
                                                     <small>Categorie : <span class="fw-bold text-primary">{{$post->category->name}}</span> </small>
-                                                    <p class="card-text">
+                                                    <p class="card-text bg-light p-3">
                                                         {{ Str::limit($post->content, 120) }}
                                                     </p>
                                                     <p class="card-text"><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>

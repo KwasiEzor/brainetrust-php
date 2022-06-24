@@ -12,6 +12,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AboutClubController;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\MailContactController;
 use App\Http\Controllers\PlayScrabbleController;
 
@@ -26,9 +27,7 @@ use App\Http\Controllers\PlayScrabbleController;
 |
 */
 
-Route::get('/', function () {
-    return view('home-page');
-})->name('home-page');
+Route::get('/', [HomepageController::class, 'index'])->name('home-page');
 
 Auth::routes();
 

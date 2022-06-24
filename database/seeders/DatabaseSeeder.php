@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\ClubSeeder;
 use Database\Seeders\PostSeeder;
 use Database\Seeders\UserSeeder;
+use Database\Seeders\ScGameSeeder;
 use Database\Seeders\CommentSeeder;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\AboutClubSeeder;
@@ -47,5 +48,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ScrabbleTypeSeeder::class);
         $this->call(AboutClubSeeder::class);
         $this->call(PlayScrabbleSeeder::class);
+        $this->call(ScGameSeeder::class);
     }
 }

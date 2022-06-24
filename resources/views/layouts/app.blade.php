@@ -30,6 +30,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{{-- <link rel="stylesheet" href="node_modules/swiper/swiper.bundle.min.css"> --}}
+<link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
 </head>
 
 <body>
@@ -43,7 +49,9 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon">
+                        <i class="bi bi-list fs-1"></i>
+                    </span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -149,6 +157,22 @@
         @include('inc.footer')
     </div>
     <script src="{{ asset('js/index.js') }}"></script>
+    {{-- <script src="node_modules/swiper/swiper.bundle.min.js"></script> --}}
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+         let swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
 </body>
 
 </html>

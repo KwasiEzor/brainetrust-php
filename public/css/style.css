@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&family=Shrikhand&family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap');
-
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
 :root{
     --font-shrikhand:'Shrikhand', cursive;
     --font-worksans:'Work Sans', sans-serif;
@@ -7,7 +9,7 @@
     --sm-boxshadow: 0 0.125rem 0.25rem rgba(21, 21, 21, 0.075) !important;
     --color-yellow:#FFC000;
     --text-shad: 0 12px 0rem rgba(61, 60, 60, 0.066) !important;
-    --clr-primary:#0d6efd;
+    --clr-primary:#1D59FC;
     --clr-white:#fff;
     --clr-light-white:#d1d0d0;
     --light-shadow:0px 4px 0px 0 rgba(203, 203, 203, 0.341);
@@ -35,7 +37,7 @@ h4.about-infos::first-letter{
 p{
     text-align: justify !important;
     font-size: 1.07rem;
-    font-weight: 300 !important;
+    font-weight: 400 !important;
     color: var(--clr-gray) !important;
 }
 /* input::placeholder, textarea::placeholder , select::placeholder{
@@ -79,7 +81,9 @@ p{
 .nav-item .nav-link{
     font-size: 1.05rem !important;
 }
-
+.navbar-toggler:focus{
+    outline: none !important;
+}
 /* .navbar-expand-md{
     box-shadow: var(--sm-boxshadow);
 } */
@@ -94,3 +98,61 @@ p{
 .about-none{
     display: none !important;
 }
+
+.images-box{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(20rem, 1fr) );
+}
+
+/**
+ * Home page
+ */
+.hero__section{
+    background-color: var(--clr-primary);
+    margin-bottom: 5rem;
+    border-radius: 0.7rem;
+    padding: 2rem 0;
+}
+.hero__section .col-md-6{
+    display: grid;
+    place-content: center;
+}
+.section__left__content{
+   display: flex;
+   /* align-items: center; */
+   justify-content: flex-start;
+   flex-direction: column;
+   gap: 1rem;
+   color: white;
+}
+.section__left__content h3, 
+.section__left__content h1{
+    text-shadow: 0 5px 0 rgba(0, 0, 0, 0.075);
+    font-size: clamp(2rem,4vw,3rem);
+}
+/**
+ * 
+ * Swiper container
+ */
+
+ .mySwiper{
+    max-height: 18rem;
+    width: 100%;
+    max-width: fit-content;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ .swiper-slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ .swiper-pagination{
+    color: var(--clr-white);
+    
+ }
+ .swiper-pagination-bullet{
+    background-color: var(--clr-white) !important ;
+ }
