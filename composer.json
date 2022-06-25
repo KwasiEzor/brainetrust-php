@@ -21,6 +21,7 @@
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10",
+        "salopot/image-generator": "^1.1",
         "smknstd/fakerphp-picsum-images": "^1.0",
         "spatie/laravel-ignition": "^1.0"
     },

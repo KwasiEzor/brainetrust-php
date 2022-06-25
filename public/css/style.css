@@ -156,3 +156,41 @@ p{
  .swiper-pagination-bullet{
     background-color: var(--clr-white) !important ;
  }
+
+ .col-lg-6 .content{
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+    flex-direction: column;
+ }
+ .col-lg-6 .content.left{
+    text-align: left !important;
+ }
+ .discover-title-box{
+    margin: 0  0  5rem 0 !important;
+ }
+ .discover-section .col-lg-6{
+    display: grid;
+    place-content: center;
+ }
+ .discover-section{
+    border-radius: 0.7rem;
+    padding: 3rem 0;
+ }
+ /* Social media area */
+.social-media{
+    text-align: center;
+ }
+ .social-media .social-link{
+    font-size: clamp(1.8rem,4vw,2rem);
+ }
+ /* Partners area */
+ .partners-area .partner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+ }
+ .partners-area .partner img{
+    max-width: 80%;
+ }

@@ -20,6 +20,7 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+
         $title = $this->faker->sentence();
         $userIds = User::pluck('id')->all();
         $categryIds = Category::pluck('id')->all();
@@ -29,7 +30,9 @@ class PostFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'content' => $this->faker->paragraphs(rand(5, 10), true),
-            'image_url' => $this->faker->imageUrl(),
+            // 'image_url' => $url,
+            // 'image_url' => $this->faker->imageUrl(800, 600),
+            'image_url' => 'https://picsum.photos/800/600?random=12965',
             // 'image_url' => $this->faker->image(storage_path('app/public/images')),
             'is_published' => $this->faker->boolean(85),
             'user_id' => $this->faker->randomElement($userIds),
