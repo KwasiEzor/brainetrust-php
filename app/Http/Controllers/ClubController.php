@@ -46,7 +46,9 @@ class ClubController extends Controller
                 ->paginate(10);
         } else {
 
-            $clubs  = Club::paginate(10);
+            $clubs  = Club::query()
+                ->latest()
+                ->paginate(10);
         }
 
         return view('clubs.index', compact('clubs'));
