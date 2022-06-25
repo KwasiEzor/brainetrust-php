@@ -21,6 +21,7 @@ class PostFactory extends Factory
     public function definition()
     {
 
+
         $title = $this->faker->sentence();
         $userIds = User::pluck('id')->all();
         $categryIds = Category::pluck('id')->all();

@@ -64,20 +64,20 @@
                         </form>
                     </div>
                     <div class="card-body ">
-                        <table class="table table-hover table-responsive-md table-responsive-sm">
-                            <thead>
+                        <table class="table table-bordered table-hover table-responsive-md table-responsive-sm">
+                            <thead class="text-center">
                                 <tr>
                                     <th scope="col">Date</th>
                                     <th scope="col">Heure</th>
                                     <th scope="col">Compétition</th>
-                                    <th scope="col">Catégories</th>
+                                    <th scope="col" >Catégories</th>
                                     <th scope="col">Séries</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($agendas as $agenda)
                                     <tr>
-                                        <th scope="row"> <span class="text-secondary">{{date('d-m-Y', strtotime($agenda->event_date))}}</span> </th>
+                                        <th scope="row" class="text-center"> <span class="text-secondary">{{date('d-m-Y', strtotime($agenda->event_date))}}</span> </th>
                                         <th> <span class="btn btn-outline-primary d-grid" >{{$agenda->event_time}}</span>
                                              </th>
                                         <td>
@@ -85,16 +85,16 @@
                                                 {{ $agenda->competition }}
                                             </span>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <span class="small text-muted">
                                                 {{ $agenda->player_category->name }}
                                             </span>
-                                        </td>
-                                        <td>{{ $agenda->player_serie->name }}</td>
+                                        </td >
+                                        <td class="text-center">{{ $agenda->player_serie->name }}</td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <th scope="row">No Data</th>
+                                        <td >No Data</td>
 
                                     </tr>
                                 @endforelse

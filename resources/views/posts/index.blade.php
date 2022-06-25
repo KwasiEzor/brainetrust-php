@@ -18,6 +18,7 @@
                 </div>
             </div>
             <div class="col-md-9">
+               
                 <div class="row pt-4 pb-5">
                     @isset($posts)
                         @foreach ($posts as $post)
