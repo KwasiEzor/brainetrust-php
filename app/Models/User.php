@@ -3,12 +3,17 @@
 namespace App\Models;
 
 use App\Models\Post;
+use App\Models\ScGame;
 use App\Models\Comment;
+use App\Models\GmResult;
 use App\Models\UserInfo;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -48,17 +53,27 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts()
+    public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
     }
-    public function comments()
+    public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
 
-    public function user_info()
+    public function user_info(): HasOne
     {
         return $this->hasOne(UserInfo::class);
+    }
+
+    public function sc_game(): HasOne
+    {
+        return $this->hasOne(ScGame::class);
+    }
+
+    public function gm_result(): HasOne
+    {
+        return $this->hasOne(GmResult::class);
     }
 }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\ScGame;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class ScGameSeeder extends Seeder
 {
@@ -16,6 +17,8 @@ class ScGameSeeder extends Seeder
     public function run()
     {
         //
-        ScGame::factory(12)->create();
+
+
+        ScGame::factory(7)->create();
     }
 }

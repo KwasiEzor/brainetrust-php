@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('ranking_position');
             $table->integer('player_top');
             $table->integer('game_top');
-            $table->decimal('percentage', 4, 2)->unsigned();
+            $table->decimal('percentage', 5, 2)->unsigned();
             $table->foreignIdFor(ScGame::class)->onDelete('cascade');
             $table->foreignIdFor(User::class)->onDelete('cascade');
             $table->timestamps();

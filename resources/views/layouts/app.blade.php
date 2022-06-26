@@ -40,7 +40,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-primary shadow-sm bg-white">
+        <nav class="navbar navbar-expand-md app-navbar navbar-primary shadow-sm bg-white" id="navbar_top">
             <div class="container-xl">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
@@ -72,7 +72,7 @@
                                 Compétitions
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Amicales</a></li>
+                                <li><a class="dropdown-item" href="{{route('scgames.index')}}">Amicales</a></li>
                                 <li><a class="dropdown-item" href="#">Interclubs</a></li>
                                 <li><a class="dropdown-item" href="#">Classements</a></li>
                             </ul>

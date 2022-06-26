@@ -109,7 +109,7 @@
                                
       
                                 <div class="form-group">
-                                    <button type="submit" value="Add Comment" class="form-control btn btn-primary" style="max-width: 10rem">Add Comment <i class="bi bi-send-fill"></i></button>
+                                    <button type="submit" value="Add Comment" onclick="return confirm('Vous devez connecter avant ?')" class="form-control btn btn-primary" style="max-width: 10rem">Add Comment <i class="bi bi-send-fill"></i></button>
                                 </div>
                                 
                             </form>

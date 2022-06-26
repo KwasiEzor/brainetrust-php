@@ -194,3 +194,6 @@ p{
  .partners-area .partner img{
     max-width: 80%;
  }
+ #navbar_top{
+    transition: all 0.4s ease;
+ }

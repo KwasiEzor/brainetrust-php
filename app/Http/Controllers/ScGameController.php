@@ -12,9 +12,31 @@ class ScGameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
+
     {
+
+        if ($request->has('query') && $request->has('query') !== '') {
+            $keywords = $request->input('query');
+            $scgames = ScGame::query()
+                ->with('gm_rounds', 'gm_results')
+                ->where('competition', 'like', '%' . $keywords . '%')
+                ->orWhere('comments', 'like', '%' . $keywords . '%')
+                ->orWhere('created_at', 'like', '%' . $keywords . '%')
+                ->latest()
+                ->paginate(6);
+
+            $scgames->appends(['query' => $keywords]);
+        } else {
+            $scgames = ScGame::query()
+                ->with('gm_rounds', 'gm_results')
+                ->latest()
+                ->paginate(6);
+        }
         //
+
+
+        return view('scgames.index', compact('scgames'));
     }
 
     /**
@@ -47,6 +69,12 @@ class ScGameController extends Controller
     public function show(ScGame $scGame)
     {
         //
+        $scGame = ScGame::where('id', $scGame->id)
+            ->with('gm_rounds', 'gm_results')
+            ->get();
+        $gmTotal = ScGame::withSum('gm_rounds', 'gm_rounds.top_points')->get();
+
+        return view('scgames.show', compact('scGame', 'gmTotal'));
     }
 
     /**

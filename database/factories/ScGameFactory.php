@@ -19,7 +19,7 @@ class ScGameFactory extends Factory
     {
         return [
             //
-            'game_referee' => User::inRandomOrder()->first(),
+            'user_id' => User::inRandomOrder()->first()->id,
             'competition_date' => $this->faker->dateTimeBetween('now', '+9 months'),
             'report_sheet' => $this->faker->imageUrl(),
             'comments' => $this->faker->sentence()

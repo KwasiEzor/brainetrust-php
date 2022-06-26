@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,10 +17,11 @@ return new class extends Migration
         Schema::create('sc_games', function (Blueprint $table) {
             $table->id();
             $table->string('competition')->default('Amicale');
-            $table->string('game_referee');
+            $table->foreignIdFor(User::class);
             $table->dateTime('competition_date')->default(now());
             $table->string('report_sheet')->nullable();
             $table->text('comments')->nullable();
+            $table->string('cover_img')->default('images/scrabble-duplicate.png');
             $table->timestamps();
         });
     }

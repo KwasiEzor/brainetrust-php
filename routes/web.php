@@ -15,6 +15,7 @@ use App\Http\Controllers\AboutClubController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\MailContactController;
 use App\Http\Controllers\PlayScrabbleController;
+use App\Http\Controllers\ScGameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,10 @@ use App\Http\Controllers\PlayScrabbleController;
 Route::get('/', [HomepageController::class, 'index'])->name('home-page');
 
 Auth::routes();
-
+Route::controller(ScGameController::class)->group(function () {
+    Route::get('/amicales', 'index')->name('scgames.index');
+    Route::get('/amicales/{scGame}', 'show')->name('scgames.show');
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/posts/categories/{category}', [CategoryController::class, 'categoriesWithPosts'])->name('category.posts');

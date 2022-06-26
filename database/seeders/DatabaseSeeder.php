@@ -9,7 +9,9 @@ use Database\Seeders\PostSeeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\ScGameSeeder;
 use Database\Seeders\CommentSeeder;
+use Database\Seeders\GmRoundSeeder;
 use Database\Seeders\CategorySeeder;
+use Database\Seeders\GmResultSeeder;
 use Database\Seeders\AboutClubSeeder;
 use Database\Seeders\RoleTableSeeder;
 use Database\Seeders\PlayerSerieSeeder;
@@ -49,5 +51,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AboutClubSeeder::class);
         $this->call(PlayScrabbleSeeder::class);
         $this->call(ScGameSeeder::class);
+        $this->call(GmRoundSeeder::class);
+        $this->call(GmResultSeeder::class);
     }
 }
