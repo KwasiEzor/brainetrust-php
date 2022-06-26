@@ -34,6 +34,8 @@ Auth::routes();
 Route::controller(ScGameController::class)->group(function () {
     Route::get('/amicales', 'index')->name('scgames.index');
     Route::get('/amicales/{scGame}', 'show')->name('scgames.show');
+    Route::get('/files-export', 'exportFile')->name('files-export');
+    Route::get('/pdf-export/{param}', 'createPDF')->name('pdf-export');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

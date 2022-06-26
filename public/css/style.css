@@ -22,6 +22,9 @@
     font-family: var(--font-worksans) !important;
     font-size: 100%;
 }
+body{
+    position: relative;
+}
 a{
     text-decoration: none !important;
 }
@@ -143,6 +146,7 @@ p{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
  }
  .swiper-slide{
     display: flex;
@@ -151,8 +155,9 @@ p{
  }
  .swiper-pagination{
     color: var(--clr-white);
-    
+    margin-bottom: -1.05rem !important;
  }
+
  .swiper-pagination-bullet{
     background-color: var(--clr-white) !important ;
  }
@@ -196,4 +201,31 @@ p{
  }
  #navbar_top{
     transition: all 0.4s ease;
+ }
+
+ #widget-btn{
+    position: fixed;
+    right: -15px;
+    top: 50%;
+    z-index: 999;
+    opacity: 0.5;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+ }
+ #widget-btn:hover{
+    opacity: 1;
+    right: 0;
+    transform: scale(1.050);
+ }
+ #back-to-top{
+    z-index: 999;
+   position: absolute;
+   right: 0 !important;
+   bottom: 3%;
+   transition: all 0.4s ease;
+ }
+ #back-to-top:focus{
+    outline: none !important;
+    box-shadow: none !important;
  }

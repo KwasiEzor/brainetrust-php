@@ -154,6 +154,8 @@
         <main class="py-4">
             @yield('content')
         </main>
+        @include('inc.app-widgets')
+        @include('inc.scrolltop-btn')
         @include('inc.footer')
     </div>
     <script src="{{ asset('js/index.js') }}"></script>
@@ -163,6 +165,9 @@
          let swiper = new Swiper(".mySwiper", {
         slidesPerView: 3,
         spaceBetween: 30,
+        autoplay: {
+            delay: 5000,
+        },
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
@@ -173,6 +178,24 @@
         },
       });
     </script>
+    <script>
+        $(document).ready(function(){
+            $(window).scroll(function () {
+                    if ($(this).scrollTop() > 50) {
+                        $('#back-to-top').fadeIn();
+                    } else {
+                        $('#back-to-top').fadeOut();
+                    }
+                });
+                // scroll body to 0px on click
+                $('#back-to-top').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 400);
+                    return false;
+                });
+        });
+        </script>
 </body>
 
 </html>

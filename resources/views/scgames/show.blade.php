@@ -10,8 +10,16 @@
             <div class="row g-4">
                <div class="card border-0 p-4">
                 <div class="card-header border-0">
-                    <h3 class="card-title d-flex align-items-center justify-content-between"> <span>Partie jouée</span> <a href="{{route('scgames.index')}}">
-                    <small>Retour <i class="bi bi-arrow-left-square-fill"></i></small>
+                    <h3 class="card-title d-flex align-items-center justify-content-between"> 
+                      <span>Partie jouée</span> <a href="{{route('scgames.index')}}">
+                        <span>
+                          <small>Retour <i class="bi bi-arrow-left-square-fill"></i></small>
+                          <a href="{{route('files-export')}}" class="btn btn-success"><i class="bi bi-filetype-csv"></i> Export CSV</a>
+                          {{-- <a href="{{route('pdf-export',$scGame[0]->id)}}" class="btn btn-primary">
+                            <i class="bi bi-filetype-pdf"></i>
+                            PDF
+                          </a> --}}
+                        </span>
                     </a> </h3>
                 </div>
                 <div class="card-body">

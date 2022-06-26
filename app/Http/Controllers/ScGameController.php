@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\ScGame;
+
+
 use Illuminate\Http\Request;
+use App\Exports\ScGamesExport;
+use Barryvdh\DomPDF\Facade as PDF;
+use Maatwebsite\Excel\Facades\Excel;
+// use PDF;
 
 class ScGameController extends Controller
 {
@@ -39,6 +45,23 @@ class ScGameController extends Controller
         return view('scgames.index', compact('scgames'));
     }
 
+    public function exportFile()
+    {
+        return Excel::download(new ScGamesExport, 'scgames-collections.xlsx');
+    }
+
+    public function createPDF($param)
+    {
+        $scGame = ScGame::where('id', $param)
+            ->with('gm_rounds', 'gm_results')
+            ->get();
+        view()->share('scgames.show', $scGame);
+
+        $pdf = PDF::loadView('scgames.show', compact('scGame'));
+        // $pdf->save(public_path('uploads'));
+        return $pdf->download('scgame_results.pdf');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -69,9 +92,11 @@ class ScGameController extends Controller
     public function show(ScGame $scGame)
     {
         //
+
         $scGame = ScGame::where('id', $scGame->id)
             ->with('gm_rounds', 'gm_results')
             ->get();
+
         $gmTotal = ScGame::withSum('gm_rounds', 'gm_rounds.top_points')->get();
 
         return view('scgames.show', compact('scGame', 'gmTotal'));
