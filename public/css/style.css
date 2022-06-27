@@ -2,34 +2,39 @@
 @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
-:root{
-    --font-shrikhand:'Shrikhand', cursive;
-    --font-worksans:'Work Sans', sans-serif;
-    --font-roboto:'Roboto',sans-serif;
+
+:root {
+    --font-shrikhand: 'Shrikhand', cursive;
+    --font-worksans: 'Work Sans', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
     --sm-boxshadow: 0 0.125rem 0.25rem rgba(21, 21, 21, 0.075) !important;
-    --color-yellow:#FFC000;
+    --color-yellow: #FFC000;
     --text-shad: 0 12px 0rem rgba(61, 60, 60, 0.066) !important;
-    --clr-primary:#1D59FC;
-    --clr-white:#fff;
-    --clr-light-white:#d1d0d0;
-    --light-shadow:0px 4px 0px 0 rgba(203, 203, 203, 0.341);
-    --clr-gray:rgb(104, 104, 104) ;
+    --clr-primary: #1D59FC;
+    --clr-white: #fff;
+    --clr-light-white: #d1d0d0;
+    --light-shadow: 0px 4px 0px 0 rgba(203, 203, 203, 0.341);
+    --clr-gray: rgb(104, 104, 104);
 }
+
 /* #app{
     background-color: var(--clr-light-white) !important;
 } */
-*{
+* {
     font-family: var(--font-worksans) !important;
     font-size: 100%;
 }
-body{
+
+body {
     position: relative;
 }
-a{
+
+a {
     text-decoration: none !important;
 }
+
 h4.about-title::first-letter,
-h4.about-infos::first-letter{
+h4.about-infos::first-letter {
     font-size: 2rem;
     color: var(--clr-primary);
     padding: 2px 10px;
@@ -37,16 +42,18 @@ h4.about-infos::first-letter{
     border-radius: 4px;
     margin-left: 0.5rem;
 }
-p{
+
+p {
     text-align: justify !important;
     font-size: 1.07rem;
     font-weight: 400 !important;
     color: var(--clr-gray) !important;
 }
+
 /* input::placeholder, textarea::placeholder , select::placeholder{
     color: var(--clr-light-white) !important;
 } */
-.page-title{
+.page-title {
     font-family: var(--font-shrikhand) !important;
     color: var(--clr-primary) !important;
     padding: 0.6rem 1.5rem;
@@ -58,87 +65,102 @@ p{
     opacity: 0.8;
     text-align: center;
 }
-.bi-person-circle{
+
+.bi-person-circle {
     font-size: 1.5rem;
 }
-.navbar-right{
+
+.navbar-right {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.page-link{
+
+.page-link {
     border: none !important;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-    
+
 }
-.dropdown-menu.show{
+
+.dropdown-menu.show {
     border: none !important;
     box-shadow: var(--sm-boxshadow);
 }
-.logo-braine{
+
+.logo-braine {
     width: 10rem;
 }
-.title-letter{
-    width: 60px; 
+
+.title-letter {
+    width: 60px;
 }
-.nav-item .nav-link{
+
+.nav-item .nav-link {
     font-size: 1.05rem !important;
 }
-.navbar-toggler:focus{
+
+.navbar-toggler:focus {
     outline: none !important;
 }
+
 /* .navbar-expand-md{
     box-shadow: var(--sm-boxshadow);
 } */
 
-.post-carousel{
+.post-carousel {
     scroll-snap-type: x mandatory;
     scroll-padding: 0 24px;
 }
-.post-carousel .item{
-    scroll-snap-align: start ;
+
+.post-carousel .item {
+    scroll-snap-align: start;
 }
-.about-none{
+
+.about-none {
     display: none !important;
 }
 
-.images-box{
+.images-box {
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(20rem, 1fr) );
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 }
 
 /**
  * Home page
  */
-.hero__section{
+.hero__section {
     background-color: var(--clr-primary);
     margin-bottom: 5rem;
     border-radius: 0.7rem;
     padding: 2rem 0;
 }
-.hero__section .col-md-6{
+
+.hero__section .col-md-6 {
     display: grid;
     place-content: center;
 }
-.section__left__content{
-   display: flex;
-   /* align-items: center; */
-   justify-content: flex-start;
-   flex-direction: column;
-   gap: 1rem;
-   color: white;
+
+.section__left__content {
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    color: white;
 }
-.section__left__content h3, 
-.section__left__content h1{
+
+.section__left__content h3,
+.section__left__content h1 {
     text-shadow: 0 5px 0 rgba(0, 0, 0, 0.075);
-    font-size: clamp(2rem,4vw,3rem);
+    font-size: clamp(2rem, 4vw, 3rem);
 }
+
 /**
  * 
  * Swiper container
  */
 
- .mySwiper{
+.mySwiper {
     max-height: 18rem;
     width: 100%;
     max-width: fit-content;
@@ -147,63 +169,74 @@ p{
     align-items: center;
     justify-content: center;
     position: relative;
- }
- .swiper-slide{
+}
+
+.swiper-slide {
     display: flex;
     align-items: center;
     justify-content: center;
- }
- .swiper-pagination{
+}
+
+.swiper-pagination {
     color: var(--clr-white);
     margin-bottom: -1.05rem !important;
- }
+}
 
- .swiper-pagination-bullet{
-    background-color: var(--clr-white) !important ;
- }
+.swiper-pagination-bullet {
+    background-color: var(--clr-white) !important;
+}
 
- .col-lg-6 .content{
+.col-lg-6 .content {
     display: flex;
     text-align: right;
     justify-content: flex-end;
     flex-direction: column;
- }
- .col-lg-6 .content.left{
+}
+
+.col-lg-6 .content.left {
     text-align: left !important;
- }
- .discover-title-box{
-    margin: 0  0  5rem 0 !important;
- }
- .discover-section .col-lg-6{
+}
+
+.discover-title-box {
+    margin: 0 0 5rem 0 !important;
+}
+
+.discover-section .col-lg-6 {
     display: grid;
     place-content: center;
- }
- .discover-section{
+}
+
+.discover-section {
     border-radius: 0.7rem;
     padding: 3rem 0;
- }
- /* Social media area */
-.social-media{
+}
+
+/* Social media area */
+.social-media {
     text-align: center;
- }
- .social-media .social-link{
-    font-size: clamp(1.8rem,4vw,2rem);
- }
- /* Partners area */
- .partners-area .partner{
+}
+
+.social-media .social-link {
+    font-size: clamp(1.8rem, 4vw, 2rem);
+}
+
+/* Partners area */
+.partners-area .partner {
     display: flex;
     align-items: center;
     justify-content: center;
-    
- }
- .partners-area .partner img{
-    max-width: 80%;
- }
- #navbar_top{
-    transition: all 0.4s ease;
- }
 
- #widget-btn{
+}
+
+.partners-area .partner img {
+    max-width: 80%;
+}
+
+#navbar_top {
+    transition: all 0.4s ease;
+}
+
+#widget-btn {
     position: fixed;
     right: -15px;
     top: 50%;
@@ -212,20 +245,119 @@ p{
     transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
- }
- #widget-btn:hover{
+}
+
+#widget-btn:hover {
     opacity: 1;
     right: 0;
     transform: scale(1.050);
- }
- #back-to-top{
+}
+
+#back-to-top {
     z-index: 999;
-   position: absolute;
-   right: 0 !important;
-   bottom: 3%;
-   transition: all 0.4s ease;
- }
- #back-to-top:focus{
+    position: absolute;
+    right: 0 !important;
+    bottom: 3%;
+    transition: all 0.4s ease;
+}
+
+#back-to-top:focus {
     outline: none !important;
     box-shadow: none !important;
- }
+}
+
+/* Responsive Table */
+@media screen and (max-width:648px) {
+
+    /* ============Agendas Table============== */
+    .agenda-table {
+        display: grid;
+        border-collapse: collapse;
+        min-width: 100%;
+        grid-template-columns: minmax(9rem, 1fr) minmax(9rem, 1fr) minmax(9.375rem, 1fr) minmax(5rem, 1fr) minmax(5rem, 1fr);
+    }
+
+    .agenda-table thead,
+    .agenda-table tbody,
+    .agenda-table tr {
+        display: contents;
+    }
+
+    .agenda-table th,
+    .agenda-table td {
+        padding: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .agenda-table th {
+        position: sticky;
+        text-align: left;
+        font-size: 1.1rem;
+        font-weight: normal;
+        position: relative;
+    }
+
+    .agenda-table th:last-child {
+        border: 0;
+    }
+
+    .agenda-table thead .resize-handle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 3px;
+        background-color: var(--clr-primary);
+        color: white;
+        cursor: col-resize;
+    }
+
+    #agendaSearchBtn {
+        word-wrap: unset;
+    }
+
+    /* ============Scrabble Games Amicales Table============== */
+
+    .scgame-table{
+        display: grid;
+        border-collapse: collapse;
+        min-width: 100%;
+        grid-template-columns: minmax(9rem,1fr);
+        grid-template-columns: minmax(8rem,1fr);
+        grid-template-columns: minmax(9rem,1fr);
+        grid-template-columns: minmax(8rem,1fr);
+        grid-template-columns: minmax(8rem,1fr);
+        grid-template-columns: minmax(9.037rem,1fr);
+        ;
+
+    }
+    .scgame-table thead,
+    .scgame-table tbody,
+    .scgame-table tr {
+        display: contents;
+    }
+    .scgame-table th,
+    .scgame-table td {
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .scgame-table th {
+        position: sticky;
+        text-align: left;
+        font-size: 1.1rem;
+        font-weight: normal;
+        position: relative;
+    }
+    .scgame-table th:last-child {
+        border: 0;
+    }
+
+
+    /* ============Scrabble Games Amicales results Table============== */
+
+   
+}

@@ -58,20 +58,30 @@
                                       </div>
                                 </div>
                                 <div class="col-md-3 col-sm-auto d-flex align-items-center justify-content-center ">
-                                    <button class="btn btn-primary btn-lg " type="submit">Recherche <i class="bi bi-search"></i></button>
+                                    <button class="btn btn-primary btn-lg " id="agendaSearchBtn" type="submit">Recherche <i class="bi bi-search"></i></button>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="card-body ">
-                        <table class="table table-hover table-responsive-md table-responsive-sm">
+                        <table class="table table-hover table-responsive-md table-responsive-sm agenda-table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Heure</th>
-                                    <th scope="col">Compétition</th>
-                                    <th scope="col">Catégories</th>
-                                    <th scope="col">Séries</th>
+                                    <th scope="col">Date
+                                        <span class="resize-handle"></span>
+                                    </th>
+                                    <th scope="col">Heure
+                                        <span class="resize-handle"></span>
+                                    </th>
+                                    <th scope="col">Compétition
+                                        <span class="resize-handle"></span>
+                                    </th>
+                                    <th scope="col">Catégories
+                                        <span class="resize-handle"></span>
+                                    </th>
+                                    <th scope="col">Séries
+                                        <span class="resize-handle"></span>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
