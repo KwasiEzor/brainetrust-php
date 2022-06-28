@@ -10,7 +10,7 @@
             <div class="row g-4">
                <div class="card border-0 p-4">
                 <div class="card-header border-0">
-                    <h3 class="card-title d-flex align-items-center justify-content-between"> 
+                    <h3 class="card-title d-flex align-items-center justify-content-between flex-sm-wrap"> 
                       <span>Partie jouée</span> <a href="{{route('scgames.index')}}">
                         <span>
                           <small>Retour <i class="bi bi-arrow-left-square-fill"></i></small>
@@ -23,7 +23,7 @@
                     </a> </h3>
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped table-bordered">
+                    <table class="table table-striped table-bordered scgame-table">
                         <thead>
                           <tr>
                             <th scope="col">N°</th>
@@ -59,14 +59,24 @@
                         <h3 class="card-title"> Classement </h3>
                     </div>
                     <div class="card-body">
-                        <table class="table table-striped table-bordered">
+                        <table class="table table-striped table-bordered scgame-results-table">
                             <thead>
                               <tr>
-                                <th scope="col" class="text-center">N°</th>
-                                <th scope="col">Joueurs</th>
-                                <th scope="col" class="text-center">Points</th>
-                                <th scope="col" class="text-center">Top Partie</th>
-                                <th scope="col" class="text-center">Pourcentage</th>
+                                <th scope="col" class="text-center">N°
+                                  <span class="resize-handle"></span>
+                                </th>
+                                <th scope="col">Joueurs
+                                  <span class="resize-handle"></span>
+                                </th>
+                                <th scope="col" class="text-center">Points
+                                  <span class="resize-handle"></span>
+                                </th>
+                                <th scope="col" class="text-center">Top Partie
+                                  <span class="resize-handle"></span>
+                                </th>
+                                <th scope="col" class="text-center">Pourcentage
+                                  <span class="resize-handle"></span>
+                                </th>
                               </tr>
                             </thead>
                             <tbody>

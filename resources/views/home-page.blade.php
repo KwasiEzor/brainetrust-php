@@ -69,7 +69,7 @@
                 <div class="swiper-button-prev"></div> --}}
                 <div class="swiper-pagination"></div>
             </div>
-
+            
         </div>
         {{-- Hero section end --}}
 
@@ -125,9 +125,52 @@
             </div>
         </div>
         {{-- Scrabble presentation area end --}}
+        {{-- Become Member start --}}
+        <div class="container-xl mt-5 ">
+            <div class="container p-lg-4 p-md-3 p-sm-2 bg-primary rounded-3">
+                <h1 class="text-center text-white mt-4 text-shadow">Envie de nous <span class="badge bg-warning">Rejoindre</span> ?</h1>
+                <div class="row welcome-section pb-4 gy-md-4 gy-sm-4">
+                    <div class="col-lg-6 col-md-6 col-sm-auto welcome-img-box">
+                        <figure class="figure welcome-man">
+                            <img src="{{asset('images/welcome-man.png')}}" alt="Welcome man" class="figure-img img-fluid rounded " >
+                        </figure>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-auto welcome-text-box mt-sm-4 ">
+                        <div class="d-flex justify-content-end align-items-center flex-column">
+                            <h5 class="text-white text-right pt-3 text-shadow">Saisissez cette Opportunité </h5>
+                            <h6 class="text-white text-right text-shadow">Inscrivez-vous Maintenant  </h6>
+                            <a href="{{route('register')}}" class="btn btn-lg d-block btn-warning w-50 my-3 text-uppercase" id="join-btn">Je commence <i class="bi bi-arrow-right-square-fill"></i></a>
+                        </div>
+                        <div class="card border-0 bg-white shadow p-3">
+                            <div class="card-body">
+                                <ul class="list-group ">
+                                    <li class="list-group-item border-0">
+                                        <i class="bi bi-check-circle-fill text-success fs-4"></i> Pour <span class="text-decoration-underline">participer</span>  à différentes Compétitions
+                                    </li>
+                                    <li class="list-group-item border-0">
+                                        <i class="bi bi-check-circle-fill text-success fs-4"></i> Pour <span class="text-decoration-underline">s'entrainer</span>  avec de vrais Champions
+                                    </li>
+                                    <li class="list-group-item border-0">
+                                        <i class="bi bi-check-circle-fill text-success fs-4"></i> Pour <span class="text-decoration-underline">améliorer </span>rapidement votre Niveau
+                                    </li>
+                                    
+                                    <li class="list-group-item border-0">
+                                        <i class="bi bi-check-circle-fill text-success fs-4"></i> Pour <span class="text-decoration-underline">découvrir</span>  d'autres Endroits
+                                    </li>
+                                    <li class="list-group-item border-0">
+                                        <i class="bi bi-check-circle-fill text-success fs-4"></i> Pour <span class="text-decoration-underline">faire</span>  de belles Rencontres
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- Become Member end --}}
         {{-- Partners section start --}}
-        <div class="container-xl mt-5">
-            <div class="row mt-5 partners-area">
+        <div class="container-xl mt-5 partners-section">
+            <div class="row mt-5 partners-area text-center">
                 <div class="col-lg-3 col-md-6 col-sm-auto partner">
                     <a href="https://www.fisf.net/" target="_blank" rel="noopener noreferrer">
                         <figure class="figure">

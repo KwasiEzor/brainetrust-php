@@ -25,7 +25,7 @@ class ScGameController extends Controller
         if ($request->has('query') && $request->has('query') !== '') {
             $keywords = $request->input('query');
             $scgames = ScGame::query()
-                ->with('gm_rounds', 'gm_results')
+                ->with('gm_rounds', 'gm_results', 'user')
                 ->where('competition', 'like', '%' . $keywords . '%')
                 ->orWhere('comments', 'like', '%' . $keywords . '%')
                 ->orWhere('created_at', 'like', '%' . $keywords . '%')
@@ -35,7 +35,7 @@ class ScGameController extends Controller
             $scgames->appends(['query' => $keywords]);
         } else {
             $scgames = ScGame::query()
-                ->with('gm_rounds', 'gm_results')
+                ->with('gm_rounds', 'gm_results', 'user')
                 ->latest()
                 ->paginate(6);
         }
