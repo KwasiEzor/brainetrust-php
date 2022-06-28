@@ -238,8 +238,8 @@
         </div>
         {{-- Recent posts section --}}
         {{-- social media link start --}}
-        <div class="container-xl mt-5">
-            <div class="row mt-5 social-media">
+        <div class="container-xl mt-5 social-media-section">
+            <div class="row mt-5 social-media " id="social-media">
                 <h5>Vous pouvez aussi nous suivre sur les réseaux sociaux</h5>
                 <a href="https://www.facebook.com/groups/66131026195/" target="_blank" class="social-link">
                     <i class="bi bi-facebook"></i> facebook

@@ -231,78 +231,6 @@ p {
 	40% {transform: translateY(-10px);}
 	60% {transform: translateY(-5px);}
 }
-/* button join animation */
-@media screen and (max-width:468px) {
-    .welcome-man{
-        width: 50%;
-        margin-bottom: 10px;
-    }
-
-
-.swiper-pagination-bullet {
-    background-color: var(--clr-white) !important;
-}
-
-.col-lg-6 .content {
-    display: flex;
-    text-align: right;
-    justify-content: flex-end;
-    flex-direction: column;
-}
-
-.col-lg-6 .content.left {
-    text-align: left !important;
-}
-
-.discover-title-box {
-    margin: 0 0 5rem 0 !important;
-}
-
-.discover-section .col-lg-6 {
-    display: grid;
-    place-content: center;
-}
-
-.discover-section {
-    border-radius: 0.7rem;
-    padding: 3rem 0;
-}
-
-/* Social media area */
-.social-media {
-    text-align: center;
-}
-
-.social-media .social-link {
-    font-size: clamp(1.8rem, 4vw, 2rem);
-}
-
-/* Partners area */
-
-.partners-section{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.partners-area .partner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.partners-area .partner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.partners-area .partner img {
-    max-width: 80%;
-}
-
-#navbar_top {
-    transition: all 0.4s ease;
-}
 
 #widget-btn {
     position: fixed;
@@ -332,6 +260,96 @@ p {
 #back-to-top:focus {
     outline: none !important;
     box-shadow: none !important;
+}
+.swiper-pagination-bullet {
+    background-color: var(--clr-white) !important;
+}
+
+/* Partners area */
+
+.partners-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.partners-area .partner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.partners-area .partner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Social media area */
+.social-media-section .social-media {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.social-media .social-link {
+    font-size: clamp(1.8rem, 4vw, 2rem);
+}
+
+
+.partners-area .partner img {
+    max-width: 80%;
+}
+
+/* button join animation */
+@media screen and (max-width:468px) {
+    .welcome-man{
+        width: 50%;
+        margin-bottom: 10px;
+    }
+
+
+
+
+.col-lg-6 .content {
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.col-lg-6 .content.left {
+    text-align: left !important;
+}
+
+.discover-title-box {
+    margin: 0 0 5rem 0 !important;
+}
+
+.discover-section .col-lg-6 {
+    display: grid;
+    place-content: center;
+}
+
+.discover-section {
+    border-radius: 0.7rem;
+    padding: 3rem 0;
+}
+
+
+
+
+
+#navbar_top {
+    transition: all 0.4s ease;
+}
+
+
+
+
+/* ============Scrabble presentation page============== */
+
 }
 
 /* Responsive Table */
@@ -428,7 +446,7 @@ p {
     /* ============Scrabble Games Amicales results Table============== */
 }
 
-/* ============Scrabble presentation page============== */
+
 .presentation-video{
     max-width: 800px;
     width: 100%;
