@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $userData = User::with(
+            [
+                'posts',
+                'sc_games',
+                'gm_results' => [
+                    'sc_game'
+                ],
+                'user_info',
+                'comments'
+            ]
+        )
+            ->where('id', Auth()->user()->id)
+            ->get();
+        // dd($userData);
+        return view('home', compact('userData'));
     }
 }

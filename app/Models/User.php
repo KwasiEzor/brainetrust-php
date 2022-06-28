@@ -67,13 +67,13 @@ class User extends Authenticatable
         return $this->hasOne(UserInfo::class);
     }
 
-    public function sc_game(): HasOne
+    public function sc_games(): HasMany
     {
-        return $this->hasOne(ScGame::class);
+        return $this->hasMany(ScGame::class);
     }
 
-    public function gm_result(): HasOne
+    public function gm_results(): HasMany
     {
-        return $this->hasOne(GmResult::class);
+        return $this->hasMany(GmResult::class);
     }
 }
