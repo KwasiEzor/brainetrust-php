@@ -73,12 +73,50 @@
                                                 <div class="card-body">
                                                     <h5 class="card-title">Compétition :
                                                         {{ $result->sc_game->competition }}</h5>
-                                                    <p>Rang : {{ $result->ranking_position }}</p>
-                                                    <p>Cumul joueur : {{ $result->player_top }}</p>
-                                                    <p>Top de partie : {{ $result->game_top }}</p>
+                                                    <p>Rang : 
+                                                        <button class="btn btn-warning">
+                                                            {{ $result->ranking_position }}
+                                                        </button>
+                                                    </p>
+                                                    <p>Cumul joueur : 
+                                                        <span class="badge bg-secondary">
+                                                            {{ $result->player_top }}
+                                                        </span>
+                                                    </p>
+                                                    <p>Top de partie : 
+                                                        <span class="badge bg-primary">
+                                                            {{ $result->game_top }}
+                                                        </span>
+                                                    </p>
                                                     <p>Pourcentage :
-                                                        {{ number_format(($result->player_top * 100) / $result->game_top, 2) }}
-                                                        %</p>
+                                                        {{-- {{ number_format(($result->player_top * 100) / $result->game_top, 2) }}
+                                                        % --}}
+                                                    </p>
+                                                    @if (number_format(($result->player_top * 100) / $result->game_top, 2) >= 80)
+                                                        
+                                                    <div class="progress mb-3">
+                                                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ number_format(($result->player_top * 100) / $result->game_top, 2) }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{ number_format(($result->player_top * 100) / $result->game_top, 2) }}%</div>
+                                                    </div>
+                                                    @endif
+                                                    @if (number_format(($result->player_top * 100) / $result->game_top, 2) < 80 && number_format(($result->player_top * 100) / $result->game_top, 2) >= 70 )
+                                                        
+                                                    <div class="progress mb-3">
+                                                        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ number_format(($result->player_top * 100) / $result->game_top, 2) }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{ number_format(($result->player_top * 100) / $result->game_top, 2) }}%</div>
+                                                    </div>
+                                                    @endif
+                                                    @if (number_format(($result->player_top * 100) / $result->game_top, 2) < 70 && number_format(($result->player_top * 100) / $result->game_top, 2) >= 50 )
+                                                        
+                                                    <div class="progress mb-3">
+                                                        <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ number_format(($result->player_top * 100) / $result->game_top, 2) }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{ number_format(($result->player_top * 100) / $result->game_top, 2) }}%</div>
+                                                    </div>
+                                                    @endif
+                                                    @if (number_format(($result->player_top * 100) / $result->game_top, 2) < 50 )
+                                                        
+                                                    <div class="progress mb-3">
+                                                        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ number_format(($result->player_top * 100) / $result->game_top, 2) }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{ number_format(($result->player_top * 100) / $result->game_top, 2) }}%</div>
+                                                    </div>
+                                                    @endif
+                                                    
                                                     <p>Date : {{ $result->created_at->format('d/m/Y') }}</p>
                                                     <a href="{{route('scgames.show',$result->sc_game)}}">Voir plus</a>
                                                 </div>
@@ -115,11 +153,48 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-6 col-md-auto">
+                                <div class="card d-flex align-items-center justify-content-center h-100 ">
+                                    <div class="card-header border-0">
+                                        Image de profil
+                                    </div>
+                                    <img src="{{$userData[0]->profile_img}}" alt="image" class="card-img img-fluid"
+                                    style="with:100%; max-width:20rem;"
+                                    >
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 {{-- Profile end --}}
-                <div class="tab-pane fade" id="nav-article" role="tabpanel" aria-labelledby="nav-article-tab" tabindex="0">...</div>
+                <div class="tab-pane fade" id="nav-article" role="tabpanel" aria-labelledby="nav-article-tab" tabindex="0">
+
+                    <div class="container">
+                        <div class="row py-5">
+                            @forelse ($userData[0]->posts as $post )
+                                <div class="col-lg-4 col-md-6 col-sm-auto">
+                                    <div class="card">
+                                        <img src="{{ $post->image_url }}" class="img-fluid card-img mb-3" alt="image">
+                                        <div class="card-body">
+                                            <h4 class="card-title text-primary">{{$post->title}}</h4>
+                                            <small class="pe-3"> Catégorie : <span class="badge bg-success">{{$post->category->name}}</span> </small>
+                                            <p class="card-text p-3 bg-light">
+                                                {{ Str::limit($post->content, 120) }}
+                                            </p>
+                                        </div>
+                                        <div class=" p-3 d-flex justify-content-end ">
+                                            <a href="{{ route('posts.show', $post->slug) }}"
+                                                class="btn btn-outline-primary ">Voir
+                                                plus</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @empty
+                                <p>Aucun article</p>
+                            @endforelse
+                        </div>
+                    </div>
+                </div>
                 <div class="tab-pane fade" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab" tabindex="0">...</div>
               </div>
               
