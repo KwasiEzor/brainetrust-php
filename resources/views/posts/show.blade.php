@@ -65,6 +65,9 @@
                                         </a>
                                     @endforeach
                                 </p>
+                                <p class="d-flex align-items-center justify-content-end">
+                                    <a href="{{route('contact-page')}}" class="btn btn-sm btn-outline-danger">Signaler <i class="bi bi-flag-fill"></i></a>
+                                </p>
                             </div>
                         </div>
                     </div>

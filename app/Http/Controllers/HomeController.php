@@ -25,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $userGameScores = [];
+        $userScorePercentages = [];
         $userData = User::with(
             [
                 'posts',
@@ -39,6 +41,12 @@ class HomeController extends Controller
             ->where('id', Auth()->user()->id)
             ->get();
         // dd($userData);
-        return view('home', compact('userData'));
+
+        foreach ($userData[0]->gm_results as $key => $result) {
+            $userGameScores[] .= $result->player_top;
+            $userScorePercentages[] .= number_format(($result->player_top * 100) / $result->game_top, 2);
+        }
+        // dd($userGameScores);
+        return view('home', compact('userData', 'userGameScores', 'userScorePercentages'));
     }
 }

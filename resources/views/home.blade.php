@@ -35,28 +35,30 @@
                     <div class="container">
                         <div class="row py-5">
                             <div class="col-lg-4 col-md-6 col-sm-auto">
-                                <div class="card text-bg-primary mb-3">
-                                    <div class="card-header border-0">Statistques</div>
+                                <div class="card text-bg-primary mb-3 h-100">
+                                    <div class="card-header border-0">Statistques de jeu</div>
                                     <div class="card-body">
-                                      <h5 class="card-title">Primary card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                      <h5 class="card-title">Détails</h5>
+                                      <p class="card-text">Nb de parties jouées : <span class="fw-bold text-primary fs-3">{{$userData[0]->gm_results->count()}}</span> </p>
+                                      <p class="card-text">Meilleur score : <span class="fw-bold text-success fs-3">{{max($userGameScores)}}</span> <i class="bi bi-hand-thumbs-up-fill text-success"></i></p>
+                                      <p class="card-text">Meilleur pourcentage : <span class="fw-bold text-primary fs-3">{{max($userScorePercentages)}} %</span>  <i class="bi bi-check2-circle text-primary"></i></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-auto">
-                                <div class="card text-bg-success mb-3">
+                                <div class="card text-bg-success mb-3 h-100">
                                     <div class="card-header border-0">Articles publiés</div>
                                     <div class="card-body">
-                                      <h5 class="card-title">Primary card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                      <h5 class="card-title">Détails</h5>
+                                      <p class="card-text">Nb d'articles : <span class="fw-bold text-primary fs-3">{{$userData[0]->posts->count()}}</span></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-auto">
-                                <div class="card text-bg-warning mb-3">
+                                <div class="card text-bg-warning mb-3 h-100">
                                     <div class="card-header border-0">Commentaires</div>
                                     <div class="card-body">
-                                      <h5 class="card-title">Points de vue</h5>
+                                      <h5 class="card-title">Détails</h5>
                                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </div>
                                 </div>
@@ -173,7 +175,7 @@
                         <div class="row py-5">
                             @forelse ($userData[0]->posts as $post )
                                 <div class="col-lg-4 col-md-6 col-sm-auto">
-                                    <div class="card">
+                                    <div class="card h-100">
                                         <img src="{{ $post->image_url }}" class="img-fluid card-img mb-3" alt="image">
                                         <div class="card-body">
                                             <h4 class="card-title text-primary">{{$post->title}}</h4>

@@ -128,3 +128,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+// Js-cookie-consent handle
+
+window.addEventListener("DOMContentLoaded", function () {
+    const jsCookieConsent = document.querySelector(".js-cookie-consent");
+    this.setTimeout(function () {
+        jsCookieConsent.classList.add("show-cookie");
+    }, 8000);
+});

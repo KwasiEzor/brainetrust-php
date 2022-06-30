@@ -448,3 +448,34 @@ p {
     align-items: center;
     justify-content: center;
 }
+/*=============JSCOOKIE=========================*/
+
+.js-cookie-consent{
+    position: absolute;
+    bottom: 0;
+    z-index: 9999;
+    background-color: #f0eeee;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 1rem 2rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.075);
+    border-top: 1px solid var( --clr-light-white);
+    opacity: 0;
+}
+.js-cookie-consent-agree{
+    border: none;
+    border-radius: 0.25rem;
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+    
+}
+.js-cookie-consent.show-cookie{
+    opacity: 1;
+    transition: all 0.4s ease;
+}

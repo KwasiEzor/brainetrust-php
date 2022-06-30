@@ -93,7 +93,7 @@
                                     <a class="dropdown-item" href="{{ route('infos')}}">Infos pratiques</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Liens</a>
+                                    <a class="dropdown-item" href="#">Abonnement</a>
                                 </li>
 
                             </ul>
@@ -157,6 +157,9 @@
         @include('inc.app-widgets')
         @include('inc.scrolltop-btn')
         @include('inc.footer')
+           
+        @include('cookie-consent::index')
+        
     </div>
     <script src="{{ asset('js/index.js') }}"></script>
     {{-- <script src="node_modules/swiper/swiper.bundle.min.js"></script> --}}
