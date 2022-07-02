@@ -13,6 +13,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AboutClubController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\InterclubController;
 use App\Http\Controllers\MailContactController;
 use App\Http\Controllers\PlayScrabbleController;
 use App\Http\Controllers\ScGameController;
@@ -31,6 +32,11 @@ use App\Http\Controllers\ScGameController;
 Route::get('/', [HomepageController::class, 'index'])->name('home-page');
 
 Auth::routes();
+Route::controller(InterclubController::class)->group(function () {
+    Route::get('/interclubs', 'index')->name('interclubs.index');
+    Route::get('/interclubs/{interclub}', 'show')->name('interclubs.show');
+    Route::get('/interclubs/club/{id}', 'fetchClubById')->name('interclubs.single-club');
+});
 Route::controller(ScGameController::class)->group(function () {
     Route::get('/amicales', 'index')->name('scgames.index');
     Route::get('/amicales/{scGame}', 'show')->name('scgames.show');

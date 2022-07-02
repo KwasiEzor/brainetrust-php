@@ -1,5 +1,6 @@
-console.log("index is running ... !");
-
+const clubName = document.querySelector("#club_name");
+const clubDay = document.querySelector("#club_day");
+const clubTime = document.querySelector("#club_time");
 const CSRF_TOKEN = document
     .querySelector('meta[name="csrf-token"]')
     .getAttribute("content");
@@ -41,21 +42,14 @@ const fetchClubById = (id) => {
                 phone_number,
             } = club;
 
-            document.querySelector("#club_name").innerHTML = name;
-            document.querySelector("#club_day").innerHTML = training_day;
-            document.querySelector("#club_time").innerHTML = training_time;
+            clubName.innerHTML = name;
+            clubDay.innerHTML = training_day;
+            clubTime.innerHTML = training_time;
         })
         .catch((error) => {
             console.error("Error:", error);
         });
 };
-
-/**
- *
- *GOOGLE MAPS
- *
- *
- */
 
 let clubsData = [];
 
@@ -72,8 +66,14 @@ fetch("/clubs-data", {
         clubsData.push(clubs);
     });
 
-console.log(clubsData);
+// console.log(clubsData);
 
+/**
+ *
+ *GOOGLE MAPS
+ *
+ *
+ */
 // function initMap() {
 //     // The location of Uluru
 //     const uluru = { lat: -25.344, lng: 131.031 };
@@ -137,3 +137,31 @@ window.addEventListener("DOMContentLoaded", function () {
         jsCookieConsent.classList.add("show-cookie");
     }, 8000);
 });
+
+// interclubs page
+
+const scrabbleClubs = document.querySelectorAll(".scrabble-club");
+
+scrabbleClubs.forEach((club) => {
+    club.addEventListener("mouseover", function () {
+        let currentid = club.getAttribute("data-id");
+        fetchSingleClubById(currentid);
+    });
+});
+
+const fetchSingleClubById = (id) => {
+    fetch(`interclubs/club/${id}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-Token": CSRF_TOKEN,
+        },
+    })
+        .then((response) => response.json())
+        .then((club) => {
+            console.log("Success:", club);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+};

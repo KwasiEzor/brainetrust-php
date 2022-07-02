@@ -13,6 +13,7 @@ use Database\Seeders\GmRoundSeeder;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\GmResultSeeder;
 use Database\Seeders\AboutClubSeeder;
+use Database\Seeders\InterclubSeeder;
 use Database\Seeders\RoleTableSeeder;
 use Database\Seeders\PlayerSerieSeeder;
 use Illuminate\Support\Facades\Storage;
@@ -53,5 +54,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ScGameSeeder::class);
         $this->call(GmRoundSeeder::class);
         $this->call(GmResultSeeder::class);
+        $this->call(InterclubSeeder::class);
     }
 }

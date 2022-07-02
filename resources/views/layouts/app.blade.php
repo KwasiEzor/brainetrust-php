@@ -73,8 +73,12 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{route('scgames.index')}}">Amicales</a></li>
-                                <li><a class="dropdown-item" href="#">Interclubs</a></li>
+                                <li><a class="dropdown-item" href="{{route('interclubs.index')}}">Interclubs</a></li>
                                 <li><a class="dropdown-item" href="#">Classements</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('clubs.index') }}">Liste des Clubs</a>
+                                </li>
+                                
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -86,14 +90,12 @@
                                 <li><a class="dropdown-item" href="{{ route('about-page') }}">A propos</a></li>
                                 <li><a class="dropdown-item" href="{{ route('users.index') }}">Membres</a></li>
 
+                               
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('clubs.index') }}">Liste Clubs</a>
+                                    <a class="dropdown-item" href="#">Abonnement</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('infos')}}">Infos pratiques</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Abonnement</a>
                                 </li>
 
                             </ul>
@@ -151,7 +153,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="" style="min-height: 100vh;">
             @yield('content')
         </main>
         @include('inc.app-widgets')
