@@ -106,6 +106,11 @@
                         <li class="nav-item">
                             <a href="{{ route('posts.index') }}" class="nav-link">Blog</a>
                         </li>
+                        @if(!Auth::guest())
+                        <li class="nav-item">
+                            <a href="{{ url('/chatify') }}" class="nav-link">Chat <i class="bi bi-chat-text-fill"></i></a>
+                        </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -133,6 +138,9 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <li>
                                         <a href="{{ route('home') }}" class="dropdown-item"> {{ __('Mon compte') }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('/chatify') }}" class="dropdown-item"> {{ __('Chat') }}</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
