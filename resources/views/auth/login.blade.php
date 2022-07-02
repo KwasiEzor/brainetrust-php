@@ -6,36 +6,39 @@
             <h2 class="page-title">Page de connexion</h2>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card border-0 px-3 py-5">
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form class=" d-flex flex-column gap-4 " method="POST" action="{{ route('login') }}">
                             @csrf
 
-                            <div class="form-group mb-3 row">
-                                <label for="email" class="col-md-4 col-form-label text-end">
+                            <div class="form-group ">
+                                <label for="email" class="form-label fs-5 text-primary">
+                                    <i class="bi bi-envelope-fill"></i>
                                     {{ __('Email') }} :
                                 </label>
 
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
+                                <input id="email" type="email"
+                                    class="form-control @error('email') is-invalid @enderror" name="email"
+                                    value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
                             </div>
 
-                            <div class="mb-3 row">
-                                <label for="password" class="col-md-4 col-form-label text-end">
+                            <div class="form-group ">
+                                <label for="password" class="form-label  fs-5 text-primary">
+                                    <i class="bi bi-lock-fill"></i>
                                     {{ __('Mot de passe') }} :
                                 </label>
 
-                                <div class="form-group col-md-6">
+                                
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password">
@@ -45,33 +48,34 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                </div>
+                               
                             </div>
 
-                            <div class="form-group mb-3 row">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                            {{ old('remember') ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="remember">
-                                            {{ __('Se souvenir de moi') }}
-                                        </label>
-                                    </div>
-                                </div>
+                            <div class="form-group">
+
+                                
+                                    <input class="form-check-input " type="checkbox" name="remember" id="remember"
+                                        {{ old('remember') ? 'checked' : '' }}>
+                                    <label class="form-check-label text-primary" for="remember">
+                                        {{ __('Se souvenir de moi') }}
+                                    </label>
+                                
+
                             </div>
 
-                            <div class="form-group mb-3 row">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Login') }}
-                                    </button>
+                            <div class="form-group d-grid">
 
-                                    @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Mot de passe oublié ?') }}
-                                        </a>
-                                    @endif
-                                </div>
+                                <button type="submit" class="btn btn-primary fs-5">
+                                    {{ __('Je me connecte') }}
+                                    <i class="bi bi-send-fill"></i>
+                                </button>
+
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Mot de passe oublié ?') }}
+                                    </a>
+                                @endif
+
                             </div>
                         </form>
                     </div>

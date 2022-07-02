@@ -31,23 +31,23 @@
                           <form action="{{ route('send-email') }}" method="POST" class="contact-form" id="contactForm">
                             @csrf
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control shadow-sm bg-white border-light" id="floatingText" name="name" placeholder="Enter your name">
-                                <label for="floatingText">Name</label>
+                                <input type="text" class="form-control" id="floatingText" name="name" placeholder="Enter your name">
+                                <label for="floatingText">Nom et prénoms</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control shadow-sm bg-white border-light" id="floatingEmail" name="email" placeholder="name@example.com">
-                                <label for="floatingEmail">Email address</label>
+                                <input type="email" class="form-control" id="floatingEmail" name="email" placeholder="name@example.com">
+                                <label for="floatingEmail">Adresse Email</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control shadow-sm bg-white border-light" id="floatingText" name="subject" placeholder="Subject">
-                                <label for="floatingText">Subject</label>
+                                <input type="text" class="form-control" id="floatingText" name="subject" placeholder="Subject">
+                                <label for="floatingText">Sujet</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control shadow-sm bg-white border-light" style="min-height: 10rem;" cols="30" rows="10" placeholder="Leave message here" id="floatingTextarea" name="message"></textarea>
+                                <textarea class="form-control" style="min-height: 10rem;resize:none;" cols="30" rows="10" placeholder="Leave message here" id="floatingTextarea" name="message"></textarea>
                                 <label for="floatingTextarea">Message</label>
                               </div>
                             <div class="form-group mt-4 d-grid">
-                                <button type="submit" class="btn btn-lg d-block btn-outline-primary" >Send message</button>
+                                <button type="submit" class="btn btn-lg d-block btn-primary" >Envoyer message <i class="bi bi-send-fill"></i></button>
                             </div>
                           </form>
                       </div>

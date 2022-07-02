@@ -84,6 +84,7 @@
 
                         <div class="form-group d-grid" >
                             <button type="submit" class="btn btn-primary fs-5">
+                                <i class="bi bi-send-fill"></i>
                                 {{ __('Je m\'inscris') }}
                             </button>
                         </div>
