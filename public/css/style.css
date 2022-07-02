@@ -480,3 +480,26 @@ p {
     transition: all 0.4s ease;
 }
 /* Interclub page */
+
+
+/* Footer */
+footer{
+    background-color: var(--clr-primary);
+    color: var(--clr-white) !important;
+}
+footer p{
+    color: var(--clr-white) !important;
+}
+footer .col-lg-2 ul li a{
+    font-size: 11px;
+    transition: all 200ms ease;
+    border-left: 4px solid transparent;
+    color: var(--clr-white);
+}
+footer .col-lg-2 ul li a:hover,
+footer .col-lg-2 ul li a:focus{
+    padding-left: 5px;
+    border-left: 4px solid var(--color-yellow);
+    color: var(--color-yellow) !important;
+
+}
