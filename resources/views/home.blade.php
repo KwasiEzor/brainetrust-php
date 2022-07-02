@@ -39,9 +39,30 @@
                                     <div class="card-header border-0">Statistques de jeu</div>
                                     <div class="card-body">
                                       <h5 class="card-title">Détails</h5>
-                                      <p class="card-text">Nb de parties jouées : <span class="fw-bold text-primary fs-3">{{$userData[0]->gm_results->count()}}</span> </p>
-                                      <p class="card-text">Meilleur score : <span class="fw-bold text-success fs-3">{{max($userGameScores)}}</span> <i class="bi bi-hand-thumbs-up-fill text-success"></i></p>
-                                      <p class="card-text">Meilleur pourcentage : <span class="fw-bold text-primary fs-3">{{max($userScorePercentages)}} %</span>  <i class="bi bi-check2-circle text-primary"></i></p>
+                                      <p class="card-text">Nb de parties jouées : <span class="fw-bold text-primary fs-3">
+                                        @if ($userData[0]->gm_results->count())
+                                        {{$userData[0]->gm_results->count() }}
+                                        @else
+                                            0
+                                        @endif
+                                        </span> 
+                                    </p>
+                                      <p class="card-text">Meilleur score : <span class="fw-bold text-success fs-3">
+                                        @if ($userGameScores)
+                                        {{max($userGameScores) }}</span> <i class="bi bi-hand-thumbs-up-fill text-success"></i>
+                                        @else
+                                            0
+                                        @endif
+                                        
+                                    </p>
+                                      <p class="card-text">Meilleur pourcentage : <span class="fw-bold text-primary fs-3">
+                                        @if ($userScorePercentages)
+                                            
+                                        {{max($userScorePercentages) }} %</span>  <i class="bi bi-check2-circle text-primary"></i>
+                                        @else
+                                            0%
+                                        @endif
+                                    </p>
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +71,13 @@
                                     <div class="card-header border-0">Articles publiés</div>
                                     <div class="card-body">
                                       <h5 class="card-title">Détails</h5>
-                                      <p class="card-text">Nb d'articles : <span class="fw-bold text-primary fs-3">{{$userData[0]->posts->count()}}</span></p>
+                                      <p class="card-text">Nb d'articles : <span class="fw-bold text-primary fs-3">
+                                        @if ($userData[0]->posts->count())
+                                            {{$userData[0]->posts->count()}}
+                                        @else
+                                            0
+                                        @endif
+                                    </span></p>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +109,7 @@
                                                     </p>
                                                     <p>Cumul joueur : 
                                                         <span class="badge bg-secondary">
-                                                            {{ $result->player_top }}
+                                                            {{ $result->player_top  }}
                                                         </span>
                                                     </p>
                                                     <p>Top de partie : 
@@ -145,11 +172,49 @@
                                         <ul class="list-group">     
                                             <li class="list-group-item border-0">Nom : {{$userData[0]->name}}</li>
                                             <li class="list-group-item border-0">Email : <a href="mailto:{{$userData[0]->email}}">{{$userData[0]->email}}</a> </li>
-                                            <li class="list-group-item border-0">Date de naissance : {{$userData[0]->user_info->birthday}}</li>
-                                            <li class="list-group-item border-0">Ville : {{$userData[0]->user_info->city}}</li>
-                                            <li class="list-group-item border-0">Adresse : <address>{{$userData[0]->user_info->address}}</address> </li>
-                                            <li class="list-group-item border-0">Code postal : {{$userData[0]->user_info->zip_code}}</li>
-                                            <li class="list-group-item border-0">Contact : {{$userData[0]->user_info->phone}}</li>
+                                            <li class="list-group-item border-0">Date de naissance : 
+                                                @if ($userData[0]->user_info)
+                                                    
+                                                {{$userData[0]->user_info->birthday}}
+                                                @else
+                                                    <span>Néant</span>
+                                                @endif
+                                            </li>
+                                            <li class="list-group-item border-0">Ville : 
+                                                @if ($userData[0]->user_info)
+                                                    
+                                                {{$userData[0]->user_info->city}}
+                                                @else
+                                                    <span>Néant</span>
+                                                @endif
+                                            </li>
+                                            <li class="list-group-item border-0">Adresse : 
+                                                @if ($userData[0]->user_info)
+                                                    
+                                                <address>
+                                                    {{$userData[0]->user_info->address}}
+                                                </address> 
+                                                @else
+                                                    <span>Néant</span>
+                                                @endif
+                                            </li>
+                                            <li class="list-group-item border-0">Code postal :
+                                                @if ($userData[0]->user_info)
+                                                    
+                                                {{$userData[0]->user_info->zip_code}}
+                                                @else
+                                                    <span>Néant</span>
+                                                @endif
+                                                
+                                                </li>
+                                            <li class="list-group-item border-0">Contact : 
+                                                @if ($userData[0]->user_info)
+                                                    
+                                                {{$userData[0]->user_info->phone}}
+                                                @else
+                                                    <span>Néant</span>
+                                                @endif
+                                            </li>
                                           
                                         </ul>
                                     </div>
@@ -160,7 +225,13 @@
                                     <div class="card-header border-0">
                                         Image de profil
                                     </div>
-                                    <img src="{{$userData[0]->profile_img}}" alt="image" class="card-img img-fluid"
+                                    <img src="
+                                    @if ($userData[0]->profile_img)
+                                    {{$userData[0]->profile_img}}
+                                    @else
+                                        {{asset('images/default-user.png')}}
+                                    @endif
+                                    " alt="image" class="card-img img-fluid"
                                     style="with:100%; max-width:20rem;"
                                     >
                                 </div>
