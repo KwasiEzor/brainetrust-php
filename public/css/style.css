@@ -94,15 +94,34 @@ p {
 .title-letter {
     width: 60px;
 }
-
+.nav-menu .nav-item{
+    width: 100%;
+    padding-inline: 0.25rem;
+}
 .nav-item .nav-link {
     font-size: 1.05rem !important;
+    transition: 0.5s ease;  
+}
+.nav-menu a:is(.active){
+    color: var(--color-yellow) !important;
 }
 
+.register-link{
+    background-color: var(--color-yellow);
+    padding: 0.15rem 1rem;
+    color: var(--clr-white) !important;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.386);
+    border-radius: 0.35rem;
+    margin-right: 1rem;
+}
 .navbar-toggler:focus {
     outline: none !important;
 }
 
+.nav-menu .nav-link:hover,
+.nav-menu .nav-link:focus{
+    color: var(--color-yellow) !important;
+}
 /* .navbar-expand-md{
     box-shadow: var(--sm-boxshadow);
 } */

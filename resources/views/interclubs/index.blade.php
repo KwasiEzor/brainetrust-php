@@ -27,7 +27,7 @@
                         <div class="row">
                             <div class="col-md-3 col-sm-auto">
                                 <div class="form-floating">
-                                    <select class="form-select border-0 shadow-sm bg-white" id="floatingSelectGrid" name="receiver-team">
+                                    <select class="form-select " id="floatingSelectGrid" name="receiver-team">
                                         <option selected ></option>
                                         @foreach ($interclubsData as $match )
                                             <option value="{{$match->receiver_team->id}}">
@@ -40,7 +40,7 @@
                             </div>
                             <div class="col-md-3 col-sm-auto">
                                 <div class="form-floating">
-                                    <select class="form-select border-0 shadow-sm bg-white" id="floatingSelectGrid" name="visitor-team">
+                                    <select class="form-select " id="floatingSelectGrid" name="visitor-team">
                                         <option selected ></option>
                                         @foreach ($interclubsData as $match )
                                             <option value="{{$match->visitor_team->id}}">
@@ -54,7 +54,7 @@
                             </div>
                             <div class="col-md-3 col-sm-auto ">
                                 <div class="form-floating">
-                                    <select class="form-select border-0 shadow-sm bg-white" id="floatingSelectGrid" name="player-serie">
+                                    <select class="form-select " id="floatingSelectGrid" name="player-serie">
                                         <option selected ></option>
                                         @foreach ($interclubDivisions as $interclubDivision )
                                             <option value="{{$interclubDivision->player_serie_id }}">
@@ -67,7 +67,7 @@
                             </div>
                             <div class="col-md-3 col-sm-auto">
                                 <div class="form-floating">
-                                    <select class="form-select border-0 shadow-sm bg-white" id="floatingSelectGrid" name="match-date">
+                                    <select class="form-select " id="floatingSelectGrid" name="match-date">
                                         <option selected ></option>
                                         @foreach ($interclubsData as $match )
                                             <option value="{{$match->match_date}}">

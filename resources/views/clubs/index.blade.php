@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="col-6 mx-auto">
                                 <div class="form-group mb-3">
-                                    <input type="search" class="form-control border-0 p-3 shadow-sm bg-white"
+                                    <input type="search" class="form-control p-3"
                                         name="search" id="searchInput" placeholder="Entrez un mot clé...">
                                 </div>
                             </div>
@@ -24,7 +24,7 @@
                         <div class="row">
                             <div class="col-md-3 col-sm-auto">
                                 <div class="form-floating">
-                                    <select class="form-select border-0 shadow-sm bg-white" id="floatingSelectGrid"
+                                    <select class="form-select" id="floatingSelectGrid"
                                         name="name">
                                         <option selected>...</option>
                                         @foreach ($clubs as $club)
@@ -36,7 +36,7 @@
                             </div>
                             <div class="col-md-3 col-sm-auto">
                                 <div class="form-floating">
-                                    <select class="form-select border-0 shadow-sm bg-white" id="floatingSelectGrid"
+                                    <select class="form-select" id="floatingSelectGrid"
                                         name="locality">
                                         <option selected>...</option>
                                         @foreach ($clubs as $club)
@@ -49,7 +49,7 @@
                             </div>
                             <div class="col-md-3 col-sm-auto ">
                                 <div class="form-floating">
-                                    <select class="form-select border-0 shadow-sm bg-white" id="floatingSelectGrid"
+                                    <select class="form-select" id="floatingSelectGrid"
                                         name="address">
                                         <option selected>...</option>
                                         @foreach ($clubs as $club)

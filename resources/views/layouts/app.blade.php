@@ -56,9 +56,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto nav-menu">
                         <li class="nav-item">
-                            <a href="{{ route('home-page') }}" class="nav-link">Accueil</a>
+                            <a href="{{ route('home-page') }}" aria-current="page" class="nav-link" >Accueil</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('agendas.index') }}" class="nav-link">Agendas</a>
@@ -74,7 +74,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{route('scgames.index')}}">Amicales</a></li>
                                 <li><a class="dropdown-item" href="{{route('interclubs.index')}}">Interclubs</a></li>
-                                <li><a class="dropdown-item" href="#">Classements</a></li>
+                                {{-- <li><a class="dropdown-item" href="#">Classements</a></li> --}}
                                 <li>
                                     <a class="dropdown-item" href="{{ route('clubs.index') }}">Liste des Clubs</a>
                                 </li>
@@ -108,7 +108,7 @@
                         </li>
                         @if(!Auth::guest())
                         <li class="nav-item">
-                            <a href="{{ url('/chatify') }}" class="nav-link">Chat <i class="bi bi-chat-text-fill"></i></a>
+                            <a href="{{ url('/chatify') }}" class="nav-link chat-link">Chat <i class="bi bi-chat-text-fill"></i></a>
                         </li>
                         @endif
                     </ul>
@@ -120,12 +120,12 @@
                             
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}" >{{ __('S\'inscrire') }}</a>
+                                    <a class="nav-link register-link" href="{{ route('register') }}" >{{ __('S\'inscrire') }}</a>
                                 </li>
                             @endif
                             @if (Route::has('login'))
                                 <li class="nav-item ">
-                                    <a class="nav-link"  href="{{ route('login') }}"><i class="bi bi-person-circle"></i></a>
+                                    <a class="nav-link login-link"  href="{{ route('login') }}"><i class="bi bi-person-circle"></i></a>
                                 </li>
                             @endif
                         @else

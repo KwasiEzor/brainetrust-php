@@ -138,30 +138,8 @@ window.addEventListener("DOMContentLoaded", function () {
     }, 8000);
 });
 
-// interclubs page
+// Homepage link
 
-const scrabbleClubs = document.querySelectorAll(".scrabble-club");
+const navMenu = document.querySelector(".nav-menu");
 
-scrabbleClubs.forEach((club) => {
-    club.addEventListener("mouseover", function () {
-        let currentid = club.getAttribute("data-id");
-        fetchSingleClubById(currentid);
-    });
-});
-
-const fetchSingleClubById = (id) => {
-    fetch(`interclubs/club/${id}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-Token": CSRF_TOKEN,
-        },
-    })
-        .then((response) => response.json())
-        .then((club) => {
-            console.log("Success:", club);
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
-};
+const navLinks = document.querySelectorAll(".nav-menu a");
