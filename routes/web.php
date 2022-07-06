@@ -37,6 +37,7 @@ Auth::routes();
 
 Route::controller(AbonnementController::class)->group(function () {
     Route::get('/abonnement', 'index')->name('abonnement.index');
+    Route::get('/abonnement/thank-you', 'paymentSuccess')->name('abonnement.thankyou');
     Route::get('/abonnement/amateur', 'amateurPurchase')->name('abonnement.amateur')->middleware('auth');
     Route::get('/abonnement/confirmed', 'confirmedPurchase')->name('abonnement.confirmed')->middleware('auth');
     Route::post('/abonnement/amateur', 'sendPayment')->name('abonnement.amateur-payment')->middleware('auth');

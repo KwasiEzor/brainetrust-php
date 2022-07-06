@@ -21,6 +21,10 @@ class AbonnementController extends Controller
     {
         return view('abonnement.confirmed');
     }
+    public function paymentSuccess()
+    {
+        return view('abonnement.thankyou');
+    }
 
     public function sendPayment(Request $request)
     {
@@ -34,6 +38,6 @@ class AbonnementController extends Controller
             $amount += 6800;
             $auth_user->charge($amount, $request->payment_method);
         }
-        return redirect()->back()->with('message', 'Merci. Votre payement a été bien enregistré !!!');
+        return redirect()->route('abonnement.thankyou');
     }
 }
