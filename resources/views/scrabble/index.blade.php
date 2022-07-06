@@ -15,6 +15,7 @@
                                         </video>
                                     </div>
                                 </div>
+                                <p class="p-3">Source YouTube : <a href="https://www.youtube.com/c/Scrabblophile" target="_blank"> Scrabblophile </a></p>
                             </div>
                         </div>
                         @foreach ($scrabbleData as $data)

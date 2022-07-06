@@ -522,3 +522,14 @@ footer .col-lg-2 ul li a:focus{
     color: var(--color-yellow) !important;
 
 }
+
+/* 
+===================== Abonnement page============================== */
+
+
+.pricing-item .card-header h4{
+    padding: 1rem 0;
+}
+#amateur-lady-box{
+    background-color: var(--clr-primary) !important;
+}

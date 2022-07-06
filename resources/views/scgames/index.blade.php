@@ -4,6 +4,15 @@
     <div class="container-xl">
 
         <div class="container ">
+            <div class="row ms-4 me-2">
+                <div class="col-8 mx-auto">
+                    <h2 class="page__title text-center mt-5">
+                        <a href="{{ route('scgames.index') }}" class="page-title ">
+                            Amicales
+                        </a>
+                    </h2>
+                </div>
+            </div>
             <div class="row mb-5">
                 <div class=" col-md-6 col-sm-auto  mt-4 mb-0 mx-auto">
                     <form action="{{route('scgames.index')}}" method="GET" role="search">

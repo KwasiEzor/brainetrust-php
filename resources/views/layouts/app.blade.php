@@ -74,7 +74,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{route('scgames.index')}}">Amicales</a></li>
                                 <li><a class="dropdown-item" href="{{route('interclubs.index')}}">Interclubs</a></li>
-                                {{-- <li><a class="dropdown-item" href="#">Classements</a></li> --}}
+                                <li><a class="dropdown-item" href="{{route('rankings.index')}}">Classements</a></li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('clubs.index') }}">Liste des Clubs</a>
                                 </li>
@@ -92,7 +92,7 @@
 
                                
                                 <li>
-                                    <a class="dropdown-item" href="#">Abonnement</a>
+                                    <a class="dropdown-item" href="{{route('abonnement.index')}}">Abonnement</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('infos')}}">Infos pratiques</a>
@@ -107,8 +107,8 @@
                             <a href="{{ route('posts.index') }}" class="nav-link">Blog</a>
                         </li>
                         @if(!Auth::guest())
-                        <li class="nav-item">
-                            <a href="{{ url('/chatify') }}" class="nav-link chat-link">Chat <i class="bi bi-chat-text-fill"></i></a>
+                        <li class="nav-item ">
+                            <a href="{{ url('/chatify') }}" class="nav-link chat-link d-flex align-items-center justify-content-center gap-1">Chat <i class="bi bi-chat-text-fill"></i></a>
                         </li>
                         @endif
                     </ul>
@@ -171,6 +171,7 @@
         @include('cookie-consent::index')
         
     </div>
+    @yield('stripe-payment-js')
     <script src="{{ asset('js/index.js') }}"></script>
     {{-- <script src="node_modules/swiper/swiper.bundle.min.js"></script> --}}
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

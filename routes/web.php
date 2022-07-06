@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbonnementController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,7 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\InterclubController;
 use App\Http\Controllers\MailContactController;
 use App\Http\Controllers\PlayScrabbleController;
+use App\Http\Controllers\RankingController;
 use App\Http\Controllers\ScGameController;
 
 /*
@@ -32,6 +34,19 @@ use App\Http\Controllers\ScGameController;
 Route::get('/', [HomepageController::class, 'index'])->name('home-page');
 
 Auth::routes();
+
+Route::controller(AbonnementController::class)->group(function () {
+    Route::get('/abonnement', 'index')->name('abonnement.index');
+    Route::get('/abonnement/amateur', 'amateurPurchase')->name('abonnement.amateur')->middleware('auth');
+    Route::get('/abonnement/confirmed', 'confirmedPurchase')->name('abonnement.confirmed')->middleware('auth');
+    Route::post('/abonnement/amateur', 'sendPayment')->name('abonnement.amateur-payment')->middleware('auth');
+    Route::post('/abonnement/confirmed', 'sendPayment')->name('abonnement.confirmed-payment')->middleware('auth');
+});
+
+Route::controller(RankingController::class)->group(function () {
+    Route::get('/classements', 'index')->name('rankings.index');
+});
+
 Route::controller(InterclubController::class)->group(function () {
     Route::get('/interclubs', 'index')->name('interclubs.index');
     Route::get('/interclubs/{interclub}', 'show')->name('interclubs.show');
