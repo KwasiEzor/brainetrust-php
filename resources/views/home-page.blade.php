@@ -9,13 +9,13 @@
                     <h3>au</h3>
                     <h1 class="home__title text-uppercase">Braine</h1>
                     <div class="hero-image-box">
-                        <img src="{{ asset('images/trust-logo.svg') }}" class="img-fluid"
+                        <img src="{{ asset('images/trust-logo.svg') }}" loading="lazy" class="img-fluid"
                             style="max-width: 90%; width:fit-content;" alt="image trust" srcset="">
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-sm-auto hero__section__right">
-                <img src="{{ asset('images/scrabble-hero-bg.png') }}" style="max-width: 96%; width:fit-content;"
+                <img src="{{ asset('images/scrabble-hero-bg.png') }}" loading="lazy" style="max-width: 96%; width:fit-content;"
                     alt="image scrabble" class="img-fluid">
             </div>
             <!-- Swiper -->
@@ -23,42 +23,42 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <figure class="figure">
-                            <img class="figure-img img-fluid rounded" src="{{ asset('images/badge-carousel-ods.svg') }}"
+                            <img class="figure-img img-fluid rounded" loading="lazy" src="{{ asset('images/badge-carousel-ods.svg') }}"
                                 alt="image">
                             <figcaption></figcaption>
                         </figure>
                     </div>
                     <div class="swiper-slide">
                         <figure class="figure">
-                            <img class="figure-img img-fluid rounded"
+                            <img class="figure-img img-fluid rounded" loading="lazy"
                                 src="{{ asset('images/badge-carousel-scrabble.svg') }}" alt="image">
                             <figcaption></figcaption>
                         </figure>
                     </div>
                     <div class="swiper-slide">
                         <figure class="figure">
-                            <img class="figure-img img-fluid rounded" src="{{ asset('images/badge-duplicate.svg') }}"
+                            <img class="figure-img img-fluid rounded" loading="lazy" src="{{ asset('images/badge-duplicate.svg') }}"
                                 alt="image">
                             <figcaption></figcaption>
                         </figure>
                     </div>
                     <div class="swiper-slide">
                         <figure class="figure">
-                            <img class="figure-img img-fluid rounded" src="{{ asset('images/badge-carousel-ods.svg') }}"
+                            <img class="figure-img img-fluid rounded" loading="lazy" src="{{ asset('images/badge-carousel-ods.svg') }}"
                                 alt="image">
                             <figcaption></figcaption>
                         </figure>
                     </div>
                     <div class="swiper-slide">
                         <figure class="figure">
-                            <img class="figure-img img-fluid rounded"
+                            <img class="figure-img img-fluid rounded" loading="lazy"
                                 src="{{ asset('images/badge-carousel-scrabble.svg') }}" alt="image">
                             <figcaption></figcaption>
                         </figure>
                     </div>
                     <div class="swiper-slide">
                         <figure class="figure">
-                            <img class="figure-img img-fluid rounded" src="{{ asset('images/badge-duplicate.svg') }}"
+                            <img class="figure-img img-fluid rounded" loading="lazy" src="{{ asset('images/badge-duplicate.svg') }}"
                                 alt="image">
                             <figcaption></figcaption>
                         </figure>
@@ -81,15 +81,15 @@
             <div class="row bg-white discover-section  pb-4">
                 <div class="col-lg-6 col-md-auto">
                     <figure class="figure">
-                        <img src="{{asset('images/scrabble-jetons.svg')}}" alt="image scrabble" class="figure-img img-fluid rounded">
+                        <img src="{{asset('images/scrabble-jetons.svg')}}" loading="lazy" alt="image scrabble" class="figure-img img-fluid rounded">
                         <figcaption></figcaption>
                     </figure>
                 </div>
                 <div class="col-lg-6 col-md-auto">
                     <div class="content">
                         <h1 class="text-primary">Le Scrabble</h1>
-                        <h3>toutes </h3>
-                        <h2>ses Variantes</h2>
+                        <h3 class="fw-normal text-secondary">toutes </h3>
+                        <h2 class="fw-normal text-secondary">ses Variantes</h2>
                     </div>
                 </div>
             </div>
@@ -97,13 +97,13 @@
                 <div class="col-lg-6 col-md-auto">
                     <div class="content left">
                         <h1 class="text-primary">Le Duplicate</h1>
-                        <h3>pour tester</h3>
-                        <h2>vos Connaissances</h2>
+                        <h3 class="fw-normal text-secondary">pour tester</h3>
+                        <h2 class="fw-normal text-secondary">vos Connaissances</h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-auto">
                     <figure class="figure">
-                        <img src="{{asset('images/scarbble-duplicate.svg')}}" alt="image scrabble" class="figure-img img-fluid rounded">
+                        <img src="{{asset('images/scarbble-duplicate.svg')}}" loading="lazy" alt="image scrabble" class="figure-img img-fluid rounded">
                         <figcaption></figcaption>
                     </figure>
                 </div>
@@ -111,15 +111,15 @@
             <div class="row bg-white discover-section py-4">
                 <div class="col-lg-6 col-md-auto">
                     <figure class="figure">
-                        <img src="{{asset('images/scrabble-classique-duel.svg')}}" alt="image scrabble" class="figure-img img-fluid rounded">
+                        <img src="{{asset('images/scrabble-classique-duel.svg')}}" loading="lazy" alt="image scrabble" class="figure-img img-fluid rounded">
                         <figcaption></figcaption>
                     </figure>
                 </div>
                 <div class="col-lg-6 col-md-auto">
                     <div class="content">
                         <h1 class="text-primary">Le Classique</h1>
-                        <h3>partager de</h3>
-                        <h2>bons Moments</h2>
+                        <h3 class="fw-normal text-secondary">partager de</h3>
+                        <h2 class="fw-normal text-secondary">bons Moments</h2>
                     </div>
                 </div>
             </div>
@@ -174,28 +174,28 @@
                 <div class="col-lg-3 col-md-6 col-sm-auto partner">
                     <a href="https://www.fisf.net/" target="_blank" rel="noopener noreferrer">
                         <figure class="figure">
-                            <img src="{{asset('images/fisf_logo.png')}}" alt="logo" class="figure-img img-fluid rounded">
+                            <img src="{{asset('images/fisf_logo.png')}}" loading="lazy" alt="logo" class="figure-img img-fluid rounded">
                         </figure>
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-auto partner">
                     <a href="https://www.ffsc.fr/index.php?accueil" target="_blank" rel="noopener noreferrer">
                         <figure class="figure">
-                            <img src="{{asset('images/ffsc.png')}}" alt="logo" class="figure-img img-fluid rounded">
+                            <img src="{{asset('images/ffsc.png')}}" loading="lazy" alt="logo" class="figure-img img-fluid rounded">
                         </figure>
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-auto partner">
                     <a href="https://scrabble.fbsc.be/" target="_blank" rel="noopener noreferrer">
                         <figure class="figure">
-                            <img src="{{asset('images/fbs.png')}}" alt="logo" class="figure-img img-fluid rounded">
+                            <img src="{{asset('images/fbs.png')}}" loading="lazy" alt="logo" class="figure-img img-fluid rounded">
                         </figure>
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-auto partner">
                     <a href="https://www.scrabbleouistreham.fr/" target="_blank" rel="noopener noreferrer">
                         <figure class="figure">
-                            <img src="{{asset('images/logo-club-ouistreham.png')}}" alt="logo" class="figure-img img-fluid rounded">
+                            <img src="{{asset('images/logo-club-ouistreham.png')}}" loading="lazy" alt="logo" class="figure-img img-fluid rounded">
                         </figure>
                     </a>
                 </div>

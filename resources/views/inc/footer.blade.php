@@ -2,9 +2,9 @@
     <div class="container py-4">
         <div class="row gy-4 gx-5">
             <div class="col-lg-4 col-md-6">
-                <h6 class="h1 ">
-                    <img src="{{asset('images/logo-braine.svg')}}" alt="logo" style="width: 10rem;">
-                </h6>
+                <a class="logo-braine" href="{{url('/')}}">
+                    <img src="{{asset('images/logo-braine.svg')}}" loading="lazy" alt="logo" style="width: 10rem;">
+                </a>
                 <p class="small ">Le Braine Trust est affilié à la Fédération belge de scrabble sous le numéro 50 depuis 1980.Les amicales ainsi que les interclubs ont lieu le mercredi soir à 20h00 .</p>
               
             </div>

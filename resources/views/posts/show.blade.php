@@ -10,7 +10,7 @@
 
                     <div class="col-auto ">
                         <div class="card py-3 px-3 w-100 h-100">
-                            <img src="{{ $post[0]['image_url'] }}" class="card-img mb-3" alt="image">
+                            <img src="{{ $post[0]['image_url'] }}" loading="lazy" class="card-img mb-3" alt="image">
                             <h3 class="card-title px-3">{{ $post[0]['title'] }}</h3>
                             <h6 class="cart-header d-flex align-items-center justify-content-between px-4">
                                 <span class="author w-50 h-50"> 

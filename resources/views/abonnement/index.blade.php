@@ -83,7 +83,7 @@
                             <div class="card-header border-0 ">
                                 <h4 class="py-3">Plan Confirmé</h4>
                             </div>
-                            <h1 class="card-title py-3"> <span class="badge bg-warning text-shadow">68€</span> <span class="text-muted fs-5">/an</span> </h1>
+                            <h1 class="card-title py-3"> <span class="badge bg-warning text-shadow">60€</span> <span class="text-muted fs-5">/an</span> </h1>
                             <div class="card-body">
                                 <ul class="list-group">
                                     <li class="list-group-item border-0">

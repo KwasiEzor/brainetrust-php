@@ -28,6 +28,7 @@ class AbonnementController extends Controller
 
     public function sendPayment(Request $request)
     {
+
         $amount = 0;
         // dd($request);
         $auth_user = auth()->user();
@@ -35,7 +36,7 @@ class AbonnementController extends Controller
             $amount += 4500;
             $auth_user->charge($amount, $request->payment_method);
         } else if ($request->has('confirmed')) {
-            $amount += 6800;
+            $amount += 6000;
             $auth_user->charge($amount, $request->payment_method);
         }
         return redirect()->route('abonnement.thankyou');

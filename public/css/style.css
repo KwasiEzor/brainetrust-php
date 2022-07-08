@@ -89,6 +89,11 @@ p {
 
 .logo-braine {
     width: 10rem;
+    transition: all 0.3s ease-in-out;
+}
+.logo-braine:hover,
+.logo-braine:focus{
+    transform: scale(1.05);
 }
 
 .title-letter {

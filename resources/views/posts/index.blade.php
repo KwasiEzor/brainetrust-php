@@ -25,7 +25,7 @@
                             @foreach ($posts as $post)
                                 <div class=" col-lg-4 col-md-6 col-sm-auto mt-5 mb-0 ">
                                     <div class="card  w-100 h-100 border-0 shadow-sm">
-                                        <img src="{{ $post->image_url }}" class="card-img mb-3" alt="image">
+                                        <img src="{{ $post->image_url }}" loading="lazy" class="card-img mb-3" alt="image">
                                         <h5 class="card-title px-3">{{ $post->title }}</h5>
                                         <div class="card-body">
                                             <p class="card-text text-muted bg-light p-2 rounded-3">
