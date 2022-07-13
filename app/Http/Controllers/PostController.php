@@ -2,14 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use Share;
+use Exception;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
-use Share;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
+use App\Http\Requests\PostTableRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('role:admin', ['except' => ['index', 'show']]);
+        $this->middleware('permission:manage-all-content', ['except' => ['index', 'show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -67,6 +78,8 @@ class PostController extends Controller
     public function create()
     {
         //
+        $categories = Category::all();
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -77,7 +90,39 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // $request->validate([
+        //     'title' => 'required|unique:posts|max:255',
+        //     'content' => 'required',
+        //     'image_url' => 'image|mimes:png,jpg,jpeg,gif',
+        //     'video_url' => 'url'
+        // ]);
+
+
+
+        $title = $request->get('title');
+
+        if ($request->hasFile('image_url')) {
+            $name = $request->file('image_url')->getClientOriginalName();
+            $imageUrl = $request->file('image_url')->storeAs('images', $name, 'public');
+            // $path = Storage::url('public/images/' . $imageUrl);
+        }
+        if ($request->get('video_url')) {
+            $videoUrl = $request->get('video_url');
+        }
+
+        Post::create([
+            'title' => $title,
+            'slug' => Str::slug($title),
+            'content' => $request->get('content'),
+            'category_id' => $request->get('category_id'),
+            'image_url' => $imageUrl,
+            'video_url' => $request->get('video_url') ? $request->get('video_url') : null,
+            'user_id' => auth()->user()->id,
+            'is_published' => $request->get('is_published') ? 1 : 0
+        ]);
+
+        return redirect()->route('posts.index')->with('success', 'Article créé avec succès');
     }
 
     /**
@@ -129,6 +174,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
+        $categories = Category::all();
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -141,6 +188,43 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        // $this->validate($request, [
+        //     'title' => 'required',
+        //     'content' => 'required|min:5',
+        //     'image_url' => 'image|mimes:png,jpg,jpeg,gif',
+        //     'video_url' => 'url'
+        // ]);
+        $postToUpdate = Post::find($post->id);
+        if ($request->file('image_url')) {
+            $name = $request->file('image_url')->getClientOriginalName();
+            $imageUrl = $request->file('image_url')->storeAs('images', $name, 'public');
+            // $path = Storage::url('public/images/' . $imageUrl);
+            $postToUpdate->udpate([
+                'image_url' => $imageUrl
+            ]);
+        }
+        if ($request->get('video_url')) {
+            $videoUrl = $request->get('video_url');
+            $postToUpdate->udpate([
+                'video_url' => $videoUrl
+            ]);
+        }
+        if ($request->get('is_published')) {
+            $postToUpdate->update([
+                'is_published' => $request->get('is_published')
+            ]);
+        }
+        $title = $request->get('title');
+        $postToUpdate->update([
+            'title' => $title,
+            'slug' => Str::slug($title),
+            'content' => $request->get('content'),
+        ]);
+
+
+        $postToUpdate->save();
+
+        return redirect()->route('posts.index')->with('success', 'Article modifié avec succès');
     }
 
     /**
@@ -149,8 +233,11 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
         //
+        Post::find($id)->delete();
+        return redirect()->route('posts.index')
+            ->with('success', 'Article bien supprimé ');
     }
 }

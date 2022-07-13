@@ -98,6 +98,11 @@ Route::controller(PostController::class)->group(function () {
     Route::get('/blog', 'index')->name('posts.index');
     Route::get('/posts/{param}', 'show')->name('posts.show');
     Route::any('/search', 'search')->name('posts.search');
+    Route::get('/posts', 'create')->name('posts.create');
+    Route::post('/posts', 'store')->name('posts.store');
+    Route::get('/posts/{post}', 'edit')->name('posts.edit');
+    Route::put('/posts/{post}', 'update')->name('posts.update');
+    Route::delete('/posts/{id}', 'destroy')->name('posts.delete');
 });
 
 Route::controller(AboutClubController::class)->group(function () {
