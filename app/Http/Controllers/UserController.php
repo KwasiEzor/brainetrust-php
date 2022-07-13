@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Arr;
 use App\Models\User;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -39,7 +40,8 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::pluck('name', 'name')->all();
-        return view('users.create', compact('roles'));
+        $permissions = Permission::pluck('name', 'name')->all();
+        return view('users.create', compact('roles', 'permissions'));
     }
 
     /**
@@ -54,7 +56,8 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
-            'roles' => 'required'
+            'roles' => 'required',
+            'permissions' => 'required'
         ]);
 
         $input = $request->all();
@@ -88,9 +91,11 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $roles = Role::pluck('name', 'name')->all();
+        $permissions = Permission::pluck('name', 'name')->all();
         $userRole = $user->roles->pluck('name', 'name')->all();
+        $userPermission = $user->permissions->pluck('name', 'name')->all();
 
-        return view('users.edit', compact('user', 'roles', 'userRole'));
+        return view('users.edit', compact('user', 'roles', 'userRole', 'permissions', 'userPermission'));
     }
 
     /**

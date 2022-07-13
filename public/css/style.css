@@ -110,6 +110,9 @@ p {
 .nav-menu a:is(.active){
     color: var(--color-yellow) !important;
 }
+.nav-menu a:active{
+    border-bottom: 1px solid var(--color-yellow) !important;
+}
 
 .register-link{
     background-color: var(--color-yellow);

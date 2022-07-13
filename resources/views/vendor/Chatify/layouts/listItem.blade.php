@@ -68,7 +68,7 @@
         {{-- Avatar side --}}
         <td>
         <div class="avatar av-m"
-        style="background-image: url('{{ $user->avatar }}');">
+        style="background-image: url('{{$user->avatar }}');">
         </div>
         </td>
         {{-- center side --}}

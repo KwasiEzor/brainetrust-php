@@ -136,9 +136,17 @@
                                 </a>
 
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        
+                                        @can('admin')                          
+                                            <li>
+                                                <a href="{{ route('admin-dashboard') }}" class="dropdown-item"> {{ __('Admindashbord') }}</a>
+                                            </li> 
+                                        @endcan
+                                  
                                     <li>
                                         <a href="{{ route('home') }}" class="dropdown-item"> {{ __('Mon compte') }}</a>
                                     </li>
+                                    
                                     <li>
                                         <a href="{{ url('/chatify') }}" class="dropdown-item"> {{ __('Chat') }}</a>
                                     </li>

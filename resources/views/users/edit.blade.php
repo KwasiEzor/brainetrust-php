@@ -72,6 +72,12 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>{{ __('Permissions') }}:</strong>
+                                {!! Form::select('permissions[]', $permissions, $userPermission, ['class' => 'form-control', 'multiple']) !!}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
                             <button type="submit" class="btn btn-warning">{{ __('Edit') }}</button>
                         </div>{!! Form::close() !!}
                     </div>

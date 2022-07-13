@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AbonnementController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -9,16 +8,18 @@ use App\Http\Controllers\ClubController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\ScGameController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\RankingController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\AboutClubController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\AboutClubController;
 use App\Http\Controllers\InterclubController;
+use App\Http\Controllers\AbonnementController;
 use App\Http\Controllers\MailContactController;
 use App\Http\Controllers\PlayScrabbleController;
-use App\Http\Controllers\RankingController;
-use App\Http\Controllers\ScGameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,11 @@ use App\Http\Controllers\ScGameController;
 */
 
 Route::get('/', [HomepageController::class, 'index'])->name('home-page');
-
+Route::group(['middleware' => ['auth']], function () {
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/admin', 'index')->name('admin-dashboard');
+    });
+});
 Auth::routes();
 
 Route::controller(AbonnementController::class)->group(function () {
