@@ -36,7 +36,8 @@
                         @endforeach
                         </ul>
                     </div>
-                @endif<div class="card shadow mb-4">
+                @endif
+                <div class="card shadow mb-4">
                     <div class="card-body">{!! Form::open(array('route' => 'users.store','method'=>'POST')) !!}<div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>{{ __('Name') }}:</strong>

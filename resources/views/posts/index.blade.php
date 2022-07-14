@@ -42,7 +42,8 @@
                             
                                 <div class=" col-lg-4 col-md-6 col-sm-auto mt-5 mb-0 ">
                                     <div class="card  w-100 h-100 border-0 shadow-sm">
-                                        <img @if (substr($post->image_url,0,6) ==='images')
+                                        <img
+                                         @if (substr($post->image_url,0,6) ==='images')
                                         src="{{ asset('storage/'.$post->image_url) }}"  
                                         @else
                                             src="{{$post->image_url}}"

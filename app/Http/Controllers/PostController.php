@@ -78,8 +78,9 @@ class PostController extends Controller
     public function create()
     {
         //
+        $tags = Tag::select('*')->groupBy('id')->get();
         $categories = Category::all();
-        return view('admin.posts.create', compact('categories'));
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -91,12 +92,13 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-        // $request->validate([
-        //     'title' => 'required|unique:posts|max:255',
-        //     'content' => 'required',
-        //     'image_url' => 'image|mimes:png,jpg,jpeg,gif',
-        //     'video_url' => 'url'
-        // ]);
+        $request->validate([
+            'title' => ['required', 'unique:posts', 'max:255'],
+            'content' => ['required', 'min:5'],
+            'image_url' => ['image', 'mimes:png,jpg,jpeg,gif', 'sometimes'],
+            'video_url' => ['url', 'string', 'sometimes'],
+            'is_publish' => ['sometimes']
+        ]);
 
 
 
@@ -187,13 +189,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
-        // $this->validate($request, [
-        //     'title' => 'required',
-        //     'content' => 'required|min:5',
-        //     'image_url' => 'image|mimes:png,jpg,jpeg,gif',
-        //     'video_url' => 'url'
-        // ]);
+        $request->validate([
+            'title' => ['required', 'unique:posts', 'max:255'],
+            'content' => ['required', 'min:5'],
+            'image_url' => ['image', 'mimes:png,jpg,jpeg,gif', 'sometimes'],
+            'video_url' => ['url', 'string', 'sometimes'],
+            'is_publish' => ['sometimes']
+        ]);
         $postToUpdate = Post::find($post->id);
         if ($request->file('image_url')) {
             $name = $request->file('image_url')->getClientOriginalName();

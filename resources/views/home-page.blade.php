@@ -212,7 +212,13 @@
                     <div class="col-lg-4 col-md-6 col-sm-auto  mb-5 ">
 
                         <div class="card  w-100 h-100 border-info shadow">
-                            <img src="{{ $post->image_url }}" class="card-img mb-3" alt="image">
+                            <img 
+                             @if (substr($post->image_url,0,6) ==='images')
+                            src="{{ asset('storage/'.$post->image_url) }}"  
+                            @else
+                                src="{{$post->image_url}}"
+                            @endif class="card-img mb-3" 
+                            alt="image">
                             <h5 class="card-title px-3">{{ $post->title }}</h5>
                             <div class="card-title px-3 d-flex align-items-center justify-content-between">
                                 <small> <b>Catégorie : </b> <span class="text-primary text-capitalize">
