@@ -10,6 +10,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\PostTableRequest;
 use Illuminate\Support\Facades\Storage;
 
@@ -77,8 +78,13 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
-        $tags = Tag::select('*')->groupBy('id')->get();
+
+        $tags = DB::table('tags')
+            ->select(DB::raw('id, name'))
+            ->groupBy('id')
+            ->groupByRaw('name')
+            ->get();
+
         $categories = Category::all();
         return view('admin.posts.create', compact('categories', 'tags'));
     }
@@ -91,16 +97,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
+        // dd($request->all());
         $request->validate([
             'title' => ['required', 'unique:posts', 'max:255'],
+            'tags' => ['exists:tags,id', 'array', 'sometimes'],
             'content' => ['required', 'min:5'],
             'image_url' => ['image', 'mimes:png,jpg,jpeg,gif', 'sometimes'],
             'video_url' => ['url', 'string', 'sometimes'],
             'is_publish' => ['sometimes']
         ]);
-
-
 
         $title = $request->get('title');
 
@@ -113,16 +118,21 @@ class PostController extends Controller
             $videoUrl = $request->get('video_url');
         }
 
-        Post::create([
+        $post = Post::create([
             'title' => $title,
             'slug' => Str::slug($title),
             'content' => $request->get('content'),
             'category_id' => $request->get('category_id'),
             'image_url' => $imageUrl,
-            'video_url' => $request->get('video_url') ? $request->get('video_url') : null,
+            'video_url' => $videoUrl,
             'user_id' => auth()->user()->id,
             'is_published' => $request->get('is_published') ? 1 : 0
         ]);
+
+        if ($post && $request->get('tags')) {
+
+            $post->tags()->sync($request->get('tags'));
+        }
 
         return redirect()->route('posts.index')->with('success', 'Article créé avec succès');
     }
@@ -164,6 +174,7 @@ class PostController extends Controller
                 ->with('tags', 'comments', 'user')
                 ->get();
         }
+        // dd($post);
         return view('posts.show', compact('post', 'otherCategoryPosts', 'currentUrl', 'socialButtons'));
     }
 
@@ -189,8 +200,10 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+
         $request->validate([
             'title' => ['required', 'unique:posts', 'max:255'],
+            'tags' => ['exists:tags,id', 'array', 'sometimes'],
             'content' => ['required', 'min:5'],
             'image_url' => ['image', 'mimes:png,jpg,jpeg,gif', 'sometimes'],
             'video_url' => ['url', 'string', 'sometimes'],

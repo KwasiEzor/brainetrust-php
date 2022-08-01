@@ -24,16 +24,16 @@
                                 <input type="text" id="title" class="form-control" name="title"
                                     placeholder="Titre..." required>
                             </div>
-                            {{-- <div class="input-group my-3">
+                            <div class="input-group my-3">
                                 <label class="input-group-text" for="inputGroupSelect01">Tags</label>
-                                <select class="form-select" id="inputGroupSelect01" name="tags[]">
+                                <select class="form-select" id="inputGroupSelect01" name="tags[]" multiple>
                                     <option selected>Choisir...</option>
                                     @foreach ($tags as $tag)
                                         <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                                     @endforeach
 
                                 </select>
-                            </div> --}}
+                            </div>
                             <div class="form-group">
                                 <label for="content" class="form-label">Contenu</label>
                                 <textarea name="content" id="content" cols="30" rows="10" class="form-control resize-none"
