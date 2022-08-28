@@ -21,13 +21,12 @@ class AgendaFactory extends Factory
     public function definition()
     {
         $date = \Carbon\Carbon::createFromTimeStamp($this->faker->dateTimeBetween('now', '+365 days')->getTimestamp());
-        $time = date('H:i:s', rand(1, 54000));
+
         $categoryIds = PlayerCategory::pluck('id')->all();
         $serieIds = PlayerSerie::pluck('id')->all();
         return [
             //
             'event_date' => $date,
-            'event_time' => $time,
             'competition' => $this->faker->words(rand(1, 5), true),
             'competition_round' => rand(1, 6),
             'minute_per_round' => rand(1, 4),

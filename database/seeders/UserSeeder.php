@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         //
-        User::factory(50)->create()->each(function ($user) {
+        User::factory(30)->create()->each(function ($user) {
             $role = Role::find(2);
 
             $permission = Permission::first();

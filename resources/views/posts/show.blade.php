@@ -33,7 +33,7 @@
                                 </p>
 
                                 <p class="card-text text-secondary text-justify p-3 bg-light" style="text-align: justify;">
-                                    {{ $post[0]['content'] }}
+                                    {!! $post[0]['content'] !!}
                                 </p>
                             </div>
                             <div class="card-footer text-end">

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 
+use Database\Seeders\TagSeeder;
 use Illuminate\Database\Seeder;
 use Database\Seeders\ClubSeeder;
 use Database\Seeders\PostSeeder;
@@ -45,6 +46,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PlayerCategorySeeder::class);
         $this->call(PlayerSerieSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(TagSeeder::class);
         $this->call(PostSeeder::class);
         $this->call(CommentSeeder::class);
         $this->call(AgendaSeeder::class);

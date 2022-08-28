@@ -18,10 +18,9 @@ return new class extends Migration
         Schema::create('agendas', function (Blueprint $table) {
             $table->id();
             $table->dateTime('event_date')->default(now());
-            $table->string('event_time')->nullable();
             $table->string('competition');
-            $table->string('competition_round')->nullable();
-            $table->string('minute_per_round')->nullable();
+            $table->integer('competition_round')->nullable();
+            $table->integer('minute_per_round')->nullable();
             $table->text('details')->nullable();
             $table->foreignIdFor(PlayerCategory::class)->nullable();
             $table->foreignIdFor(PlayerSerie::class)->nullable();

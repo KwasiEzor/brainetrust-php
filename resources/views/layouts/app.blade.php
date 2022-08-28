@@ -35,9 +35,17 @@
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
-
 </head>
+<!-- Popperjs -->
+<script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+  crossorigin="anonymous"></script>
+<!-- Tempus Dominus JavaScript -->
+<script defer src="https://cdn.jsdelivr.net/gh/Eonasdan/tempus-dominus@master/dist/js/tempus-dominus.js"
+  crossorigin="anonymous"></script>
 
+<!-- Tempus Dominus Styles -->
+<link href="https://cdn.jsdelivr.net/gh/Eonasdan/tempus-dominus@master/dist/css/tempus-dominus.css"
+  rel="stylesheet" crossorigin="anonymous">
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md app-navbar navbar-primary shadow-sm bg-white" id="navbar_top">
@@ -108,7 +116,7 @@
                         </li>
                         @if(!Auth::guest())
                         <li class="nav-item ">
-                            <a href="{{ url('/chatify') }}" class="nav-link chat-link d-flex align-items-center justify-content-center gap-1">Chat <i class="bi bi-chat-text-fill"></i></a>
+                            <a href="{{ url('/chatify') }}" target="_blank" class="nav-link chat-link d-flex align-items-center justify-content-center gap-1">Chat <i class="bi bi-chat-text-fill"></i></a>
                         </li>
                         @endif
                     </ul>
@@ -140,7 +148,7 @@
                                         <a href="{{ route('home') }}" class="dropdown-item"> {{ __('Mon compte') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url('/chatify') }}" class="dropdown-item"> {{ __('Chat') }}</a>
+                                        <a href="{{ url('/chatify') }}" target="_blank" class="dropdown-item"> {{ __('Chat') }}</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"

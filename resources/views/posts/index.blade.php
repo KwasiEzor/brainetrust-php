@@ -52,7 +52,7 @@
                                         <h5 class="card-title px-3">{{ $post->title }}</h5>
                                         <div class="card-body">
                                             <p class="card-text text-muted bg-light p-2 rounded-3">
-                                                {{ Str::limit($post->content, 120) }}
+                                                {!! Str::limit($post->content, 120) !!}
                                             </p>
                                         </div>
                                         <div class=" p-3 d-flex justify-content-end gap-3 ">

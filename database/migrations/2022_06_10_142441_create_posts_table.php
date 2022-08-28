@@ -25,6 +25,7 @@ return new class extends Migration
             $table->foreignIdFor(Category::class)->onDelete('cascade')->onUpdate('cascade');
             $table->foreignIdFor(User::class)->onDelete('cascade')->onUpdate('cascade');
             $table->boolean('is_published')->default(false);
+            $table->string('source')->nullable();
             $table->timestamps();
         });
     }

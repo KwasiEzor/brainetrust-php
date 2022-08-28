@@ -92,6 +92,11 @@ Route::controller(MailContactController::class)->group(function () {
 });
 Route::controller(AgendaController::class)->group(function () {
     Route::get('/agendas', 'index')->name('agendas.index');
+    Route::get('/agendas/create', 'create')->name('agendas.create');
+    Route::post('/agendas', 'store')->name('agendas.store');
+    Route::get('/agendas/{agenda}', 'edit')->name('agendas.edit');
+    Route::put('/agendas/{agenda}', 'update')->name('agendas.update');
+    Route::delete('/agendas/{agenda}', 'destroy')->name('agendas.delete');
 });
 Route::controller(PostController::class)->group(function () {
     Route::get('/posts', 'index')->name('posts.index');

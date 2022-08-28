@@ -12,6 +12,12 @@
                             </a>
                         </h2>
                     </div>
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <p>{{ $message }}</p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="filter-section py-3">
                         <form action="{{ route('agendas.index') }}" class="container mx-auto">
                             @csrf
@@ -21,6 +27,11 @@
                                         <input type="search" class="form-control p-3 " name="search" id="searchInput"
                                             placeholder="Entrez un mot clé...">
                                     </div>
+                                </div>
+                                <div class="col-6 px-5" style="display: flex; align-items: center; justify-content: end;">
+                                    @can('manage-all-content')
+                                        <a href="{{route('agendas.create')}}" class="btn btn-lg btn-success me-4">Nouveau Agenda</a>
+                                    @endcan
                                 </div>
                             </div>
                             <div class="row ">
@@ -85,15 +96,24 @@
                                     <th scope="col">Séries
                                         <span class="resize-handle"></span>
                                     </th>
+                                    @can('manage-all-content')
+                                        
+                                    <th scope="col">
+                                        Actions
+                                        <span class="resize-handle"></span>
+                                    </th>
+                                    @endcan
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($agendas as $agenda)
                                     <tr>
                                         <th scope="row"> <span
-                                                class="text-secondary">{{ date('d-m-Y', strtotime($agenda->event_date)) }}</span>
+                                                class="text-secondary">{{ date('d/m/Y', strtotime($agenda->event_date)) }}</span>
                                         </th>
-                                        <th> <span class="btn btn-outline-primary d-grid">{{ $agenda->event_time }}</span>
+                                        <th> 
+                                            {{-- <span class="btn btn-outline-primary d-grid">{{ $agenda->event_time }}</span> --}}
+                                            <span class="btn btn-outline-primary d-grid">{{ date('H:i', strtotime($agenda->event_date)) }}</span>
                                         </th>
                                         <td>
                                             <span class="text-uppercase">
@@ -121,11 +141,11 @@
                                                             <div class="modal-body bg-light p-3">
                                                                 <p><i class="bi bi-calendar-event-fill"></i> 
                                                                   <span class="text-decoration-underline">Date </span> : 
-                                                                    <span class="badge bg-primary">{{date('d.m.Y', strtotime($agenda->event_date)) }}</span>
+                                                                    <span class="badge bg-primary">{{date('j \\ F Y', strtotime($agenda->event_date)) }}</span>
                                                                 </p>
                                                                 <p><i class="bi bi-clock-fill"></i> 
                                                                     <span class="text-decoration-underline">Horaire</span> : 
-                                                                    <span class="badge bg-warning">{{$agenda->event_time}}</span></p>
+                                                                    <span class="badge bg-warning">{{date('H:i', strtotime($agenda->event_time)) }}</span></p>
                                                                 <p>
                                                                 <p><i class="bi bi-flag-fill"></i> 
                                                                     <span class="text-decoration-underline">Tour </span>: 
@@ -158,6 +178,18 @@
                                             </span>
                                         </td>
                                         <td>{{ $agenda->player_serie->name }}</td>
+                                        <td>
+                                            @can('manage-all-content')
+                                            <a class="btn btn-outline-warning" href="{{route('agendas.edit',$agenda)}}"><i class="bi bi-pencil-square"></i></a>
+                                        @endcan
+                                        @can('manage-all-content')
+                                            {!! Form::open(['method' => 'DELETE', 'route' => ['agendas.delete', $agenda->id], 'style' => 'display:inline']) !!}
+                                            {{-- {!! Form::submit('Delete', ['class' => 'btn btn-danger',]) !!} --}}
+                                            <button type="submit" class="btn btn-outline-danger"
+                                                onclick="return confirm('Are you sure?')"><i class="bi bi-trash"></i></button>
+                                            {!! Form::close() !!}
+                                        @endcan
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
