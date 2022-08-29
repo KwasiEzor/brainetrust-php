@@ -32,13 +32,13 @@ class PostSeeder extends Seeder
                 'slug' => Str::slug($title),
                 'content' => $post->content,
                 'image_url' => $post->image_url,
-                'category_id' => rand(1, 8),
+                'category_id' => $post->category_id,
                 'user_id' => 1,
                 'is_published' => rand(0, 1),
                 'source' => $post->source,
 
             ])->each(function ($item) {
-                $tags = Tag::all();
+                $tags = Tag::pluck('id');
                 $item->tags()->attach(
                     $tags->random(rand(1, 2))
                 );

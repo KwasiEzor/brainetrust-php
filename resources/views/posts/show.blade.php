@@ -16,15 +16,15 @@
                                 <span class="author w-50 h-50"> 
                                     <img src="{{asset('images/default-user.png')}}"  class="rounded-circle me-2" onerror="{{asset('images/default-user.png')}}" class=" ms-2" alt="author image"
                                         style="width:50px; height:50px; border-radius:50%;">
-                                    Author : <small class="text-italic">{{ $post[0]->user->name }}</small>
+                                    Auteur de l'article : <small class="text-italic">{{ $post[0]->user->name }}</small>
                                 </span>
                                 <span class="me-3">
-                                    <small class="text-muted"> Published :
+                                    <small class="text-muted"> Publié le :
                                         <em>{{ $post[0]['created_at']->diffForHumans() }}</em> </small>
                                 </span>
                             </h6>
                             <div class="card-body">
-                                <p class="card-text">Category : <a href="{{route('category.posts',$post[0]['category'])}}"
+                                <p class="card-text">Catégorie : <a href="{{route('category.posts',$post[0]['category'])}}"
                                         class="text-capitalize fw-bold">{{$post[0]['category']->name}}</a> </p>
                                 <p class="card-text">Tags :
                                     @foreach ($post[0]['tags'] as $tag)
@@ -77,7 +77,7 @@
                 <div class="mx-auto my-4">
                     <div class="card my-4 p-3">
                         <div class="card-body">
-                            <h5 class="card-title">Comments</h5>
+                            <h5 class="card-title">Commentaires</h5>
                             <ul class="list-group">
 
                                 @foreach ($post[0]->comments as $comment )
@@ -88,7 +88,7 @@
                                    <small class="card-text d-flex justify-content-between">
                                        <span>
                                         <img src="{{asset('images/default-user.png')}}" class="rounded-circle" style="width: 50px; height:50px; margin-right:1rem; opacity:0.7; " alt="default user">
-                                         <b>From :</b>  {{$comment->user->name}}
+                                         <b>De :</b>  {{$comment->user->name}}
                                        </span>
                                        <span>
                                            {{-- {{dd($comment)}} --}}
@@ -107,12 +107,12 @@
                             <form action="/posts/{{$post[0]->id}}/comments" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <textarea class="form-control mb-3" placeholder="Your comments.." name="content" id="content" cols="30" rows="10"></textarea>
+                                    <textarea class="form-control mb-3" placeholder="Partager nous votre point de vue..." name="content" id="content" cols="30" rows="10"></textarea>
                                 </div>
                                
       
                                 <div class="form-group">
-                                    <button type="submit" value="Add Comment" onclick="return confirm('Vous devez connecter avant ?')" class="form-control btn btn-primary" style="max-width: 10rem">Add Comment <i class="bi bi-send-fill"></i></button>
+                                    <button type="submit" value="Ajouter commentaire" onclick="return confirm('Vous devez connecter avant ?')" class="form-control btn btn-primary" style="max-width: 10rem">Add Comment <i class="bi bi-send-fill"></i></button>
                                 </div>
                                 
                             </form>
@@ -133,7 +133,7 @@
                                                 <div class="col-md-8">
                                                   <div class="card-body">
                                                     <h5 class="card-title">{{$post->title}}</h5>
-                                                    <small>Categorie : <span class="fw-bold text-primary">{{$post->category->name}}</span> </small>
+                                                    <small>Catégorie : <span class="fw-bold text-primary">{{$post->category->name}}</span> </small>
                                                     <p class="card-text bg-light p-3">
                                                         {{ Str::limit($post->content, 120) }}
                                                     </p>

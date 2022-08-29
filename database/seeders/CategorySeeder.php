@@ -16,7 +16,18 @@ class CategorySeeder extends Seeder
     public function run()
     {
         //
-        $categories = ['Championnats du monde', 'Compétitions', 'Scrabble Duplicate', 'Championnats de Belgique', 'Coupe de Belgique', 'Coupe du Club', 'Coupe d\'Europe', 'Entraînement de Scrabble', 'Formations', 'Histoire du Scrabble'];
+        $categories = [
+            'Championnats du monde',
+            'Compétitions',
+            'Scrabble Duplicate',
+            'Championnats de Belgique',
+            'Coupe de Belgique',
+            'Coupe du Club',
+            'Les atouts du Scrabble',
+            'Entraînement de Scrabble',
+            'Formations',
+            'Histoire du Scrabble'
+        ];
 
         // Category::factory(10)->create();
         foreach ($categories as $category) {
