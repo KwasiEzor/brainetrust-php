@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\PlayerSerie;
+use App\Models\ScrabbleType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->foreign('visitor_team_id')->references('id')->on('clubs');
             $table->dateTime('match_date')->default(now());
             $table->foreignIdFor(PlayerSerie::class)->default(1);
+            $table->foreignIdFor(ScrabbleType::class)->default(1);
             $table->decimal('receiver_team_score');
             $table->decimal('visitor_team_score');
             $table->text('comments')->nullable();

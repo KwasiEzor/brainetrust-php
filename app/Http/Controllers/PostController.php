@@ -209,7 +209,7 @@ class PostController extends Controller
             'video_url' => ['url', 'string', 'sometimes'],
             'is_publish' => ['sometimes']
         ]);
-        $postToUpdate = Post::find($post->id);
+        $postToUpdate = Post::findOrFail($post->id);
         if ($request->file('image_url')) {
             $name = $request->file('image_url')->getClientOriginalName();
             $imageUrl = $request->file('image_url')->storeAs('images', $name, 'public');
@@ -251,7 +251,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
-        Post::find($id)->delete();
+        Post::findOrFail($id)->delete();
         return redirect()->route('posts.index')
             ->with('success', 'Article bien supprimé ');
     }

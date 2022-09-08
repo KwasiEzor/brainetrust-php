@@ -21,13 +21,13 @@ return new class extends Migration
             $table->string('address');
             $table->string('training_day');
             $table->string('training_time');
-            $table->text('description');
-            $table->string('contact_person');
-            $table->string('phone_number');
-            $table->string('mobile_number');
+            $table->text('description')->nullable();
+            $table->string('contact_person')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('mobile_number')->nullable();
             $table->string('province');
-            $table->string('lat');
-            $table->string('long');
+            $table->string('lat')->nullable();
+            $table->string('long')->nullable();
             $table->timestamps();
         });
     }

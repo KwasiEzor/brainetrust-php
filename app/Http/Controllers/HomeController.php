@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $userGameScores = [];
         $userScorePercentages = [];
-        $userData = User::with(
+        $authUser = User::with(
             [
                 'posts',
                 'sc_games',
@@ -40,13 +40,35 @@ class HomeController extends Controller
         )
             ->where('id', Auth()->user()->id)
             ->get();
-        // dd($userData);
+        // dd($authUser);
 
-        foreach ($userData[0]->gm_results as $key => $result) {
+        foreach ($authUser[0]->gm_results as $key => $result) {
             $userGameScores[] .= $result->player_top;
             $userScorePercentages[] .= number_format(($result->player_top * 100) / $result->game_top, 2);
         }
         // dd($userGameScores);
-        return view('home', compact('userData', 'userGameScores', 'userScorePercentages'));
+        return view('home', compact('authUser', 'userGameScores', 'userScorePercentages'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::where('id', $id)
+            ->get();
+        // $user->update($request->only(['name', 'email']));
+        dd($user);
+        // dd($request->all());
+        if ($request->hasFile('profile_img')) {
+
+            $name = time() . '_' . $request->file('profile_img')->getClientOriginalName();
+            $profileImg = $request->file('profile_img')->storeAs('images', $name, 'public');
+
+            $user->update([
+                'profile_img' => $profileImg
+            ]);
+        }
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'Modification réussie');
     }
 }

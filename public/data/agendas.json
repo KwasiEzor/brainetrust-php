@@ -1,0 +1,26 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "event_date": "2022-10-15T16:30:00.000Z",
+            "competition": "Amicale",
+            "competition_round": "",
+            "minute_per_round": "",
+            "details": "le temps est réduit à 1 minute par coup (40 secondes de recherche et 20 secondes pour remplir le bulletin-réponse) ",
+            "player_category_id": "",
+            "player_serie_id": "",
+            "is_highlighted": ""
+        },
+        {
+            "id": 2,
+            "event_date": "2022-10-15T20:00:00.000Z",
+            "competition": "Amicale",
+            "competition_round": "",
+            "minute_per_round": "",
+            "details": "le temps est réduit à 1 minute par coup (40 secondes de recherche et 20 secondes pour remplir le bulletin-réponse) ",
+            "player_category_id": "",
+            "player_serie_id": "",
+            "is_highlighted": ""
+        }
+    ]
+}

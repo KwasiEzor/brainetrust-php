@@ -32,7 +32,7 @@
                                     <input type="datetime-local" class="form-control" value="{{old('event_date')}}" name="event_date" id="event_date">
                                 </div> --}}
                                 <div class="input-group">
-                                    <input type="datetime-local" class="form-control" placeholder="" aria-label="event_date" name="event_date" value="{{old('event_date')}}">
+                                    <input type="datetime-local" class="form-control datetimepicker" placeholder="" aria-label="event_date" name="event_date" value="{{old('event_date')}}">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-event-fill"></i></span>
                                     {{-- @error('event_date')
                                         <div class="invalid-feedback">
@@ -95,3 +95,12 @@
         </div>
     </div>
 @endsection
+@push('custom-script')
+    <script>
+        $(function () {
+
+        $('.datetimepicker').datetimepicker();
+
+        });
+    </script>
+@endpush

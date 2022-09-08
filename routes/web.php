@@ -13,6 +13,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AboutClubController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\InterclubController;
 use App\Http\Controllers\MailContactController;
@@ -33,6 +34,9 @@ use App\Http\Controllers\ScGameController;
 
 Route::get('/', [HomepageController::class, 'index'])->name('home-page');
 
+Route::controller(HomeController::class)->group(function () {
+    Route::post('/home/update/{id}', 'update')->name('home.update-user');
+});
 Auth::routes();
 
 Route::controller(AbonnementController::class)->group(function () {

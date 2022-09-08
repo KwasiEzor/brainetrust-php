@@ -179,6 +179,7 @@
         @include('cookie-consent::index')
         
     </div>
+    @stack('custom-script')
     @yield('stripe-payment-js')
     <script src="{{ asset('js/index.js') }}"></script>
     {{-- <script src="node_modules/swiper/swiper.bundle.min.js"></script> --}}

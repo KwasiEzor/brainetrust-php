@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('place');
             $table->string('solution');
             $table->integer('top_points');
-            $table->text('comments');
+            $table->text('comments')->nullable();
             $table->foreignIdFor(ScGame::class)->onDelete('cascade');
             $table->timestamps();
         });

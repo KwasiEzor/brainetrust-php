@@ -79,4 +79,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(GmResult::class);
     }
+    public function addUserInfos($content)
+    {
+        UserInfo::create([
+            'user_id' => $this->id,
+        ], $content);
+    }
 }
