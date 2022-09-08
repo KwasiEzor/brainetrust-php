@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -52,10 +53,11 @@ class HomeController extends Controller
 
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $user = User::where('id', $id)
-            ->get();
-        // $user->update($request->only(['name', 'email']));
-        dd($user);
+            // ->get();
+            ->update($request->only(['name', 'email']));
+        // dd($user);
         // dd($request->all());
         if ($request->hasFile('profile_img')) {
 
@@ -66,8 +68,18 @@ class HomeController extends Controller
                 'profile_img' => $profileImg
             ]);
         }
-
-        $user->save();
+        if (
+            $request->input('birthday') |
+            $request->input('address') |
+            $request->input('city') |
+            $request->input('zip_code') |
+            $request->input('phone')
+        ) {
+            $userInfo = UserInfo::create([
+                $request->only(['birthday', 'address', 'city', 'zip_code', 'phone']),
+                'user_id' => $user->id
+            ]);
+        }
 
         return redirect()->back()->with('success', 'Modification réussie');
     }

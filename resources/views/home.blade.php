@@ -245,13 +245,15 @@
                             </div>
                             <div class="col-lg-6 col-md-auto">
                                 <div class="card d-flex align-items-center justify-content-center h-100 ">
-                                    <div class="card-header border-0">
+                                    {{-- <div class="card-header border-0">
                                         Image de profil
-                                    </div>
+                                    </div> --}}
                                     <img src="
-                                    @if ($authUser[0]->profile_img) {{ $authUser[0]->profile_img }}
+                                    @if ($authUser[0]->profile_img) 
+                                    {{ $authUser[0]->profile_img }}
                                     @else
-                                        {{ asset('images/default-user.png') }} @endif
+                                        {{ asset('images/default-user.png') }} 
+                                    @endif
                                     "
                                         alt="image" class="card-img img-fluid" style="with:100%; max-width:20rem;">
                                 </div>
@@ -355,7 +357,7 @@
                                             <div class="form-group">
                                                 <label for="address" class="mb-2">Adresse</label>
                                                 <input type="text" value="" id="address" placeholder="Adresse complète"
-                                                    name="email" class="form-control">
+                                                    name="address" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -376,9 +378,9 @@
                                         </div>
                                         <div class="col-lg-4 col-md-6 col-sm-auto">
                                             <div class="form-group">
-                                                <label for="phone_number" class="mb-2">Téléphone</label>
-                                                <input type="text" value="" id="phone_number" placeholder="Numéro de téléphone"
-                                                    name="phone_number" class="form-control">
+                                                <label for="phone" class="mb-2">Téléphone</label>
+                                                <input type="text" value="" id="phone" placeholder="Numéro de téléphone"
+                                                    name="phone" class="form-control">
                                             </div>
                                         </div>
                                         {{-- <div class="form-group my-3">
