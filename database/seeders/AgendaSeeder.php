@@ -22,7 +22,7 @@ class AgendaSeeder extends Seeder
         //
         $jsonFile = File::get(public_path('data/agendas.json'));
         $agendasData = json_decode($jsonFile);
-
+        // Carbon::setLocale('fr');
         $year = 2022;
         $month = 9;
         $day = 8;

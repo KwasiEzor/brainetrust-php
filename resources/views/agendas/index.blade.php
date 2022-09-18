@@ -109,7 +109,7 @@
                                 @forelse ($agendas as $agenda)
                                     <tr>
                                         <th scope="row"> <span
-                                                class="text-secondary">{{ date('d/m/Y', strtotime($agenda->event_date)) }}</span>
+                                                class="text-secondary font-normal"><span class="btn btn-outline-secondary d-grid">{{date('j \\ F Y', strtotime($agenda->event_date)) }}</span>
                                         </th>
                                         <th> 
                                             {{-- <span class="btn btn-outline-primary d-grid">{{ $agenda->event_time }}</span> --}}
