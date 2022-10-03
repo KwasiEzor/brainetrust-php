@@ -146,11 +146,11 @@
                                                             <div class="modal-body bg-light p-3">
                                                                 <p><i class="bi bi-calendar-event-fill"></i> 
                                                                   <span class="text-decoration-underline">Date </span> : 
-                                                                    <span class="badge bg-primary">{{date('j \\ F Y', strtotime($agenda->event_date)) }}</span>
+                                                                    <span class="badge bg-primary">{{ \Carbon\Carbon::parse($agenda->event_date)->locale('fr_BE')->isoFormat('LL')}}</span>
                                                                 </p>
                                                                 <p><i class="bi bi-clock-fill"></i> 
                                                                     <span class="text-decoration-underline">Horaire</span> : 
-                                                                    <span class="badge bg-warning">{{date('H:i', strtotime($agenda->event_time)) }}</span></p>
+                                                                    <span class="badge bg-warning">{{ date('H:i', strtotime($agenda->event_date)) }}</span></p>
                                                                 <p>
                                                                 <p><i class="bi bi-flag-fill"></i> 
                                                                     <span class="text-decoration-underline">Tour </span>: 
