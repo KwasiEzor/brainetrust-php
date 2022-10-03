@@ -25,11 +25,11 @@ class AgendaSeeder extends Seeder
         // Carbon::setLocale('fr');
         $year = 2022;
         $month = 9;
-        $day = 8;
+        $day = 7;
         $hour = 20;
         $minute = 0;
         $second = 0;
-        $date = Carbon::create($year, $month, $day, $hour, $minute, $second);
+        $date = Carbon::create($year, $month, $day, $hour, $minute, $second, 'Europe/Brussels');
         foreach ($agendasData->data as $key => $agenda) {
             Agenda::create([
                 'event_date' => $date->add(7, 'days'),

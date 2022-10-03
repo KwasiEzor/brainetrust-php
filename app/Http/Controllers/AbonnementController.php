@@ -13,14 +13,17 @@ class AbonnementController extends Controller
     {
         return view('abonnement.index');
     }
+
     public function amateurPurchase()
     {
         return view('abonnement.amateur');
     }
+
     public function confirmedPurchase()
     {
         return view('abonnement.confirmed');
     }
+
     public function paymentSuccess()
     {
         return view('abonnement.thankyou');

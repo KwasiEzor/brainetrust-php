@@ -13,7 +13,7 @@
                 <ul class="list-unstyled ">
                     <li><a href="#" class="">Utilisation des données</a></li>
                     <li><a href="#" class="">Vie privée</a></li>
-                    <li><a href="#" class="">DMCA</a></li>
+                    <li><a href="#" class="">RGPD</a></li>
                     <li><a href="#" class="">DISCLAIMER</a></li>
                 </ul>
             </div>

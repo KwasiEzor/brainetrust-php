@@ -32,12 +32,16 @@ use App\Http\Controllers\ScGameController;
 |
 */
 
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
 Route::get('/', [HomepageController::class, 'index'])->name('home-page');
 
 Route::controller(HomeController::class)->group(function () {
     Route::post('/home/update/{id}', 'update')->name('home.update-user');
 });
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::controller(AbonnementController::class)->group(function () {
     Route::get('/abonnement', 'index')->name('abonnement.index');
@@ -63,7 +67,7 @@ Route::controller(ScGameController::class)->group(function () {
     Route::get('/files-export', 'exportFile')->name('files-export');
     Route::get('/pdf-export/{param}', 'createPDF')->name('pdf-export');
 });
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 Route::get('/posts/categories/{category}', [CategoryController::class, 'categoriesWithPosts'])->name('category.posts');
 

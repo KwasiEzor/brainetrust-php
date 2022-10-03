@@ -39,7 +39,9 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class=" card-footer call-to-action d-grid">
+                            <div class=" card-footer call-to-action d-grid" @if(Auth::check())
+                                @disabled(true)
+                            @endif>
                                 <a href="{{route('register')}}" class="btn btn-lg btn-primary">Je m'abonne</a>
                             </div>
                         </div>
