@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\SuccessfullPaymentNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Cashier\Subscription;
 
 class AbonnementController extends Controller
 {
@@ -41,6 +43,7 @@ class AbonnementController extends Controller
             $amount += 6800;
             $auth_user->charge($amount, $request->payment_method);
         }
+        $auth_user->notify(new SuccessfullPaymentNotification());
         return redirect()->route('abonnement.thankyou');
     }
 }

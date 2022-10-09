@@ -125,6 +125,47 @@
             </div>
         </div>
         {{-- Scrabble presentation area end --}}
+        {{-- UpcomingAgendas section --}}
+        <div class="container-xl mt-5">
+            <div class="row mb-5">
+                <h4 class="page-title">Prochains événements</h4>
+            </div>
+            <div class="row ">
+                <div class="card py-4 px-2 border-0">
+                    <div class="py-4 col-md-8 col-sm-auto mx-auto">
+                        @forelse ( $upcomingAgendas as $agenda)
+                            <div class="card mb-4 border-0 shadow">
+                                <div class="card-header border-0">
+                                    <h4 class="text-primary">{{$agenda->competition }}</h4>
+                                </div>
+                                <div class="card-body">
+                                <blockquote class="blockquote mb-2">
+                                    <footer class="blockquote-footer px-3 py-2"><i class="bi bi-calendar-event-fill"></i> {{ \Carbon\Carbon::parse($agenda->event_date)->locale('fr_BE')->isoFormat('LL')}}  </span> <span class="badge bg-warning">{{ date('H:i', strtotime($agenda->event_date)) }}</span> </footer>
+                                    <p>{{$agenda->details}}</p>
+                                </blockquote>
+                                </div>
+                          </div>
+                            
+                        @empty
+                            <div class="card">
+                                <div class="card">
+                                    <div class="card-header">
+                                      Agenda
+                                    </div>
+                                    <div class="card-body">
+                                      Aucun événement disponible
+                                    </div>
+                                  </div>
+                            </div>
+                        @endforelse
+                    </div>
+                    <div class="col-md-6 mx-auto text-center">
+                        <a href="{{route('agendas.index')}}" class="btn btn-link" >Plus d'événements <i class="bi bi-arrow-right-square-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- UpcomingAgendas section end --}}
         {{-- Become Member start --}}
         <div class="container-xl mt-5 ">
             <div class="container p-lg-4 p-md-3 p-sm-2 bg-primary rounded-3">
