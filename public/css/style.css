@@ -367,28 +367,28 @@ p {
 @media screen and (max-width:648px) {
 
     /* ============Agendas Table============== */
-    .agenda-table {
+    #agenda__table {
         display: grid;
         border-collapse: collapse;
         min-width: 100%;
         grid-template-columns: minmax(9rem, 1fr) minmax(9rem, 1fr) minmax(9.375rem, 1fr) minmax(5rem, 1fr) minmax(5rem, 1fr);
     }
 
-    .agenda-table thead,
-    .agenda-table tbody,
-    .agenda-table tr {
+    #agenda__table thead,
+    #agenda__table tbody,
+    #agenda__table tr {
         display: contents;
     }
 
-    .agenda-table th,
-    .agenda-table td {
+    #agenda__table th,
+    #agenda__table td {
         padding: 15px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
 
-    .agenda-table th {
+    #agenda__table th {
         position: sticky;
         text-align: left;
         font-size: 1.1rem;
@@ -396,11 +396,11 @@ p {
         position: relative;
     }
 
-    .agenda-table th:last-child {
+    #agenda__table th:last-child {
         border: 0;
     }
 
-    .agenda-table thead .resize-handle {
+    #agenda__table thead .resize-handle {
         position: absolute;
         top: 0;
         right: 0;

@@ -5,10 +5,10 @@
         <div class="row hero__section">
             <div class="col-md-6 col-sm-auto hero__section__left">
                 <div class="section__left__content">
-                    <h3>Bienvenue</h3>
+                    <h3 class="" >Bienvenue</h3>
                     <h3>au</h3>
                     <h1 class="home__title text-uppercase">Braine</h1>
-                    <div class="hero-image-box">
+                    <div class="hero-image-box"  data-aos="fade-left">
                         <img src="{{ asset('images/trust-logo.svg') }}" class="img-fluid"
                             style="max-width: 90%; width:fit-content;" alt="image trust" srcset="">
                     </div>

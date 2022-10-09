@@ -12,7 +12,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,27 +22,30 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {{-- CSRF TOKEN --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    {{-- Google Fonts --}}
+        {{-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-{{-- <link rel="stylesheet" href="node_modules/swiper/swiper.bundle.min.css"> --}}
-@livewireStyles
+<script src="https://unpkg.com/scrollreveal"></script>
+
 <link
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
 </head>
-<!-- Popperjs -->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+{{-- <!-- Popperjs -->
 <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
   crossorigin="anonymous"></script>
 <!-- Tempus Dominus JavaScript -->
 <script defer src="https://cdn.jsdelivr.net/gh/Eonasdan/tempus-dominus@master/dist/js/tempus-dominus.js"
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script> --}}
 
 <!-- Tempus Dominus Styles -->
 <link href="https://cdn.jsdelivr.net/gh/Eonasdan/tempus-dominus@master/dist/css/tempus-dominus.css"
@@ -181,11 +183,19 @@
         @include('cookie-consent::index')
         
     </div>
-    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
     @stack('custom-script')
     @yield('stripe-payment-js')
-    <script src="{{ asset('js/index.js') }}"></script>
-    {{-- <script src="node_modules/swiper/swiper.bundle.min.js"></script> --}}
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        ScrollReveal().reveal('.page-title',{
+            delay:500
+        });
+    </script>
+   
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
          let swiper = new Swiper(".mySwiper", {

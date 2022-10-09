@@ -78,7 +78,7 @@
                         </form>
                     </div>
                     <div class="card-body ">
-                        <table class="table table-hover table-responsive-md table-responsive-sm agenda-table">
+                        <table class="table table-hover table-responsive-md table-responsive-sm agenda-table" id="agenda__table">
                             <thead>
                                 <tr>
                                     <th scope="col">Date
@@ -111,14 +111,14 @@
                                         <th scope="row"> <span
                                                 class="text-secondary font-normal">
                                                 {{-- <span class="btn btn-outline-secondary d-grid">{{ date('j \\ F Y', strtotime($agenda->event_date.'Europe/Brussels')) }}</span> --}}
-                                                <span class="btn btn-outline-secondary d-grid">{{ \Carbon\Carbon::parse($agenda->event_date)->locale('fr_BE')->isoFormat('LL')}}</span>
+                                                <span class="">{{ \Carbon\Carbon::parse($agenda->event_date)->locale('fr_BE')->isoFormat('LL')}}</span>
                                                 {{-- <span class="btn btn-outline-secondary d-grid">
                                                     <x-date-time date="$agenda->event_date"></x-date-time>
                                                 </span> --}}
                                         </th>
                                         <th> 
                                             {{-- <span class="btn btn-outline-primary d-grid">{{ $agenda->event_time }}</span> --}}
-                                            <span class="btn btn-outline-primary d-grid">{{ date('H:i', strtotime($agenda->event_date)) }}</span>
+                                            <span class="badge bg-primary">{{ date('H:i', strtotime($agenda->event_date)) }}</span>
                                         </th>
                                         <td>
                                             <span class="text-uppercase">

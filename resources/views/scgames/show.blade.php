@@ -14,7 +14,7 @@
                       <span>Partie jouée</span> <a href="{{route('scgames.index')}}">
                         <span>
                           <small>Retour <i class="bi bi-arrow-left-square-fill"></i></small>
-                          <a href="{{route('files-export')}}" class="btn btn-success"><i class="bi bi-filetype-csv"></i> Export CSV</a>
+                          {{-- <a href="{{route('files-export')}}" class="btn btn-success"><i class="bi bi-filetype-csv"></i> Export CSV</a> --}}
                           {{-- <a href="{{route('pdf-export',$scGame[0]->id)}}" class="btn btn-primary">
                             <i class="bi bi-filetype-pdf"></i>
                             PDF

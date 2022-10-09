@@ -11,9 +11,9 @@
             <div class="col-lg-2 col-md-6">
                 <h6 class=" mb-3">Conditions Générales</h6>
                 <ul class="list-unstyled ">
-                    <li><a href="#" class="">Utilisation des données</a></li>
-                    <li><a href="#" class="">Vie privée</a></li>
-                    <li><a href="#" class="">RGPD</a></li>
+                    <li><a href="{{asset('images/cgu-brainetrust.pdf')}}" target="_blank" class="">Utilisation des données</a></li>
+                    <li><a href="{{asset('images/cgu-brainetrust.pdf')}}" target="_blank"  class="">Vie privée</a></li>
+                    <li><a href="{{asset('images/RGPD.pdf')}}" class="">RGPD</a></li>
                     <li><a href="#" class="">DISCLAIMER</a></li>
                 </ul>
             </div>
@@ -37,6 +37,6 @@
                 </form>
             </div>
         </div>
-        <p class="small  mb-0 text-center">&copy; Copyrights. Tous droits réservés. <a class="text-warning" href="/">Brainetrust</a></p>
+        <p class="small  mb-0 text-center">&copy; Copyright. Tous droits réservés. <a class="text-warning" href="/">Brainetrust</a></p>
     </div>
 </footer>

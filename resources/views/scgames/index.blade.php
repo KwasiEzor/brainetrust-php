@@ -53,12 +53,12 @@
                                 </p>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-end">
-                             <a class="btn btn-outline-primary me-3" href="{{$scGame->report_sheet}}" download="{{$scGame->report_sheet}}" >
+                             {{-- <a class="btn btn-outline-primary me-3" href="{{$scGame->report_sheet}}" download="{{$scGame->report_sheet}}" >
                                fichier
-                                <i class="bi bi-download"></i>
+                                <i class="bi bi-download"></i> --}}
                                 
                             </a>   
-                                <a href="{{route('scgames.show',$scGame->id)}}" class="">Voir détails</a>
+                                <a href="{{route('scgames.show',$scGame->id)}}" class="">Voir détails <i class="bi bi-arrow-right-square-fill"></i></a>
                             </div>
                         </div>
                     </div>

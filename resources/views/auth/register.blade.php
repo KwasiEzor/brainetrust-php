@@ -81,6 +81,10 @@
                                 class="form-control @error('password') is-invalid @enderror"
                                 name="password_confirmation" required autocomplete="new-password">
                         </div>
+                        <div class="form-group">
+                            <input type="checkbox"  name="terms_and_agreement" id="terms_and_agreement" required>
+                            <label for="terms_and_agreement">J'accepte les <a class="text-underlined " href="{{asset('images/cgu-brainetrust.pdf')}}" target="_blank">conditions générales d'utilisations</a></label>
+                        </div>
 
                         <div class="form-group d-grid" >
                             <button type="submit" class="btn btn-primary fs-5">
