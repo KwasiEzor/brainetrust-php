@@ -23,6 +23,7 @@ class AgendaController extends Controller
      */
     public function index(Request $request)
     {
+
         //
         // dd($request);
         $categories = PlayerCategory::all();
@@ -31,30 +32,25 @@ class AgendaController extends Controller
         $categoryTerm = $request->get('category');
         $serieTerm = $request->get('serie');
         $searchKeywords = $request->get('search');
+        $agendasQuery = Agenda::query();
         if (!empty($searchKeywords)) {
-            $agendas = Agenda::query()
-                ->Where('competition', 'like', '%' . $searchKeywords . '%')
+            $agendasQuery->Where('competition', 'like', '%' . $searchKeywords . '%')
                 ->orWhere('event_date', 'like', '%' . $searchKeywords . '%')
                 ->orWhere('player_category_id', 'like', '%' . $searchKeywords . '%')
                 ->orWhere('player_serie_id', 'like', '%' . $searchKeywords . '%')
-                ->latest()
-                ->paginate(9);
-        } else
-        if (!empty($competitionTerm)  || !empty($categoryTerm) || !empty($serieTerm)) {
-
-            $agendas = Agenda::query()
-                ->where('competition', $competitionTerm)
-                ->orWhere('player_category_id', $categoryTerm)
-                ->orWhere('player_serie_id', $serieTerm)
-                ->latest()
-                ->paginate(9);
-        } else {
-            $agendas = Agenda::query()
-                ->latest()
-                ->paginate(9);
+                ->latest();
         }
 
 
+        if (!empty($competitionTerm)  || !empty($categoryTerm) || !empty($serieTerm)) {
+
+            $agendasQuery->where('competition', $competitionTerm)
+                ->where('player_category_id', $categoryTerm)
+                ->where('player_serie_id', $serieTerm)
+                ->latest();
+        }
+
+        $agendas = $agendasQuery->paginate(9);
 
         return view('agendas.index', compact('agendas', 'categories', 'series'));
     }

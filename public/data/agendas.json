@@ -167,11 +167,77 @@
         },
         {
             "id": 14,
-            "event_date": "2022-11-09T16:30:00",
+            "event_date": "2022-11-09T20:00:00",
             "competition": "Amicale",
             "competition_round": null,
             "minute_per_round": 3,
             "details": " ",
+            "player_category_id": "",
+            "player_serie_id": "",
+            "is_highlighted": ""
+        },
+        {
+            "id": 15,
+            "event_date": "2022-12-09T16:30:00",
+            "competition": "Amicale",
+            "competition_round": null,
+            "minute_per_round": 3,
+            "details": " ",
+            "player_category_id": "",
+            "player_serie_id": "",
+            "is_highlighted": ""
+        },
+        {
+            "id": 16,
+            "event_date": "2022-12-16T16:30:00",
+            "competition": "Interclub + Amicale",
+            "competition_round": 7,
+            "minute_per_round": 3,
+            "details": "le temps est réduit à 1 minute par coup (40 secondes de recherche et 20 secondes pour remplir le bulletin-réponse) ",
+            "player_category_id": "",
+            "player_serie_id": "",
+            "is_highlighted": ""
+        },
+        {
+            "id": 17,
+            "event_date": "2022-12-22T16:30:00",
+            "competition": "Amicale",
+            "competition_round": null,
+            "minute_per_round": 3,
+            "details": "le temps est réduit à 1 minute par coup (40 secondes de recherche et 20 secondes pour remplir le bulletin-réponse) ",
+            "player_category_id": "",
+            "player_serie_id": "",
+            "is_highlighted": ""
+        },
+        {
+            "id": 18,
+            "event_date": "2022-11-29T16:30:00",
+            "competition": "Amicale",
+            "competition_round": null,
+            "minute_per_round": 3,
+            "details": "le temps est réduit à 1 minute par coup (40 secondes de recherche et 20 secondes pour remplir le bulletin-réponse) ",
+            "player_category_id": "",
+            "player_serie_id": "",
+            "is_highlighted": ""
+        },
+        {
+            "id": 19,
+            "event_date": "2023-01-06T22:00:00",
+            "competition": "Drink du nouvel An",
+            "competition_round": null,
+            "minute_per_round": 3,
+            "details": "Drink organisé par le club à la salle communale d'ophain. Tous les membres et sympathisants sont tous les bienvenus. ",
+            "player_category_id": "",
+            "player_serie_id": "",
+            "is_highlighted": ""
+        },
+        {
+            "id": 20,
+            "event_date": "2023-01-06T20:00:00",
+            "competition": "Interclub + Amicale",
+            "competition_round": 8,
+            "minute_per_round": 3,
+            "details": "le temps est réduit à 1 minute par coup (40 secondes de recherche et 20 secondes pour remplir le bulletin-réponse) ",
             "player_category_id": "",
             "player_serie_id": "",
             "is_highlighted": ""

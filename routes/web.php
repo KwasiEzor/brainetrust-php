@@ -106,6 +106,8 @@ Route::controller(AgendaController::class)->group(function () {
     Route::put('/agendas/{agenda}', 'update')->name('agendas.update');
     Route::delete('/agendas/{agenda}', 'destroy')->name('agendas.delete');
 });
+
+
 Route::controller(PostController::class)->group(function () {
     Route::get('/posts', 'index')->name('posts.index');
     Route::get('/blog', 'index')->name('posts.index');

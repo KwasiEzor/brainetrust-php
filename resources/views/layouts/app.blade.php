@@ -12,6 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -31,6 +32,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {{-- <link rel="stylesheet" href="node_modules/swiper/swiper.bundle.min.css"> --}}
+@livewireStyles
 <link
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
@@ -179,6 +181,7 @@
         @include('cookie-consent::index')
         
     </div>
+    
     @stack('custom-script')
     @yield('stripe-payment-js')
     <script src="{{ asset('js/index.js') }}"></script>
@@ -219,6 +222,8 @@
                 });
         });
         </script>
+        @livewireScripts
+        
 </body>
 
 </html>

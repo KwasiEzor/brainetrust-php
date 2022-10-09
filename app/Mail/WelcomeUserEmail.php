@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactMail extends Mailable
+class WelcomeUserEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,10 +16,9 @@ class ContactMail extends Mailable
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct()
     {
         //
-        $this->data = $data;
     }
 
     /**
@@ -29,9 +28,6 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.index')
-            ->subject('Mail de contact')
-            ->from('support@admin.com', 'BraineTrust Admin')
-            ->with('data', $this->data);
+        return $this->markdown('emails.welcome');
     }
 }

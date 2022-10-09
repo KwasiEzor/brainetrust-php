@@ -38,6 +38,6 @@ class MailContactController extends Controller
         Contact::create($validatedData);
 
         Mail::to('support@admin.com')->send(new ContactMail($validatedData));
-        return redirect()->back()->with(['success' => 'Thanks. Your message have been sent successfully !!']);
+        return redirect()->back()->with(['success' => 'Merci, votre message a été bien enovoyé avec succès !!']);
     }
 }
