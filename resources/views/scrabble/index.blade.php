@@ -3,7 +3,7 @@
     <div class="container-xl p-lg-5 p-md-4 p-sm-3">
         <div class="row">
                 <div class="card p-lg-5 p-md-4 p-sm-3 border-0 shadow-sm ">
-                    <h2 class="card-title text-center text-primary py-4 page-title">Tout savoir sur le jeu</h2>
+                    <h2 class="card-title text-center text-primary py-4 page-title">le Scrabble</h2>
                     <div class="card-body">
                         <div class="row scrabble-presentation-box mb-5">
                             <div class="col-lg-10 col-md-auto col-sm-12 mx-auto ">

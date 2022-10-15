@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-md-6 mx-auto">
                         <div class="card-body">
-                            @if (count($errors) > 0)
+                            {{-- @if (count($errors) > 0)
                                 <div class="alert alert-danger">
                                     <strong>Whoops!</strong> There were some problems with your input.<br><br>
                                     <ul>
@@ -24,7 +24,7 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                            @endif
+                            @endif --}}
                             <form action="{{ route('agendas.store') }}" method="post" style="display: flex; flex-direction: column;gap:1.5rem">
                                 @csrf
                                 {{-- <div class="form-group">
@@ -32,55 +32,55 @@
                                     <input type="datetime-local" class="form-control" value="{{old('event_date')}}" name="event_date" id="event_date">
                                 </div> --}}
                                 <div class="input-group">
-                                    <input type="datetime-local" class="form-control datetimepicker" placeholder="" aria-label="event_date" name="event_date" value="{{old('event_date')}}">
+                                    <input type="datetime-local" class="form-control datetimepicker @error('event_date') is-invalid @enderror" placeholder="" aria-label="event_date" name="event_date" value="{{old('event_date')}}">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-event-fill"></i></span>
-                                    {{-- @error('event_date')
-                                        <div class="invalid-feedback">
-                                            
-                                        </div>
-                                    @enderror --}}
+                                    
                                 </div>
                                   
     
                                 <div class="form-group">
                                     <label for="competition" class="form-label">Compétition</label>
-                                    <input type="text" class="form-control" value="{{old('competition')}}" name="competition" id="competition">
+                                    <input type="text" class="form-control @error('competition') is-invalid @enderror" value="{{old('competition')}}" name="competition" id="competition">
                                 </div>
                                 <div class="form-group">
                                     <label for="competition_round" class="form-label">Nombre de tour</label>
-                                    <input type="number" class="form-control" value="{{old('competition_round')}}" name="competition_round" id="competition_round">
+                                    <input type="number" class="form-control @error('competition_round') is-invalid @enderror" value="{{old('competition_round')}}" name="competition_round" id="competition_round">
+                                    
                                 </div>
                                 <div class="form-group">
                                     <label for="minute_per_round" class="form-label">Minute par tour</label>
-                                    <input type="number" class="form-control" value="{{old('minute_per_round')}}" name="minute_per_round" id="minute_per_round">
+                                    <input type="number" class="form-control @error('minute_per_round') is-invalid @enderror" value="{{old('minute_per_round')}}" name="minute_per_round" id="minute_per_round">
+                                   
                                 </div>
                                 <div class="form-floating">
-                                    <select class="form-select" id="floatingSelectGrid" name="player_category_id">
+                                    <select class="form-select @error('player_category_id') is-invalid @enderror" id="floatingSelectGrid" name="player_category_id">
                                         <option selected value="{{old('player_category_id')}}"></option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                     <label for="floatingSelectGrid">Catégories</label>
+                                    
                                 </div>
                                 <div class="form-floating">
-                                    <select class="form-select" id="floatingSelectGrid" name="player_serie_id">
+                                    <select class="form-select @error('player_serie_id') is-invalid @enderror" id="floatingSelectGrid" name="player_serie_id">
                                         <option selected value="{{old('player_serie_id')}}"></option>
                                         @foreach ($series as $serie)
                                             <option value="{{ $serie->id }}">{{ $serie->name }}</option>
                                         @endforeach
                                     </select>
                                     <label for="floatingSelectGrid">Séries</label>
+                                    
                                 </div>
                                 <div class="form-floating">
-                                    <textarea class="form-control" name="details" placeholder="Ajouter détails" value="{{old('details')}}" id="details" style="height: 200px">
+                                    <textarea class="form-control @error('details') is-invalid @enderror" name="details" placeholder="Ajouter détails" value="{{old('details')}}" id="details" style="height: 200px">
                                         {{old('details')}}
                                     </textarea>
                                     <label for="details">Détails</label>
                                 </div>
                                 <div class="form-group">
                                     <label for="is_highlighted">Mise en avant</label>
-                                    <input type="checkbox" name="is_highlighted" id="is_highlighted" value="{{old('is_highlighted')}}">
+                                    <input type="checkbox" name="is_highlighted" class="@error('player_category_id') is-invalid @enderror" id="is_highlighted" value="{{old('is_highlighted')}}">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">Ajouter</button>

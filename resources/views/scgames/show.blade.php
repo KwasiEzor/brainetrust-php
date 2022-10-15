@@ -4,8 +4,12 @@
     <div class="container-xl">
 
         <div class="container ">
-            <div class="row mb-5">
-                <h2 class="page-title">Détails de la partie</h2>
+            <div class="row my-5">
+              <h2 class="page__title text-center ">
+                <a href="#" class="page-title ">
+                    Se connecter
+                </a>
+            </h2>
             </div>
             <div class="row g-4">
                <div class="card border-0 p-4">

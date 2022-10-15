@@ -2,8 +2,12 @@
 
 @section('content')
     <div class="container py-5">
-        <div class="row">
-            <h2 class="page-title">Page de connexion</h2>
+        <div class="row mb-4">
+            <h2 class="page__title text-center ">
+                <a href="{{ route('login') }}" class="page-title ">
+                    Se connecter
+                </a>
+            </h2>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6">

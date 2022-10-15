@@ -44,7 +44,7 @@
                                     <div class="card-header border-0">Statistques de jeu</div>
                                     <div class="card-body">
                                         <h5 class="card-title">Détails</h5>
-                                        <p class="card-text">Nb de parties jouées : <span class="fw-bold text-primary fs-3">
+                                        <p class="card-text text-white">Nb de parties jouées : <span class="fw-bold text-primary fs-3">
                                                 @if ($authUser[0]->gm_results->count())
                                                     {{ $authUser[0]->gm_results->count() }}
                                                 @else
@@ -52,16 +52,16 @@
                                                 @endif
                                             </span>
                                         </p>
-                                        <p class="card-text">Meilleur score : <span class="fw-bold text-success fs-3">
+                                        <p class="card-text text-white">Meilleur score : <span class="fw-bold text-warning fs-3">
                                                 @if ($userGameScores)
                                                     {{ max($userGameScores) }}
-                                            </span> <i class="bi bi-hand-thumbs-up-fill text-success"></i>
+                                            </span> <i class="bi bi-hand-thumbs-up-fill text-warning"></i>
                                         @else
                                             0
                                             @endif
 
                                         </p>
-                                        <p class="card-text">Meilleur pourcentage : <span class="fw-bold text-primary fs-3">
+                                        <p class="card-text text-white">Meilleur pourcentage : <span class="fw-bold text-warning fs-3">
                                                 @if ($userScorePercentages)
                                                     {{ max($userScorePercentages) }} %
                                             </span> <i class="bi bi-check2-circle text-primary"></i>
@@ -77,7 +77,7 @@
                                     <div class="card-header border-0">Articles publiés</div>
                                     <div class="card-body">
                                         <h5 class="card-title">Détails</h5>
-                                        <p class="card-text">Nb d'articles : <span class="fw-bold text-primary fs-3">
+                                        <p class="card-text text-white">Nb d'articles : <span class="fw-bold text-warning fs-3">
                                                 @if ($authUser[0]->posts->count())
                                                     {{ $authUser[0]->posts->count() }}
                                                 @else
@@ -92,7 +92,7 @@
                                     <div class="card-header border-0">Commentaires</div>
                                     <div class="card-body">
                                         <h5 class="card-title">Détails</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up
+                                        <p class="card-text text-dark">Some quick example text to build on the card title and make up
                                             the bulk of the card's content.</p>
                                     </div>
                                 </div>
@@ -266,7 +266,7 @@
                     tabindex="0">
 
                     <div class="container">
-                        <div class="row py-5">
+                        <div class="row gy-4 py-5">
                             @forelse ($authUser[0]->posts as $post)
                                 <div class="col-lg-4 col-md-6 col-sm-auto">
                                     <div class="card h-100">

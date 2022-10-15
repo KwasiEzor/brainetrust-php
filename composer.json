@@ -23,6 +23,7 @@
         "maatwebsite/excel": "^3.1",
         "munafio/chatify": "^1.5",
         "nesbot/carbon": "^2.62",
+        "protonemedia/laravel-cross-eloquent-search": "^3.0",
         "spatie/laravel-cookie-consent": "^3.2",
         "spatie/laravel-permission": "^5.5"
     },

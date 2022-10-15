@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -28,31 +28,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script defer src="https://unpkg.com/scrollreveal"></script>
 
-<link
+    <link
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+ 
+      {{-- <!-- Tempus Dominus JavaScript -->
+    <script defer src="https://cdn.jsdelivr.net/gh/Eonasdan/tempus-dominus@master/dist/js/tempus-dominus.js"
+        crossorigin="anonymous"></script>
+      
+      <!-- Tempus Dominus Styles -->
+    <link href="https://cdn.jsdelivr.net/gh/Eonasdan/tempus-dominus@master/dist/css/tempus-dominus.css"
+        rel="stylesheet" crossorigin="anonymous"> --}}
 </head>
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-{{-- <!-- Popperjs -->
-<script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-  crossorigin="anonymous"></script>
-<!-- Tempus Dominus JavaScript -->
-<script defer src="https://cdn.jsdelivr.net/gh/Eonasdan/tempus-dominus@master/dist/js/tempus-dominus.js"
-  crossorigin="anonymous"></script> --}}
 
-<!-- Tempus Dominus Styles -->
-<link href="https://cdn.jsdelivr.net/gh/Eonasdan/tempus-dominus@master/dist/css/tempus-dominus.css"
-  rel="stylesheet" crossorigin="anonymous">
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md app-navbar navbar-primary shadow-sm bg-white" id="navbar_top">
+        <nav class="navbar navbar-expand-md app-navbar navbar-primary  shadow-sm bg-white" id="navbar_top">
             <div class="container-xl">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
@@ -70,16 +70,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ms-auto nav-menu">
                         <li class="nav-item">
-                            <a href="{{ route('home-page') }}" aria-current="page" class="nav-link" >Accueil</a>
+                            <a href="{{ route('home-page') }}" aria-current="page" class="nav-link text-primary" >Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('agendas.index') }}" class="nav-link">Agendas</a>
+                            <a href="{{ route('agendas.index') }}" class="nav-link text-primary">Agendas</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('scrabble-page') }}" class="nav-link">Scrabble</a>
+                            <a href="{{ route('scrabble-page') }}" class="nav-link text-primary">Scrabble</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link text-primary dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Compétitions
                             </a>
@@ -94,7 +94,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link text-primary dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Notre Club
                             </a>
@@ -113,14 +113,14 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('contact-page') }}" class="nav-link">Contact</a>
+                            <a href="{{ route('contact-page') }}" class="nav-link text-primary">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('posts.index') }}" class="nav-link">Blog</a>
+                            <a href="{{ route('posts.index') }}" class="nav-link text-primary">Blog</a>
                         </li>
                         @if(!Auth::guest())
                         <li class="nav-item ">
-                            <a href="{{ url('/chatify') }}" target="_blank" class="nav-link chat-link d-flex align-items-center justify-content-center gap-1">Chat <i class="bi bi-chat-text-fill"></i></a>
+                            <a href="{{ url('/chatify') }}" target="_blank" class="nav-link text-primary chat-link d-flex align-items-center justify-content-center gap-1">Chat <i class="bi bi-chat-text-fill"></i></a>
                         </li>
                         @endif
                     </ul>
@@ -137,12 +137,12 @@
                             @endif
                             @if (Route::has('login'))
                                 <li class="nav-item ">
-                                    <a class="nav-link login-link"  href="{{ route('login') }}"><i class="bi bi-person-circle"></i></a>
+                                    <a class="nav-link text-primary login-link"  href="{{ route('login') }}"><i class="bi bi-person-circle"></i></a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                <a class="nav-link text-primary dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ Auth::user()->name }}
                                 </a>
@@ -183,12 +183,14 @@
         @include('cookie-consent::index')
         
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    
+
 
     @stack('custom-script')
     @yield('stripe-payment-js')
+    @livewireScripts
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
         ScrollReveal().reveal('.page-title',{
@@ -196,7 +198,7 @@
         });
     </script>
    
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
     <script>
          let swiper = new Swiper(".mySwiper", {
         slidesPerView: 3,
@@ -232,8 +234,11 @@
                 });
         });
         </script>
-        @livewireScripts
-        
+       <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+       
+       
 </body>
 
 </html>

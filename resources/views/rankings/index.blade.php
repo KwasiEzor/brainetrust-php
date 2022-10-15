@@ -3,7 +3,13 @@
 <div class="container-xl py-4">
     <div class="container">
         <div class="row py-3">
-            <h2 class="page-title text-center">Classements</h2>
+            <div class="card-header border-0 bg-white mt-3">
+                <h2 class="page__title text-center p-4">
+                    <a href="{{ route('rankings.index') }}" class="page-title ">
+                        Classements
+                    </a>
+                </h2>
+            </div>
         </div>
         <div class="row py-3">
             <div class="card">

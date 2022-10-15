@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\PlayerCategory;
 use App\Models\PlayerSerie;
 use Carbon\Carbon;
+use ProtoneMedia\LaravelCrossEloquentSearch\Search;
 
 class AgendaController extends Controller
 {
@@ -34,11 +35,13 @@ class AgendaController extends Controller
         $searchKeywords = $request->get('search');
         $agendasQuery = Agenda::query();
         if (!empty($searchKeywords)) {
-            $agendasQuery->Where('competition', 'like', '%' . $searchKeywords . '%')
+            $agendasQuery->with(['player_category', 'player_serie'])
+                ->Where('competition', 'like', '%' . $searchKeywords . '%')
                 ->orWhere('event_date', 'like', '%' . $searchKeywords . '%')
-                ->orWhere('player_category_id', 'like', '%' . $searchKeywords . '%')
-                ->orWhere('player_serie_id', 'like', '%' . $searchKeywords . '%')
-                ->latest();
+                ->whereHas('player_category', function ($q, $categoryTerm) {
+                    return $q->where('player_category_id', $categoryTerm);
+                })
+                ->orWhere('player_serie_id', $serieTerm);
         }
 
 
@@ -46,8 +49,11 @@ class AgendaController extends Controller
 
             $agendasQuery->where('competition', $competitionTerm)
                 ->where('player_category_id', $categoryTerm)
-                ->where('player_serie_id', $serieTerm)
-                ->latest();
+                ->where('player_serie_id', $serieTerm);
+        }
+        if (!empty($competitionTerm)) {
+            $agendasQuery->where('competition', $competitionTerm)
+                ->get();
         }
 
         $agendas = $agendasQuery->paginate(9);
@@ -79,8 +85,8 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $request->validate(
+
+        $data = $request->validate(
             [
                 'event_date' => ['required'],
                 'competition' => ['required', 'string', 'min:5'],
@@ -88,26 +94,23 @@ class AgendaController extends Controller
                 'minute_per_round' => ['required', 'numeric'],
                 'player_category_id' => ['nullable', 'numeric'],
                 'player_serie_id' => ['nullable', 'numeric'],
-                'is_highlighted' => ['nullable', 'boolean']
+
             ]
         );
 
 
 
-        $data = $request->only(
-            [
-                'event_date',
-                'competition',
-                'competition_round',
-                'minute_per_round',
-                'player_category_id',
-                'player_serie_id',
-            ]
-        );
+
         // dd($data);
-        $agenda = Agenda::create($data, [
-            'is_higlighted' => $request->has('is_highlighted')
-        ]);
+        if ($request->get('is_highlighted')) {
+
+            $agenda = Agenda::create($data, [
+                'is_higlighted' => $request->get('is_highlighted') ? 1 : 0
+            ]);
+        } else {
+            $agenda = Agenda::create($data);
+        }
+        // dd($agenda);
         if (!$agenda) {
             return back()->with('message', 'error to create agenda');
         }
@@ -152,7 +155,7 @@ class AgendaController extends Controller
     {
         //
         //
-        $request->validate(
+        $data = $request->validate(
             [
                 'event_date' => ['required'],
                 'competition' => ['required', 'string', 'min:5'],
@@ -160,28 +163,26 @@ class AgendaController extends Controller
                 'minute_per_round' => ['nullable', 'numeric'],
                 'player_category_id' => ['nullable', 'numeric'],
                 'player_serie_id' => ['nullable', 'numeric'],
-                'is_highlighted' => ['nullable', 'boolean']
+
             ]
         );
 
 
 
-        $data = $request->only(
-            [
-                'event_date',
-                'competition',
-                'competition_round',
-                'minute_per_round',
-                'player_category_id',
-                'player_serie_id',
-            ]
-        );
+
         // dd($data);
         $agenda = Agenda::findOrFail($agenda->id);
-        $agenda->update($data, [
-            'event_date' => Carbon::parse($request->input('event_date')),
-            'is_higlighted' => $request->has('is_highlighted')
-        ]);
+        if ($request->get('is_highlighted')) {
+
+            $agenda->update($data, [
+                'event_date' => Carbon::parse($request->input('event_date')),
+                'is_higlighted' => $request->has('is_highlighted') ? 1 : 0
+            ]);
+        } else {
+            $agenda->update($data, [
+                'event_date' => Carbon::parse($request->input('event_date'))
+            ]);
+        }
         if (!$agenda) {
             return back()->with('error', 'Problème lors de la mdoification');
         }

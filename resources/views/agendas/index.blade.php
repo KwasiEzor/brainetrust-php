@@ -179,10 +179,10 @@
                                         </td>
                                         <td>
                                             <span class="small text-muted">
-                                                {{ $agenda->player_category->name }}
+                                                {{ $agenda->player_category->name ?? " " }}
                                             </span>
                                         </td>
-                                        <td>{{ $agenda->player_serie->name }}</td>
+                                        <td>{{ $agenda->player_serie->name ?? " " }}</td>
                                         <td>
                                             @can('manage-all-content')
                                             <a class="btn btn-outline-warning" href="{{route('agendas.edit',$agenda)}}"><i class="bi bi-pencil-square"></i></a>
@@ -199,7 +199,6 @@
                                 @empty
                                     <tr>
                                         <th scope="row">No Data</th>
-
                                     </tr>
                                 @endforelse
 

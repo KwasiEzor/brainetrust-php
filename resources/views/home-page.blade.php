@@ -5,7 +5,7 @@
         <div class="row hero__section">
             <div class="col-md-6 col-sm-auto hero__section__left">
                 <div class="section__left__content">
-                    <h3 class="" >Bienvenue</h3>
+                    <h3 class="animate__backInDown" >Bienvenue</h3>
                     <h3>au</h3>
                     <h1 class="home__title text-uppercase">Braine</h1>
                     <div class="hero-image-box"  data-aos="fade-left">
@@ -76,7 +76,13 @@
         {{-- Scrabble presentation area --}}
         <div class="container-xl ">
             <div class="row  mb-5">
-                <h4 class="page-title">A découvrir</h4>
+                <div class="card-header border-0 bg-white mt-3">
+                    <h2 class="page__title text-center p-4">
+                        <a href="{{ route('home-page') }}" class="page-title ">
+                            A découvrir
+                        </a>
+                    </h2>
+                </div>
             </div>
             <div class="row bg-white discover-section  pb-4">
                 <div class="col-lg-6 col-md-auto">
@@ -128,7 +134,13 @@
         {{-- UpcomingAgendas section --}}
         <div class="container-xl mt-5">
             <div class="row mb-5">
-                <h4 class="page-title">Prochains événements</h4>
+                <div class="card-header border-0 bg-white mt-3">
+                    <h2 class="page__title text-center p-4">
+                        <a href="{{ route('home-page') }}" class="page-title ">
+                            Prochains événements
+                        </a>
+                    </h2>
+                </div>
             </div>
             <div class="row ">
                 <div class="card py-4 px-2 border-0">
@@ -246,7 +258,13 @@
         {{-- Recent posts section --}}
         <div class="container-xl mt-5">
             <div class="row  mb-5">
-                <h4 class="page-title">Dernières publications</h4>
+                <div class="card-header border-0 bg-white mt-3">
+                    <h2 class="page__title text-center p-4">
+                        <a href="{{ route('posts.index') }}" class="page-title ">
+                            Dernières publications
+                        </a>
+                    </h2>
+                </div>
             </div>
             <div class="row recent-posts">
                 @forelse ($recentPosts as $post)

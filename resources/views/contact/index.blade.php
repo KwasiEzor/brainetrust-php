@@ -1,12 +1,18 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-xl py-5">
+    <div class="container-xl py-2">
        
             <div class="card mt-5 mb-3 border-0 shadow-sm py-5" style="">
               <div class="row">
-                <h2 class="card-title text-center page-title">Contactez-nous</h2>
+                <div class="card-header border-0 bg-white ">
+                  <h2 class="page__title text-center ">
+                      <a href="{{ route('contact-page') }}" class="page-title ">
+                          Nous contacter
+                      </a>
+                  </h2>
               </div>
-                <div class="row g-0">
+              </div>
+                <div class="row g-0 mt-4">
                  
                   <div class="col-md-6 mx-auto">
                     <div class="card-body">
