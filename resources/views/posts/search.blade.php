@@ -24,10 +24,10 @@
                             <div class=" col-lg-4 col-md-6 col-sm-auto mt-5 mb-4 ">
                                 <div class="card p-2 w-100 h-100">
                                     <img src="{{ $post->image_url}}" class="card-img mb-3" alt="image">
-                                    <h5 class="card-title px-3">{{ $post->title }}</h5>
+                                    <h6 class="card-title text-primary px-3">{{ $post->title }}</h6>
                                     <div class="card-body">
                                         <p class="card-text">
-                                            {{ Str::limit($post->content, 120) }}
+                                            {!! Str::limit($post->content, 120) !!}
                                         </p>
                                     </div>
                                     <div class="card-footer">

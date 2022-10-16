@@ -192,6 +192,7 @@
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{asset('js/index.js')}}"></script>
     <script>
         ScrollReveal().reveal('.page-title',{
             delay:500

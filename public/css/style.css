@@ -44,8 +44,8 @@ h4.about-infos::first-letter {
 }
 
 p {
-    text-align: justify !important;
-    font-size: 1.07rem;
+    text-align: justify;
+    font-size: 1.03rem;
     font-weight: 400 !important;
     color: var(--clr-gray) !important;
 }

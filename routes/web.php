@@ -39,7 +39,7 @@ Route::get('/email/verify', function () {
 Route::get('/', [HomepageController::class, 'index'])->name('home-page');
 
 Route::controller(HomeController::class)->group(function () {
-    Route::post('/home/update/{id}', 'update')->name('home.update-user');
+    Route::post('/home/user/{id}', 'update')->name('home.update-user');
 });
 Auth::routes(['verify' => true]);
 

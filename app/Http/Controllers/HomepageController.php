@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Agenda;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller

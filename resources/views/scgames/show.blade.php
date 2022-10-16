@@ -7,7 +7,7 @@
             <div class="row my-5">
               <h2 class="page__title text-center ">
                 <a href="#" class="page-title ">
-                    Se connecter
+                    Détails de la partie
                 </a>
             </h2>
             </div>

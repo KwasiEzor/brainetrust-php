@@ -4,16 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\UserInfo;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Traits\GlobalTrait;
 
 class HomeController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -51,23 +55,31 @@ class HomeController extends Controller
         return view('home', compact('authUser', 'userGameScores', 'userScorePercentages'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request,  $id)
     {
+        $userToUpdate = User::findOrFail($id);
+        // dd($userToUpdate);
+        // $profileImg = null;
         // dd($request->all());
-        $user = User::where('id', $id)
-            // ->get();
-            ->update($request->only(['name', 'email']));
-        // dd($user);
-        // dd($request->all());
-        if ($request->hasFile('profile_img')) {
 
-            $name = time() . '_' . $request->file('profile_img')->getClientOriginalName();
-            $profileImg = $request->file('profile_img')->storeAs('images', $name, 'public');
+        if ($request->file('profile_img')) {
 
-            $user->update([
-                'profile_img' => $profileImg
+            $filename =  $request->file('profile_img')->getClientOriginalName();
+            $profileImg = $request->file('profile_img')->storeAs('images', $filename, 'public');
+            $userToUpdate->update([
+                'profile_img' =>  $profileImg
             ]);
         }
+
+        // // dd($profileImg);
+        if ($request->get('name') || $request->get('email')) {
+
+            $userToUpdate->update([
+                'name' => $request->get('name') ?? $request->name,
+                'email' => $request->get('email') ?? $request->email,
+            ]);
+        }
+
         if (
             $request->input('birthday') |
             $request->input('address') |
@@ -75,12 +87,16 @@ class HomeController extends Controller
             $request->input('zip_code') |
             $request->input('phone')
         ) {
-            $userInfo = UserInfo::create([
-                $request->only(['birthday', 'address', 'city', 'zip_code', 'phone']),
-                'user_id' => $user->id
+            UserInfo::create([
+                'birthday' => Carbon::parse($request->input('birthday')),
+                'address' => $request->input('address'),
+                'city' => $request->input('city'),
+                'zip_code' => $request->input('zip_code'),
+                'phone' => $request->input('phone'),
+                'user_id' => $userToUpdate->id
             ]);
         }
-
+        $userToUpdate->save();
         return redirect()->back()->with('success', 'Modification réussie');
     }
 }

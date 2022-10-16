@@ -10,17 +10,17 @@
                             @method('PUT')
                             <div class="form-group">
                                <label for="title" class="form-label">Titre</label>
-                               <input type="text" id="title" class="form-control" name="title" value="{{$post->title}}" placeholder="Titre" required >
+                               <input type="text" id="title" class="form-control @error('title')is-invalid @enderror" name="title" value="{{$post->title}}" placeholder="Titre" required >
                             </div>
                             <div class="form-group">
                                 <label for="content" class="form-label">Contenu</label>
-                                <textarea name="content" id="content" cols="30" rows="10" class="form-control resize-none" placeholder="Ajouter un contenu" required>
+                                <textarea name="content" id="content" cols="30" rows="10" class="form-control resize-none @error('content')is-invalid @enderror" placeholder="Ajouter un contenu" required>
                                     {{$post->content}}
                                 </textarea>
                             </div>
                             <div class="form-group">
                                 <label for="image_url" class="form-label">Ajouter une image</label>
-                                <input type="file" class="form-control" name="image_url" value="{{old('image_url')}}}" >
+                                <input type="file" class="form-control @error('image_url')is-invalid @enderror" name="image_url" value="{{old('image_url')}}}" >
                             </div>
                             <div class="form-group">
                                 <label for="video_url" class="form-label">Lien video</label>
@@ -30,7 +30,8 @@
                             
                             <div class="input-group my-3">
                                 <label class="input-group-text" for="inputGroupSelect01">Catégories</label>
-                                <select class="form-select" id="inputGroupSelect01" name="category_id">
+                                <select class="form-select @error('category_id')is-invalid @enderror "
+                                id="inputGroupSelect01" name="category_id">
     
                                     <option value="{{$post->category_id}}" selected>{{$post->category->name}}</option>    
                                     @foreach ($categories as $category )

@@ -202,40 +202,35 @@
                                             </li>
                                             <li class="list-group-item border-0">Date de naissance :
                                                 @if ($authUser[0]->user_info)
-                                                    {{ $authUser[0]->user_info->birthday }}
-                                                @else
-                                                    <span>Néant</span>
+                                                    {{ \Carbon\Carbon::parse($authUser[0]->user_info->birthday)->locale('fr_BE')->isoFormat('LL') ?? " " }}
+                                               
                                                 @endif
                                             </li>
-                                            <li class="list-group-item border-0">Ville :
+                                            <li class="list-group-item border-0">Ville / Commune :
                                                 @if ($authUser[0]->user_info)
-                                                    {{ $authUser[0]->user_info->city }}
-                                                @else
-                                                    <span>Néant</span>
+                                                    {{ $authUser[0]->user_info->city ?? " "}}
+                                               
                                                 @endif
                                             </li>
                                             <li class="list-group-item border-0">Adresse :
                                                 @if ($authUser[0]->user_info)
                                                     <address>
-                                                        {{ $authUser[0]->user_info->address }}
+                                                        {{ $authUser[0]->user_info->address ?? " " }}
                                                     </address>
-                                                @else
-                                                    <span>Néant</span>
+                                               
                                                 @endif
                                             </li>
                                             <li class="list-group-item border-0">Code postal :
                                                 @if ($authUser[0]->user_info)
-                                                    {{ $authUser[0]->user_info->zip_code }}
-                                                @else
-                                                    <span>Néant</span>
+                                                    {{ $authUser[0]->user_info->zip_code ?? " " }}
+                                               
                                                 @endif
 
                                             </li>
                                             <li class="list-group-item border-0">Contact :
                                                 @if ($authUser[0]->user_info)
-                                                    {{ $authUser[0]->user_info->phone }}
-                                                @else
-                                                    <span>Néant</span>
+                                                    {{ $authUser[0]->user_info->phone ?? " " }}
+                                               
                                                 @endif
                                             </li>
 
@@ -273,11 +268,11 @@
                                         <img src="{{ $post->image_url }}" class="img-fluid card-img mb-3"
                                             alt="image">
                                         <div class="card-body">
-                                            <h4 class="card-title text-primary">{{ $post->title }}</h4>
+                                            <h6 class="card-title text-primary">{{ $post->title }}</h6>
                                             <small class="pe-3"> Catégorie : <span
                                                     class="badge bg-success">{{ $post->category->name }}</span> </small>
                                             <p class="card-text p-3 bg-light">
-                                                {{ Str::limit($post->content, 120) }}
+                                                {!! Str::limit($post->content, 120) !!}
                                             </p>
                                         </div>
                                         <div class=" p-3 d-flex justify-content-end ">
@@ -302,15 +297,16 @@
                                 <h5>Données personnelles</h5>
                             </div>
                             <div class="card-body">
-                                <form action="{{route('home.update-user',$authUser[0]->id)}}" method="POST">
+                                <form action="{{route('home.update-user',$authUser[0]->id)}}" method="post">
                                     @csrf
+                                    @method('PUT')
                                     <div class="row mb-3">
                                         <div class="col-md-6 mx-auto">
                                             <div class="profile_img d-flex align-items-center justify-content-center ">
                                                 <figure class="figure">
                                                     <img class="figure-img img-fluid rounded" 
                                                     src="
-                                                        @if ($authUser[0]->profile_img) {{ $authUser[0]->profile_img }}
+                                                        @if ($authUser[0]->profile_img) {{ $authUser[0]->profile_img ??  asset('storage/'.$authUser[0]->profile_img) }}
                                                         @else
                                                         {{ asset('images/default-user.png') }} 
                                                         @endif
@@ -322,7 +318,7 @@
                                                 </figure>
                                             </div>
                                             <div class="form-group">
-                                                {{-- <label for="profile_img">Image de profil</label> --}}
+                                                
                                                 <input type="file" name="profile_img" id="" accept=""
                                                     value="{{ $authUser[0]->profile_img }}" class="form-control">
                                             </div>
@@ -349,14 +345,14 @@
                                         <div class="col-md-6 col-sm-auto">
                                             <div class="form-group">
                                                 <label for="birthday" class="mb-2">Date de naissance</label>
-                                                <input type="date" id="birthday" value="" placeholder="Date de naissance"
+                                                <input type="datetime-local" id="birthday" value="{{$authUser[0]->user_info->birthday ?? old('birthday')}}" placeholder="Date de naissance" value="{{$authUser[0]->user_info->birthday ?? old('birthday') }}"
                                                     name="birthday" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-auto">
                                             <div class="form-group">
                                                 <label for="address" class="mb-2">Adresse</label>
-                                                <input type="text" value="" id="address" placeholder="Adresse complète"
+                                                <input type="text" value="{{$authUser[0]->user_info->address ?? old('address') }}" id="address" placeholder="Adresse complète"
                                                     name="address" class="form-control">
                                             </div>
                                         </div>
@@ -364,34 +360,26 @@
                                     <div class="row mb-3">
                                         <div class="col-lg-4 col-md-6 col-sm-auto">
                                             <div class="form-group">
-                                                <label for="city" class="mb-2">Ville</label>
-                                                <input type="text" id="city" name="city" value="" placeholder="Ville"
+                                                <label for="city" class="mb-2">Ville / Commune</label>
+                                                <input type="text" id="city" name="city" value="{{$authUser[0]->user_info->city ?? old('city') }}" placeholder="Ville"
                                                      class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-6 col-sm-auto">
                                             <div class="form-group">
                                                 <label for="zip_code" class="mb-2">Code postal</label>
-                                                <input type="text" value="" id="zip_code" placeholder="Code postal"
+                                                <input type="text" value="{{$authUser[0]->user_info->zip_code ?? old('zip_code') }}" id="zip_code" placeholder="Code postal"
                                                     name="zip_code" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-6 col-sm-auto">
                                             <div class="form-group">
                                                 <label for="phone" class="mb-2">Téléphone</label>
-                                                <input type="text" value="" id="phone" placeholder="Numéro de téléphone"
+                                                <input type="text" value="{{$authUser[0]->user_info->phone ?? old('phone') }}" id="phone" placeholder="Numéro de téléphone"
                                                     name="phone" class="form-control">
                                             </div>
                                         </div>
-                                        {{-- <div class="form-group my-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                  Est membre
-                                                </label>
-                                              </div>
-                                              
-                                        </div> --}}
+                                        
                                         <div class="form-group my-3 d-flex align-items-center justify-content-center">
                                             <input type="submit" class="btn btn-success" value="Modifier données">
                                         </div>

@@ -49,9 +49,9 @@
                                             src="{{$post->image_url}}"
                                         @endif
                                     class="card-img mb-3" alt="image" >
-                                        <h5 class="card-title px-3">{{ $post->title }}</h5>
+                                        <h6 class="card-title text-primary px-3">{{ $post->title }}</h6>
                                         <div class="card-body">
-                                            <p class="card-text text-muted bg-light p-2 rounded-3">
+                                            <p class="card-text text-center  text-muted bg-light p-2 rounded-3" >
                                                 {!! Str::limit($post->content, 120) !!}
                                             </p>
                                         </div>
