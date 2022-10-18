@@ -101,13 +101,13 @@
             </div>
             <div class="row bg-white discover-section py-4">
                 <div class="col-lg-6 col-md-auto">
-                    <div class="content left mb-md-4">
+                    <div class="content left">
                         <h1 class="text-primary">Le Duplicate</h1>
                         <h4 class="fw-normal">pour tester</h4>
                         <h4 class="fw-normal">vos Connaissances</h4>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-auto">
+                <div class="col-lg-6 col-md-auto mt-4">
                     <figure class="figure">
                         <img src="{{asset('images/scarbble-duplicate.svg')}}" alt="image scrabble" class="figure-img img-fluid rounded">
                         <figcaption></figcaption>
@@ -122,7 +122,7 @@
                     </figure>
                 </div>
                 <div class="col-lg-6 col-md-auto">
-                    <div class="content">
+                    <div class="content ">
                         <h1 class="text-primary">Le Classique</h1>
                         <h4 class="fw-normal">partager de</h4>
                         <h4 class="fw-normal ">bons Moments</h4>
@@ -180,8 +180,8 @@
         {{-- UpcomingAgendas section end --}}
         {{-- Become Member start --}}
         <div class="container-xl mt-5 ">
-            <div class="container p-lg-4 p-md-3 pt-sm-4 bg-primary rounded-3">
-                <h1 class="text-center  text-white mt-4 mt-sm-4  text-shadow">Envie de nous <span class="badge bg-warning">Rejoindre</span> ?</h1>
+            <div class="container p-lg-4 p-md-3 pt-sm-4 bg-primary rounded-3 " id="cta">
+                <h1 class="text-center  text-white text-shadow home-cta">Envie de nous <span class="badge bg-warning">Rejoindre</span> ?</h1>
                 <div class="row welcome-section pb-4 gy-md-4 gy-sm-4">
                     <div class="col-lg-6 col-md-6 col-sm-auto welcome-img-box">
                         <figure class="figure welcome-man">

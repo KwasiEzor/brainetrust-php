@@ -356,7 +356,9 @@ p {
     transition: all 0.4s ease;
 }
 
-
+#cta h1.text-center{
+    margin-top: 1rem !important;
+}
 
 
 /* ============Scrabble presentation page============== */
@@ -367,7 +369,7 @@ p {
 @media screen and (max-width:648px) {
 
     /* ============Agendas Table============== */
-    #agenda__table {
+    #agenda__table,#club-table {
         display: grid;
         border-collapse: collapse;
         min-width: 100%;
@@ -378,20 +380,24 @@ p {
     }
 
     #agenda__table thead,
+    #club-table thead,
     #agenda__table tbody,
-    #agenda__table tr {
+    #club-table tbody,
+    #agenda__table tr,
+    #club-table tr
+     {
         display: contents;
     }
 
-    #agenda__table th,
-    #agenda__table td {
+    #agenda__table th, #club-table th 
+    #agenda__table td, #club-table td {
         padding: 15px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
 
-    #agenda__table th {
+    #agenda__table th,#club-table th {
         position: sticky;
         text-align: left;
         font-size: normal;
@@ -399,11 +405,12 @@ p {
         position: relative;
     }
 
-    #agenda__table th:last-child {
+    #agenda__table th:last-child, 
+    #club-table th:last-child {
         border: 0;
     }
 
-    #agenda__table thead .resize-handle {
+    /* #agenda__table thead .resize-handle {
         position: absolute;
         top: 0;
         right: 0;
@@ -412,7 +419,7 @@ p {
         background-color: var(--clr-primary);
         color: white;
         cursor: col-resize;
-    }
+    } */
 
     #agendaSearchBtn {
         word-wrap: unset;

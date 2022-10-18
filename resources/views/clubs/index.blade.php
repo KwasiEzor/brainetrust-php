@@ -67,16 +67,16 @@
                     </form>
                 </div>
                 <div class="card-body">
-                    <table class="table table-hover  table-responsive text-center " style="overflow-x: auto">
+                    <table class="table table-hover  table-responsive  " id="club-table" >
                         <thead>
                             <tr>
                                 <th scope="col">IDs</th>
                                 <th scope="col">Nom</th>
                                 <th scope="col">Adresse</th>
                                 <th scope="col">Localité</th>
-                                <th scope="col">Province</th>
-                                <th scope="col">Pers. de contact</th>
-                                <th scope="col">Num. de contact</th>
+                                {{-- <th scope="col">Province</th> --}}
+                                {{-- <th scope="col">Pers. de contact</th>
+                                <th scope="col">Num. de contact</th> --}}
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
@@ -86,12 +86,12 @@
                                     <td>{{ $club->name }}</td>
                                     <td>{{ $club->address }}</td>
                                     <td>{{ $club->locality }}</td>
-                                    <td>{{ $club->province }}</td>
-                                    <td>{{ $club->contact_person }}</td>
-                                    <td>
+                                    {{-- <td>{{ $club->province }}</td> --}}
+                                    {{-- <td>{{ $club->contact_person }}</td> --}}
+                                    {{-- <td>
                                         <span class="d-block">{{ $club->mobile_number }}</span>
                                         <span class="d-block">{{ $club->phone_number }}</span>
-                                    </td>
+                                    </td> --}}
                                     <td>
 
                                         <button type="button" class="btn showDetails btn-outline-primary" id="detailsBtn"
@@ -115,13 +115,23 @@
                                                             aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p class="">Jour d'entraînement : {{ $club->training_day }}
+                                                        <p class="">Jour d'entraînement : 
+                                                            {{ $club->training_day }}
                                                         </p>
                                                         <p class="">Horaire d'entraînement :
                                                             {{ $club->training_time }}</p>
+                                                        <p class="">Adresse : 
+                                                            <address class="">
+                                                                {{ $club->address }}
+                                                            </address>
+
+                                                        </p>
+                                                        <p class="">Localité : {{ $club->locality }}
+
+                                                        </p>
                                                         <p class="">Personne de contact : {{ $club->contact_person }}
                                                         </p>
-                                                        <p class="">Adresse email: <a
+                                                        <p class="">Email: <a
                                                                 href="mailto:{{ $club->email }}">{{ $club->email }}</a>
                                                         </p>
                                                         @if ($club->phone_number)
