@@ -4,8 +4,17 @@
 <div class="container-xl py-5">
     <div class="container">
         <div class="row mb-4">
-            <h2 class="page-title">Abonnement</h2>
+            <h2 class="text-center ">
+                <a href="{{ route('abonnement.amateur-payment') }}" class="page-title ">
+                    Plan amateur
+                </a>
+            </h2>
         </div>
+        @if (session('message'))
+            <div class="alert alert-danger alert-dismissible">
+                {{ session('message') }}
+            </div>
+        @endif
         <div class="card row border-0 px-3 py-5 shadow-sm" style="min-height: 100vh;">
             <div class="col-lg-8 col-md-auto mx-auto  text-center rounded-1 pt-4" >
                 <div class="row" id="amateur-lady-box"  style="background-color: #1D59FC; color:#fff; border-radius:1rem;">

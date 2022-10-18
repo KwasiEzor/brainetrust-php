@@ -12,7 +12,7 @@ class PlayerSerie extends Model
 
     protected $guarded = [];
 
-    public function agenda()
+    public function agendas()
     {
         return $this->hasMany(Agenda::class);
     }

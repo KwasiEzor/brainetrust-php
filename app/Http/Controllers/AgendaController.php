@@ -34,29 +34,46 @@ class AgendaController extends Controller
         $serieTerm = $request->get('serie');
         $searchKeywords = $request->get('search');
         $agendasQuery = Agenda::query();
+        $date = Carbon::now();
+        $agendasQuery->whereDate('event_date', '>=', $date);
+
+
+
         if (!empty($searchKeywords)) {
-            $agendasQuery->with(['player_category', 'player_serie'])
+            $agendas =  $agendasQuery->with(['player_category', 'player_serie'])
                 ->Where('competition', 'like', '%' . $searchKeywords . '%')
                 ->orWhere('event_date', 'like', '%' . $searchKeywords . '%')
-                ->whereHas('player_category', function ($q, $categoryTerm) {
-                    return $q->where('player_category_id', $categoryTerm);
-                })
-                ->orWhere('player_serie_id', $serieTerm);
-        }
+                // ->orWhere('player_category_id', 'like', '%' . $searchKeywords . '%')
+                // ->orWhere('player_serie_id', 'like', '%' . $searchKeywords . '%')
+                ->paginate(9);
+            $agendas->appends(['search' => $searchKeywords]);
+        } else
+        if (!empty($competitionTerm)  || !empty($categoryTerm) || !empty($serieTerm)) {
 
+            $agendas = $agendasQuery->with(['player_category', 'player_serie'])
+                ->where('competition', $competitionTerm)
+                ->where('player_category_id', $categoryTerm)
+                ->where('player_serie_id', $serieTerm)
+                ->paginate(9);
+            $agendas->appends(['search' => $searchKeywords]);
+        } else
 
         if (!empty($competitionTerm)  || !empty($categoryTerm) || !empty($serieTerm)) {
 
-            $agendasQuery->where('competition', $competitionTerm)
-                ->where('player_category_id', $categoryTerm)
-                ->where('player_serie_id', $serieTerm);
-        }
-        if (!empty($competitionTerm)) {
-            $agendasQuery->where('competition', $competitionTerm)
-                ->get();
+            $agendas = $agendasQuery->with(['player_category', 'player_serie'])
+                ->where('competition', $competitionTerm)
+                ->orwhere('player_category_id', $categoryTerm)
+                ->orwhere('player_serie_id', $serieTerm)
+                ->paginate(9);
+            $agendas->appends(['search' => $searchKeywords]);
+        } else {
+            $agendas = $agendasQuery->with(['player_category', 'player_serie'])
+                ->latest()
+                ->paginate(9);
         }
 
-        $agendas = $agendasQuery->paginate(9);
+
+
 
         return view('agendas.index', compact('agendas', 'categories', 'series'));
     }

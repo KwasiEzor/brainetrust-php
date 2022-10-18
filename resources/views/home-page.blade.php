@@ -94,17 +94,17 @@
                 <div class="col-lg-6 col-md-auto">
                     <div class="content">
                         <h1 class="text-primary">Le Scrabble</h1>
-                        <h3>toutes </h3>
-                        <h2>ses Variantes</h2>
+                        <h4 class="fw-normal" >toutes </h4>
+                        <h4 class="fw-normal" >ses Variantes</h4>
                     </div>
                 </div>
             </div>
             <div class="row bg-white discover-section py-4">
                 <div class="col-lg-6 col-md-auto">
-                    <div class="content left">
+                    <div class="content left mb-md-4">
                         <h1 class="text-primary">Le Duplicate</h1>
-                        <h3>pour tester</h3>
-                        <h2>vos Connaissances</h2>
+                        <h4 class="fw-normal">pour tester</h4>
+                        <h4 class="fw-normal">vos Connaissances</h4>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-auto">
@@ -124,8 +124,8 @@
                 <div class="col-lg-6 col-md-auto">
                     <div class="content">
                         <h1 class="text-primary">Le Classique</h1>
-                        <h3>partager de</h3>
-                        <h2>bons Moments</h2>
+                        <h4 class="fw-normal">partager de</h4>
+                        <h4 class="fw-normal ">bons Moments</h4>
                     </div>
                 </div>
             </div>

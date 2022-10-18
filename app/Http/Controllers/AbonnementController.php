@@ -38,10 +38,25 @@ class AbonnementController extends Controller
         $auth_user = auth()->user();
         if ($request->has('amateur')) {
             $amount += 4500;
-            $auth_user->charge($amount, $request->payment_method);
+            try {
+                //code...
+                $auth_user->charge($amount, $request->payment_method);
+                // $auth_user->invoicePrice('Plan amateur', $amount);
+            } catch (\Exception $e) {
+                //Exception code;
+                return back()->withErrors(['message' => 'Erreur lors de votre subscription. ' . $e->getMessage()]);
+            }
         } else if ($request->has('confirmed')) {
             $amount += 6800;
-            $auth_user->charge($amount, $request->payment_method);
+
+            try {
+                //code...
+                $auth_user->charge($amount, $request->payment_method);
+                // $auth_user->invoicePrice('Plan amateur', $amount);
+            } catch (\Exception $e) {
+                //throw $th;
+                return back()->withErrors(['message' => 'Erreur lors de votre subscription. ' . $e->getMessage()]);
+            }
         }
         $auth_user->notify(new SuccessfullPaymentNotification());
         return redirect()->route('abonnement.thankyou');

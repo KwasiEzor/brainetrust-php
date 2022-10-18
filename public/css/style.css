@@ -59,7 +59,7 @@ p {
     padding: 0.6rem 1.5rem;
     border: 1px solid var(--clr-primary);
     border-radius: 6px;
-    max-width: 25rem;
+    max-width: 33vw;
     width: 100%;
     margin: 1rem auto;
     opacity: 0.8;
@@ -371,7 +371,10 @@ p {
         display: grid;
         border-collapse: collapse;
         min-width: 100%;
-        grid-template-columns: minmax(9rem, 1fr) minmax(9rem, 1fr) minmax(9.375rem, 1fr) minmax(5rem, 1fr) minmax(5rem, 1fr);
+        grid-template-columns: minmax(9rem, 1fr);
+        grid-template-columns: minmax(9rem, 1fr);
+        grid-template-columns: minmax(9.375rem, 1fr);
+        grid-template-columns: minmax(5rem, 1fr) minmax(5rem, 1fr);
     }
 
     #agenda__table thead,
@@ -391,7 +394,7 @@ p {
     #agenda__table th {
         position: sticky;
         text-align: left;
-        font-size: 1.1rem;
+        font-size: normal;
         font-weight: normal;
         position: relative;
     }
@@ -427,7 +430,7 @@ p {
         grid-template-columns: minmax(8rem,1fr);
         grid-template-columns: minmax(8rem,1fr);
         grid-template-columns: minmax(9.037rem,1fr);
-        ;
+        
 
     }
     .scgame-table thead,
@@ -445,7 +448,7 @@ p {
     .scgame-table th {
         position: sticky;
         text-align: left;
-        font-size: 1.1rem;
+        font-size: normal;
         font-weight: normal;
         position: relative;
     }

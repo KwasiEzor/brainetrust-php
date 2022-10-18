@@ -11,7 +11,7 @@ class PlayerCategory extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function agenda()
+    public function agendas()
     {
         return $this->hasMany(Agenda::class);
     }

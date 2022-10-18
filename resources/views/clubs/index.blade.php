@@ -6,7 +6,7 @@
                 <div class="card-header border-0 bg-white mt-3">
                     <h2 class="card-title text-center p-4">
                         <a href="{{ route('clubs.index') }}" class="page-title">
-                            Liste des clubs de Scrabble
+                            Les clubs
                         </a>
                     </h2>
                 </div>
