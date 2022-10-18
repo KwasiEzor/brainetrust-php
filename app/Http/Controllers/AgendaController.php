@@ -48,29 +48,29 @@ class AgendaController extends Controller
                 ->paginate(9);
             $agendas->appends(['search' => $searchKeywords]);
         } else
-        if (!empty($competitionTerm)  || !empty($categoryTerm) || !empty($serieTerm)) {
+            //     if (!empty($competitionTerm)  && !empty($categoryTerm) && !empty($serieTerm)) {
 
-            $agendas = $agendasQuery->with(['player_category', 'player_serie'])
-                ->where('competition', $competitionTerm)
-                ->where('player_category_id', $categoryTerm)
-                ->where('player_serie_id', $serieTerm)
-                ->paginate(9);
-            $agendas->appends(['search' => $searchKeywords]);
-        } else
+            //     $agendas = $agendasQuery->with(['player_category', 'player_serie'])
+            //         ->where('competition', $competitionTerm)
+            //         ->where('player_category_id', $categoryTerm)
+            //         ->where('player_serie_id', $serieTerm)
+            //         ->paginate(9);
+            //     $agendas->appends(['search' => $searchKeywords]);
+            // } else
 
-        if (!empty($competitionTerm)  || !empty($categoryTerm) || !empty($serieTerm)) {
+            if (!empty($competitionTerm)  || !empty($categoryTerm) || !empty($serieTerm)) {
 
-            $agendas = $agendasQuery->with(['player_category', 'player_serie'])
-                ->where('competition', $competitionTerm)
-                ->orwhere('player_category_id', $categoryTerm)
-                ->orwhere('player_serie_id', $serieTerm)
-                ->paginate(9);
-            $agendas->appends(['search' => $searchKeywords]);
-        } else {
-            $agendas = $agendasQuery->with(['player_category', 'player_serie'])
-                ->latest()
-                ->paginate(9);
-        }
+                $agendas = $agendasQuery->with(['player_category', 'player_serie'])
+                    ->where('competition', $competitionTerm)
+                    ->orwhere('player_category_id', $categoryTerm)
+                    ->orwhere('player_serie_id', $serieTerm)
+                    ->paginate(9);
+                $agendas->appends(['search' => $searchKeywords]);
+            } else {
+                $agendas = $agendasQuery->with(['player_category', 'player_serie'])
+                    // ->latest()
+                    ->paginate(9);
+            }
 
 
 
