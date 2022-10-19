@@ -37,6 +37,7 @@ class RankingController extends Controller
             [
                 'gm_results' => function ($query) {
                     $query->select(DB::raw('gm_results.user_id,MAX(player_top) as player_max, MIN(player_top) as player_min'))
+                        ->whereRaw('gm_results.player_top is not NULL')
                         ->join('users', 'users.id', '=', 'gm_results.user_id')
                         ->groupBy('gm_results.user_id')
                         ->orderBy('gm_results.user_id')
